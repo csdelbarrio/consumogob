@@ -1,0 +1,450 @@
+/* ==========================================================================
+   BASE CSS — Reset · Tipografía · Layout global
+   Secretaría General de Consumo y Juego — DSCA
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Reset / Normalización
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: var(--font-size-base);
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: var(--color-link);
+  text-decoration: underline;
+}
+
+a:hover,
+a:focus {
+  color: var(--color-link-hover);
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* --------------------------------------------------------------------------
+   Accesibilidad
+   -------------------------------------------------------------------------- */
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-md);
+  z-index: 9999;
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-accent);
+  color: var(--color-primary-dark);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-sm);
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: var(--space-sm);
+}
+
+/* Foco visible en todos los interactivos */
+:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Visualmente oculto pero accesible para lectores de pantalla */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Tipografía
+   -------------------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-heading);
+  color: var(--color-primary);
+}
+
+h1 { font-size: var(--font-size-h1); }
+h2 { font-size: var(--font-size-h2); }
+h3 { font-size: var(--font-size-h3); }
+
+p { margin-bottom: var(--space-md); }
+p:last-child { margin-bottom: 0; }
+
+/* --------------------------------------------------------------------------
+   Layout contenedor
+   -------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--space-lg);
+}
+
+.container--narrow {
+  max-width: var(--content-width);
+}
+
+/* --------------------------------------------------------------------------
+   Header
+   -------------------------------------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--color-white);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Top bar: idiomas */
+.site-topbar {
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-size: var(--font-size-xs);
+  height: var(--topbar-height);
+}
+
+.site-topbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-md);
+  height: 100%;
+}
+
+.site-topbar__lang-list {
+  display: flex;
+  gap: var(--space-xs);
+}
+
+.site-topbar__lang-link {
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  padding: 2px 6px;
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-xs);
+  transition: color var(--transition-fast), background var(--transition-fast);
+}
+
+.site-topbar__lang-link:hover,
+.site-topbar__lang-link--active {
+  color: var(--color-white);
+  background: rgba(255,255,255,0.15);
+}
+
+.site-topbar__lang-link--active {
+  font-weight: var(--font-weight-bold);
+}
+
+/* Header principal */
+.site-header__main {
+  height: var(--header-height);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  gap: var(--space-lg);
+}
+
+.site-header__logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.site-header__logo {
+  height: 40px;
+  width: auto;
+}
+
+/* Buscador */
+.site-header__search {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.site-header__search-input {
+  border: none;
+  padding: var(--space-xs) var(--space-sm);
+  font-family: var(--font-family);
+  font-size: var(--font-size-sm);
+  width: 200px;
+}
+
+.site-header__search-input:focus {
+  outline: none;
+  box-shadow: inset 0 0 0 2px var(--color-accent);
+}
+
+.site-header__search-btn {
+  background: var(--color-primary);
+  color: var(--color-white);
+  padding: var(--space-xs) var(--space-sm);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+/* Menú hamburguesa (móvil) */
+.site-header__menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--border-radius);
+  color: var(--color-primary);
+}
+
+/* --------------------------------------------------------------------------
+   Navegación principal
+   -------------------------------------------------------------------------- */
+.site-nav {
+  background: var(--color-primary);
+}
+
+.site-nav__list {
+  display: flex;
+  gap: 0;
+}
+
+.site-nav__item {
+  position: relative;
+}
+
+.site-nav__link {
+  display: flex;
+  align-items: center;
+  padding: 14px var(--space-lg);
+  color: rgba(255,255,255,0.88);
+  text-decoration: none;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  border-bottom: 3px solid transparent;
+  transition: color var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+  white-space: nowrap;
+}
+
+.site-nav__link:hover {
+  color: var(--color-white);
+  background: rgba(255,255,255,0.08);
+  border-bottom-color: var(--color-accent);
+}
+
+.site-nav__link--active {
+  color: var(--color-white);
+  border-bottom-color: var(--color-accent);
+  background: rgba(255,255,255,0.1);
+}
+
+/* --------------------------------------------------------------------------
+   Migas de pan (Breadcrumb)
+   -------------------------------------------------------------------------- */
+.breadcrumb {
+  background: var(--color-bg-alt);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-sm) 0;
+}
+
+.breadcrumb__list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  font-size: var(--font-size-sm);
+}
+
+.breadcrumb__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.breadcrumb__item::after {
+  content: '›';
+  color: var(--color-text-muted);
+  font-size: 1.1em;
+}
+
+.breadcrumb__item:last-child::after {
+  display: none;
+}
+
+.breadcrumb__link {
+  color: var(--color-link);
+  text-decoration: none;
+}
+
+.breadcrumb__link:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb__current {
+  color: var(--color-text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   Main content
+   -------------------------------------------------------------------------- */
+main {
+  min-height: 60vh;
+}
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+.site-footer {
+  background: var(--color-primary);
+  color: rgba(255,255,255,0.85);
+  padding: var(--space-xl) 0 var(--space-lg);
+  margin-top: var(--space-xxl);
+}
+
+.site-footer__inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-xl);
+  align-items: start;
+  padding-bottom: var(--space-lg);
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  margin-bottom: var(--space-lg);
+}
+
+.site-footer__logo {
+  height: 48px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  margin-bottom: var(--space-sm);
+}
+
+.site-footer__name {
+  font-size: var(--font-size-sm);
+  color: rgba(255,255,255,0.7);
+  max-width: 300px;
+}
+
+.site-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  font-size: var(--font-size-sm);
+}
+
+.site-footer__link {
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+}
+
+.site-footer__link:hover {
+  color: var(--color-white);
+  text-decoration: underline;
+}
+
+.site-footer__bottom {
+  font-size: var(--font-size-xs);
+  color: rgba(255,255,255,0.5);
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive: Móvil
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .container {
+    padding-inline: var(--space-md);
+  }
+
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.375rem; }
+
+  .site-header__search {
+    display: none;
+  }
+
+  .site-header__menu-toggle {
+    display: flex;
+  }
+
+  .site-nav {
+    display: none;
+  }
+
+  .site-nav--open {
+    display: block;
+  }
+
+  .site-nav__list {
+    flex-direction: column;
+  }
+
+  .site-nav__link {
+    padding: var(--space-md) var(--space-lg);
+    border-bottom: none;
+    border-left: 3px solid transparent;
+  }
+
+  .site-nav__link--active {
+    border-left-color: var(--color-accent);
+    border-bottom-color: transparent;
+  }
+
+  .site-footer__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .site-topbar__lang-list {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+}

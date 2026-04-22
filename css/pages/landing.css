@@ -1,0 +1,232 @@
+/* ==========================================================================
+   LANDING.CSS — Estilos específicos de la landing principal de Consumo
+   Secretaría General de Consumo y Juego — DSCA
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Hero / Cabecera de sección
+   -------------------------------------------------------------------------- */
+.consumo-hero {
+  position: relative;
+  min-height: 440px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background-color: var(--color-primary-dark);
+}
+
+.consumo-hero__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* NOTA PRODUCCIÓN: reemplazar con asset Drupal en /themes/custom/pinst_theme/images/hero-consumo.jpg */
+}
+
+.consumo-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    rgba(4, 50, 99, 0.92) 0%,
+    rgba(4, 50, 99, 0.78) 55%,
+    rgba(4, 50, 99, 0.50) 100%
+  );
+}
+
+.consumo-hero__content {
+  position: relative;
+  z-index: 1;
+  padding: var(--space-xxl) 0;
+  max-width: 640px;
+}
+
+.consumo-hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  color: var(--color-accent);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-md);
+}
+
+.consumo-hero__eyebrow::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--color-accent);
+}
+
+.consumo-hero__title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-white);
+  line-height: 1.15;
+  margin-bottom: var(--space-md);
+}
+
+.consumo-hero__subtitle {
+  font-size: var(--font-size-lg);
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.5;
+  margin-bottom: var(--space-xl);
+  max-width: 520px;
+}
+
+.consumo-hero__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+/* --------------------------------------------------------------------------
+   Grid de organismos
+   -------------------------------------------------------------------------- */
+.consumo-organisms {
+  padding: var(--space-xxl) 0;
+  background: var(--color-bg-alt);
+}
+
+.consumo-organism-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+/* --------------------------------------------------------------------------
+   Sección de noticias
+   -------------------------------------------------------------------------- */
+.consumo-news {
+  padding: var(--space-xxl) 0;
+  background: var(--color-white);
+}
+
+.consumo-news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+/* --------------------------------------------------------------------------
+   Banda de estadísticas (override para landing)
+   -------------------------------------------------------------------------- */
+.consumo-stats {
+  /* El componente .stats-strip ya lleva estilos base */
+}
+
+/* --------------------------------------------------------------------------
+   Sección accesos rápidos ciudadano
+   -------------------------------------------------------------------------- */
+.consumo-quick-access {
+  padding: var(--space-xxl) 0;
+  background: var(--color-bg-alt);
+}
+
+.consumo-quick-access__intro {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.consumo-quick-access__intro h2 {
+  margin-bottom: var(--space-sm);
+}
+
+.consumo-quick-access__intro p {
+  color: var(--color-text-muted);
+  max-width: 520px;
+  margin-inline: auto;
+}
+
+/* --------------------------------------------------------------------------
+   Banner informativo (LGDCU / normativa destacada)
+   -------------------------------------------------------------------------- */
+.consumo-banner {
+  background: var(--color-primary);
+  padding: var(--space-xl) 0;
+}
+
+.consumo-banner__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xl);
+  flex-wrap: wrap;
+}
+
+.consumo-banner__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background: var(--color-accent);
+  color: var(--color-primary-dark);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 4px 12px;
+  border-radius: 2px;
+  margin-bottom: var(--space-sm);
+}
+
+.consumo-banner__title {
+  font-size: var(--font-size-xl);
+  color: var(--color-white);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-sm);
+}
+
+.consumo-banner__text {
+  color: rgba(255, 255, 255, 0.80);
+  font-size: var(--font-size-base);
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive: Landing
+   -------------------------------------------------------------------------- */
+@media (max-width: 960px) {
+  .consumo-organism-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .consumo-news-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .consumo-news-grid .news-card:last-child {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .consumo-hero {
+    min-height: 360px;
+  }
+
+  .consumo-hero__content {
+    padding: var(--space-xl) 0;
+  }
+
+  .consumo-organism-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .consumo-news-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .consumo-news-grid .news-card:last-child {
+    display: flex;
+  }
+
+  .consumo-banner__inner {
+    text-align: center;
+    justify-content: center;
+  }
+}
