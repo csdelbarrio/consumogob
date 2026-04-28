@@ -1,85 +1,142 @@
 /* ==========================================================================
    TOKENS CSS — Sistema de diseño DSCA / pinst_theme
+   Adoptado de csdelbarrio.github.io/consumo
    Secretaría General de Consumo y Juego
    ========================================================================== */
 
 :root {
   /* ------------------------------------------------------------------
-     Colores institucionales
+     Colores principales
      ------------------------------------------------------------------ */
   --color-primary:        #043263;
-  --color-primary-dark:   #022247;
-  --color-accent:         #ffdb00;
-  --color-accent-dark:    #e6c500;
-  --color-text:           #1a1a1a;
-  --color-text-muted:     #5c5c5c;
-  --color-bg:             #ffffff;
-  --color-bg-alt:         #f5f5f5;
-  --color-border:         #d9d9d9;
-  --color-link:           #043263;
-  --color-link-hover:     #022247;
+  --color-primary-light:  #0563bb;
+  --color-primary-dark:   #032347;
 
-  /* Colores extra */
+  /* Acento */
+  --color-accent:         #ffdb00;
+  --color-accent-hover:   #e6c500;
+
+  /* Estado */
+  --color-success:        #28a745;
+  --color-warning:        #ffc107;
+  --color-error:          #dc3545;
+  --color-info:           #17a2b8;
+
+  /* Neutros */
   --color-white:          #ffffff;
-  --color-success:        #2e7d32;
-  --color-warning:        #f57c00;
+  --color-black:          #000000;
+  --color-gray-100:       #f8f9fa;
+  --color-gray-200:       #e9ecef;
+  --color-gray-300:       #dee2e6;
+  --color-gray-400:       #ced4da;
+  --color-gray-500:       #adb5bd;
+  --color-gray-600:       #6c757d;
+  --color-gray-700:       #495057;
+  --color-gray-800:       #343a40;
+  --color-gray-900:       #212529;
+
+  /* Texto */
+  --color-text:           #333333;
+  --color-text-muted:     #666666;
+  --color-text-light:     #999999;
+
+  /* Fondos */
+  --color-bg:             #f4f4f4;
+  --color-bg-white:       #ffffff;
+  --color-bg-light:       #f8f9fa;
+  --color-bg-alt:         #f8f9fa;
+
+  /* Bordes */
+  --color-border:         #dddddd;
+  --color-border-light:   #e9ecef;
+
+  /* Links (alias de compatibilidad) */
+  --color-link:           #0563bb;
+  --color-link-hover:     #043263;
 
   /* ------------------------------------------------------------------
      Tipografía
      NOTA PRODUCCIÓN: Open Sans se sirve localmente en Drupal/pinst_theme.
      En demo (GitHub Pages) se carga desde Google Fonts.
      ------------------------------------------------------------------ */
-  --font-family:          'Open Sans', Arial, sans-serif;
-  --font-size-base:       16px;
-  --font-size-sm:         14px;
-  --font-size-xs:         12px;
-  --font-size-lg:         18px;
-  --font-size-xl:         22px;
-  --font-size-h1:         2.25rem;
-  --font-size-h2:         1.625rem;
+  --font-family:          'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-size-xs:         0.75rem;
+  --font-size-sm:         0.85rem;
+  --font-size-base:       1rem;
+  --font-size-md:         1.1rem;
+  --font-size-lg:         1.25rem;
+  --font-size-xl:         1.5rem;
+  --font-size-2xl:        1.75rem;
+  --font-size-3xl:        2rem;
+  /* Alias h* para compatibilidad con base.css/components.css existentes */
+  --font-size-h1:         2rem;
+  --font-size-h2:         1.75rem;
   --font-size-h3:         1.25rem;
+
   --font-weight-normal:   400;
+  --font-weight-medium:   500;
   --font-weight-semibold: 600;
   --font-weight-bold:     700;
   --line-height-base:     1.6;
-  --line-height-heading:  1.2;
+  --line-height-heading:  1.3;
 
   /* ------------------------------------------------------------------
      Espaciado
      ------------------------------------------------------------------ */
-  --space-xs:   4px;
-  --space-sm:   8px;
-  --space-md:   16px;
-  --space-lg:   24px;
-  --space-xl:   40px;
-  --space-xxl:  72px;
+  --spacing-xs:   4px;
+  --spacing-sm:   8px;
+  --spacing-md:   16px;
+  --spacing-lg:   24px;
+  --spacing-xl:   32px;
+  --spacing-2xl:  48px;
+
+  /* Alias --space-* para compatibilidad con base.css/components.css */
+  --space-xs:    4px;
+  --space-sm:    8px;
+  --space-md:    16px;
+  --space-lg:    24px;
+  --space-xl:    32px;
+  --space-xxl:   64px;
 
   /* ------------------------------------------------------------------
-     Layout
+     Bordes y formas
      ------------------------------------------------------------------ */
-  --max-width:       1200px;
-  --content-width:   820px;
-  --border-radius:   4px;
-  --border-radius-md: 8px;
+  --border-radius-sm:   4px;
+  --border-radius-md:   8px;
+  --border-radius-lg:   12px;
+  --border-radius-full: 50%;
+  --border-radius:      4px;   /* alias */
 
   /* ------------------------------------------------------------------
      Sombras
      ------------------------------------------------------------------ */
-  --shadow-sm:    0 1px 3px rgba(0,0,0,0.08);
-  --shadow-md:    0 2px 8px rgba(0,0,0,0.14);
-  --shadow-card:  0 4px 16px rgba(4,50,99,0.10);
-  --shadow-lg:    0 8px 32px rgba(4,50,99,0.15);
+  --shadow-sm:    0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md:    0 2px 4px rgba(0,0,0,0.10);
+  --shadow-lg:    0 4px 8px rgba(0,0,0,0.15);
+  --shadow-xl:    0 8px 16px rgba(0,0,0,0.20);
+  --shadow-card:  0 2px 4px rgba(0,0,0,0.10);
 
   /* ------------------------------------------------------------------
      Transiciones
      ------------------------------------------------------------------ */
-  --transition-fast:   150ms ease;
-  --transition-base:   250ms ease;
-  --transition-slow:   400ms ease;
+  --transition-fast:   0.15s ease;
+  --transition-base:   0.30s ease;
+  --transition-normal: 0.30s ease;
+  --transition-slow:   0.50s ease;
 
   /* ------------------------------------------------------------------
-     Header / Footer
+     Layout
      ------------------------------------------------------------------ */
-  --header-height:     56px;
-  --topbar-height:     36px;
+  --sidebar-width:   280px;
+  --max-width:       1400px;
+  --content-width:   820px;
+  --header-height:   120px;
+  --topbar-height:   36px;
+
+  /* Z-index */
+  --z-dropdown:  100;
+  --z-sticky:    200;
+  --z-fixed:     300;
+  --z-modal:     400;
+  --z-tooltip:   500;
 }
