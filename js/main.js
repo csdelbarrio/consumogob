@@ -9,19 +9,51 @@
   'use strict';
 
   /* -------------------------------------------------------------------------
-     Menú hamburguesa (móvil)
+     Menú hamburguesa + mega-menús
      ------------------------------------------------------------------------- */
   function initMobileMenu() {
-    const toggle = document.querySelector('.site-header__menu-toggle');
-    const nav = document.querySelector('.site-nav');
+    var toggle = document.querySelector('.site-header__menu-toggle');
+    var nav    = document.querySelector('.site-nav');
+    var labelOpen  = toggle && toggle.querySelector('.site-header__menu-label--open');
+    var labelClose = toggle && toggle.querySelector('.site-header__menu-label--close');
 
     if (!toggle || !nav) return;
 
+    // Hamburguesa: abrir/cerrar todo el nav
     toggle.addEventListener('click', function () {
-      const isOpen = nav.classList.toggle('site-nav--open');
+      var isOpen = nav.classList.toggle('site-nav--open');
       toggle.setAttribute('aria-expanded', String(isOpen));
-      // Actualizar icono
-      toggle.innerHTML = isOpen ? iconClose() : iconHamburger();
+      if (labelOpen)  labelOpen.hidden  = isOpen;
+      if (labelClose) labelClose.hidden = !isOpen;
+    });
+
+    // Mega-menús: clic en los ítems con dropdown (desktop teclado + móvil)
+    var dropdownItems = nav.querySelectorAll('.site-nav__item--has-dropdown');
+    dropdownItems.forEach(function (item) {
+      var link = item.querySelector('.site-nav__link');
+
+      // En móvil, clic en el enlace padre abre/cierra el sub-menú
+      link.addEventListener('click', function (e) {
+        if (window.innerWidth <= 960) {
+          e.preventDefault();
+          var isOpen = item.classList.toggle('is-open');
+          link.setAttribute('aria-expanded', String(isOpen));
+        }
+      });
+
+      // En desktop, hover con teclado (Enter/Space)
+      link.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          var isOpen = item.classList.toggle('is-open');
+          link.setAttribute('aria-expanded', String(isOpen));
+        }
+        if (e.key === 'Escape') {
+          item.classList.remove('is-open');
+          link.setAttribute('aria-expanded', 'false');
+          link.focus();
+        }
+      });
     });
 
     // Cerrar al hacer clic fuera
@@ -29,36 +61,25 @@
       if (!nav.contains(e.target) && !toggle.contains(e.target)) {
         nav.classList.remove('site-nav--open');
         toggle.setAttribute('aria-expanded', 'false');
-        toggle.innerHTML = iconHamburger();
+        if (labelOpen)  labelOpen.hidden  = false;
+        if (labelClose) labelClose.hidden = true;
+        dropdownItems.forEach(function (item) {
+          item.classList.remove('is-open');
+          item.querySelector('.site-nav__link').setAttribute('aria-expanded', 'false');
+        });
       }
     });
 
     // Cerrar con Escape
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && nav.classList.contains('site-nav--open')) {
+      if (e.key === 'Escape') {
         nav.classList.remove('site-nav--open');
         toggle.setAttribute('aria-expanded', 'false');
-        toggle.innerHTML = iconHamburger();
+        if (labelOpen)  labelOpen.hidden  = false;
+        if (labelClose) labelClose.hidden = true;
         toggle.focus();
       }
     });
-  }
-
-  function iconHamburger() {
-    return `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="2" aria-hidden="true">
-              <line x1="3" y1="6" x2="21" y2="6"/>
-              <line x1="3" y1="12" x2="21" y2="12"/>
-              <line x1="3" y1="18" x2="21" y2="18"/>
-            </svg>`;
-  }
-
-  function iconClose() {
-    return `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="2" aria-hidden="true">
-              <line x1="18" y1="6" x2="6" y2="18"/>
-              <line x1="6" y1="6" x2="18" y2="18"/>
-            </svg>`;
   }
 
   /* -------------------------------------------------------------------------
