@@ -147,8 +147,10 @@
    Banner informativo (LGDCU / normativa destacada)
    -------------------------------------------------------------------------- */
 .consumo-banner {
-  background: var(--color-primary);
+  background: var(--color-accent);
   padding: var(--space-xl) 0;
+  border-top: 1px solid rgba(0,0,0,0.10);
+  border-bottom: 1px solid rgba(0,0,0,0.10);
 }
 
 .consumo-banner__inner {
@@ -162,9 +164,9 @@
 .consumo-banner__badge {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-sm);
-  background: var(--color-accent);
-  color: var(--color-primary-dark);
+  gap: var(--spacing-sm);
+  background: var(--color-primary);
+  color: var(--color-white);
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-bold);
   text-transform: uppercase;
@@ -176,13 +178,13 @@
 
 .consumo-banner__title {
   font-size: var(--font-size-xl);
-  color: var(--color-white);
+  color: var(--color-black);
   font-weight: var(--font-weight-bold);
   margin-bottom: var(--space-sm);
 }
 
 .consumo-banner__text {
-  color: rgba(255, 255, 255, 0.80);
+  color: rgba(0,0,0,0.75);
   font-size: var(--font-size-base);
   margin: 0;
 }
