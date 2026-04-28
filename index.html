@@ -472,31 +472,157 @@
 
 
     <!-- ====================================================================
-         4b. BANNER — Normativa destacada
+         4b. CARRUSEL — Noticias y páginas destacadas
+         DRUPAL: region='content' / view='consumo_carrusel' / display='landing_carousel'
          ==================================================================== -->
-    <div class="consumo-banner" role="complementary" aria-labelledby="banner-title">
+    <section class="consumo-carousel" aria-labelledby="carousel-title" aria-roledescription="carrusel">
       <div class="container">
-        <div class="consumo-banner__inner">
-          <div>
-            <span class="consumo-banner__badge">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
-              </svg>
-              Normativa destacada
-            </span>
-            <h2 class="consumo-banner__title" id="banner-title">
-              Nueva Directiva de Servicios Digitales (DSA) en vigor
-            </h2>
-            <p class="consumo-banner__text">
-              Desde febrero de 2024, las plataformas digitales están obligadas a reforzar los derechos de consumidores en el entorno online.
-            </p>
-          </div>
-          <a href="#" class="btn-primary" style="flex-shrink:0;" aria-label="Más información sobre la Directiva de Servicios Digitales">
-            Más información
-          </a>
+
+        <div class="section-header">
+          <h2 class="section-header__title" id="carousel-title">Destacados</h2>
         </div>
+
+        <div class="carousel" role="region" aria-label="Noticias y contenidos destacados">
+
+          <!-- Pista de tarjetas -->
+          <div class="carousel__track-wrap">
+            <ul class="carousel__track" id="carousel-track" aria-live="polite">
+
+              <!-- Slide 1 -->
+              <li class="carousel__slide" role="group" aria-roledescription="diapositiva" aria-label="1 de 5">
+                <article class="carousel__card">
+                  <div class="carousel__card-img-wrap">
+                    <img src="https://picsum.photos/id/26/800/450"
+                         alt="Persona consultando derechos de consumidor en smartphone"
+                         loading="lazy" width="800" height="450" class="carousel__card-img">
+                  </div>
+                  <div class="carousel__card-body">
+                    <div class="carousel__card-meta">
+                      <span class="tag tag--primary">Normativa</span>
+                      <time datetime="2025-03-18">18 mar 2025</time>
+                    </div>
+                    <h3 class="carousel__card-title">
+                      <a href="#">Nuevo reglamento de garantías comerciales adapta la LGDCU a la directiva europea</a>
+                    </h3>
+                    <p class="carousel__card-excerpt">
+                      El Consejo de Ministros aprueba el desarrollo reglamentario que refuerza los derechos de garantía de los consumidores frente a productos defectuosos.
+                    </p>
+                  </div>
+                </article>
+              </li>
+
+              <!-- Slide 2 -->
+              <li class="carousel__slide" role="group" aria-roledescription="diapositiva" aria-label="2 de 5">
+                <article class="carousel__card">
+                  <div class="carousel__card-img-wrap">
+                    <img src="https://picsum.photos/id/96/800/450"
+                         alt="Reunión de mediación de consumo"
+                         loading="lazy" width="800" height="450" class="carousel__card-img">
+                  </div>
+                  <div class="carousel__card-body">
+                    <div class="carousel__card-meta">
+                      <span class="tag tag--primary">Arbitraje</span>
+                      <time datetime="2025-02-05">5 feb 2025</time>
+                    </div>
+                    <h3 class="carousel__card-title">
+                      <a href="#">El Sistema Arbitral de Consumo supera los 300.000 expedientes en 2024</a>
+                    </h3>
+                    <p class="carousel__card-excerpt">
+                      La red de Juntas Arbitrales alcanza un nuevo récord con una tasa de resolución favorable al consumidor superior al 70%.
+                    </p>
+                  </div>
+                </article>
+              </li>
+
+              <!-- Slide 3 -->
+              <li class="carousel__slide" role="group" aria-roledescription="diapositiva" aria-label="3 de 5">
+                <article class="carousel__card">
+                  <div class="carousel__card-img-wrap">
+                    <img src="https://picsum.photos/id/367/800/450"
+                         alt="Inspección de seguridad de productos"
+                         loading="lazy" width="800" height="450" class="carousel__card-img">
+                  </div>
+                  <div class="carousel__card-body">
+                    <div class="carousel__card-meta">
+                      <span class="tag tag--primary">Seguridad</span>
+                      <time datetime="2025-01-20">20 ene 2025</time>
+                    </div>
+                    <h3 class="carousel__card-title">
+                      <a href="#">España lidera en Europa el número de alertas de seguridad notificadas a RAPEX</a>
+                    </h3>
+                    <p class="carousel__card-excerpt">
+                      Los servicios de inspección notificaron 1.240 alertas al sistema europeo durante 2024, situando a España entre los países más activos en vigilancia de mercado.
+                    </p>
+                  </div>
+                </article>
+              </li>
+
+              <!-- Slide 4 -->
+              <li class="carousel__slide" role="group" aria-roledescription="diapositiva" aria-label="4 de 5">
+                <article class="carousel__card">
+                  <div class="carousel__card-img-wrap">
+                    <img src="https://picsum.photos/id/180/800/450"
+                         alt="Consumidor revisando etiquetas de producto"
+                         loading="lazy" width="800" height="450" class="carousel__card-img">
+                  </div>
+                  <div class="carousel__card-body">
+                    <div class="carousel__card-meta">
+                      <span class="tag tag--primary">Digital</span>
+                      <time datetime="2024-12-10">10 dic 2024</time>
+                    </div>
+                    <h3 class="carousel__card-title">
+                      <a href="#">La Directiva de Servicios Digitales (DSA) refuerza derechos en plataformas online</a>
+                    </h3>
+                    <p class="carousel__card-excerpt">
+                      Las grandes plataformas están obligadas a ofrecer transparencia algorítmica y mecanismos de reclamación accesibles para los consumidores europeos.
+                    </p>
+                  </div>
+                </article>
+              </li>
+
+              <!-- Slide 5 -->
+              <li class="carousel__slide" role="group" aria-roledescription="diapositiva" aria-label="5 de 5">
+                <article class="carousel__card">
+                  <div class="carousel__card-img-wrap">
+                    <img src="https://picsum.photos/id/453/800/450"
+                         alt="Formación en derechos de consumo"
+                         loading="lazy" width="800" height="450" class="carousel__card-img">
+                  </div>
+                  <div class="carousel__card-body">
+                    <div class="carousel__card-meta">
+                      <span class="tag tag--primary">Formación</span>
+                      <time datetime="2024-11-15">15 nov 2024</time>
+                    </div>
+                    <h3 class="carousel__card-title">
+                      <a href="#">Nueva guía práctica sobre derechos en compras online para consumidores</a>
+                    </h3>
+                    <p class="carousel__card-excerpt">
+                      El Ministerio publica una guía actualizada con los derechos de desistimiento, garantías y reclamaciones en el comercio electrónico.
+                    </p>
+                  </div>
+                </article>
+              </li>
+
+            </ul>
+          </div><!-- /.carousel__track-wrap -->
+
+          <!-- Dots de navegación -->
+          <div class="carousel__dots" role="tablist" aria-label="Seleccionar diapositiva">
+            <button class="carousel__dot carousel__dot--active" role="tab" aria-selected="true"
+                    aria-label="Diapositiva 1" data-carousel-dot="0"></button>
+            <button class="carousel__dot" role="tab" aria-selected="false"
+                    aria-label="Diapositiva 2" data-carousel-dot="1"></button>
+            <button class="carousel__dot" role="tab" aria-selected="false"
+                    aria-label="Diapositiva 3" data-carousel-dot="2"></button>
+            <button class="carousel__dot" role="tab" aria-selected="false"
+                    aria-label="Diapositiva 4" data-carousel-dot="3"></button>
+            <button class="carousel__dot" role="tab" aria-selected="false"
+                    aria-label="Diapositiva 5" data-carousel-dot="4"></button>
+          </div>
+
+        </div><!-- /.carousel -->
       </div>
-    </div>
+    </section>
 
 
     <!-- ====================================================================

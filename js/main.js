@@ -172,6 +172,83 @@
   }
 
   /* -------------------------------------------------------------------------
+     Carrusel de noticias
+     - Avance automático cada 5 s
+     - Dots de navegación
+     - Pausa al hacer hover
+     - Accesibilidad: aria-live, teclado
+     ------------------------------------------------------------------------- */
+  function initCarousel() {
+    var carousel = document.querySelector('.carousel');
+    if (!carousel) return;
+
+    var track   = carousel.querySelector('.carousel__track');
+    var dots    = carousel.querySelectorAll('.carousel__dot');
+    var total   = dots.length;
+    var current = 0;
+    var timer   = null;
+    var DELAY   = 5000;
+
+    function goTo(index) {
+      current = (index + total) % total;
+      track.style.transform = 'translateX(-' + (current * 100) + '%)';
+      dots.forEach(function (d, i) {
+        var active = i === current;
+        d.classList.toggle('carousel__dot--active', active);
+        d.setAttribute('aria-selected', String(active));
+      });
+    }
+
+    function next() { goTo(current + 1); }
+
+    function startTimer() {
+      clearInterval(timer);
+      timer = setInterval(next, DELAY);
+    }
+
+    function stopTimer() { clearInterval(timer); }
+
+    // Dots
+    dots.forEach(function (dot) {
+      dot.addEventListener('click', function () {
+        goTo(parseInt(dot.getAttribute('data-carousel-dot'), 10));
+        startTimer();
+      });
+    });
+
+    // Pausa en hover
+    carousel.addEventListener('mouseenter', stopTimer);
+    carousel.addEventListener('mouseleave', startTimer);
+
+    // Pausa en foco (accesibilidad teclado)
+    carousel.addEventListener('focusin', stopTimer);
+    carousel.addEventListener('focusout', startTimer);
+
+    // Teclado: flechas cuando el carrusel tiene foco
+    carousel.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { goTo(current + 1); startTimer(); }
+      if (e.key === 'ArrowLeft')  { goTo(current - 1); startTimer(); }
+    });
+
+    // Swipe táctil
+    var touchStartX = 0;
+    carousel.addEventListener('touchstart', function (e) {
+      touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+    carousel.addEventListener('touchend', function (e) {
+      var diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) {
+        diff > 0 ? goTo(current + 1) : goTo(current - 1);
+        startTimer();
+      }
+    }, { passive: true });
+
+    // Arrancar
+    goTo(0);
+    startTimer();
+  }
+
+  /* -------------------------------------------------------------------------
      Init
      ------------------------------------------------------------------------- */
   document.addEventListener('DOMContentLoaded', function () {
@@ -179,6 +256,7 @@
     initAccordions();
     initScrollReveal();
     initCounters();
+    initCarousel();
   });
 
 })();
