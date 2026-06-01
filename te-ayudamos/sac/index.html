@@ -3,14 +3,58 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SGIPS — Consumo · DSCA</title>
-  <meta name="description" content="SGIPS — Secretaría General de Consumo y Juego · DSCA">
-  <!-- Open Sans: en producción Drupal/pinst_theme la sirve localmente -->
+  <title>Consulta tu problema — Te ayudamos · Consumo DSCA</title>
+  <meta name="description" content="Sistema de Atención al Consumidor. Consulta tus derechos por sectores: vivienda, banca, viajes, compras, suministros y más.">
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/consumogob/css/tokens.css">
   <link rel="stylesheet" href="/consumogob/css/base.css">
   <link rel="stylesheet" href="/consumogob/css/components.css">
   <link rel="stylesheet" href="/consumogob/css/pages/interior.css">
+  <!-- SAC styles -->
+  <link rel="stylesheet" href="/consumogob/te-ayudamos/sac/css/styles.css">
+  <style>
+    /* Override SAC header/footer — usamos el del prototipo */
+    .header, .breadcrumb { display: none !important; }
+    /* Integración del layout SAC dentro del grid interior */
+    .interior-content .main-layout {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    .interior-content .sidebar {
+      border-radius: 6px;
+      overflow: hidden;
+      height: fit-content;
+      position: sticky;
+      top: 80px;
+    }
+    .interior-content .sidebar-header {
+      background: var(--color-primary);
+      color: #fff;
+      padding: .75rem 1rem;
+      font-size: .875rem;
+      font-weight: 600;
+    }
+    .interior-content .main-area {
+      min-width: 0;
+    }
+    .btn-subir {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--color-primary);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,.2);
+      display: none;
+    }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
@@ -154,54 +198,59 @@
     </div>
   </nav>
 </header>
-  <nav class="breadcrumb" aria-label="Ruta de navegación"><div class="container"><ol class="breadcrumb__list"><li class="breadcrumb__item"><a href="/consumogob/" class="breadcrumb__link">Inicio</a></li><li class="breadcrumb__item"><a href="/consumogob/" class="breadcrumb__link">Consumo</a></li><li class="breadcrumb__item"><a href="/consumogob/dg-consumo/" class="breadcrumb__link">DG Consumo</a></li><li class="breadcrumb__item"><span class="breadcrumb__current" aria-current="page">SGIPS</span></li></ol></div></nav>
-<div class="interior-header ">
-  <div class="interior-header__inner">
-    <h1 class="interior-header__title">SGIPS — Inspección y Procedimiento Sancionador</h1>
-    <p class="interior-header__desc">Inspecciones de mercado, procedimiento sancionador y gestión de reclamaciones.</p>
-  </div>
-</div>
-<main id="main-content">
-  <div class="container">
-    <div class="interior-layout">
-      <aside class="interior-sidebar"><nav class="side-nav" aria-label="Navegación de sección"><span class="side-nav__title">SGIPS</span><a href="/consumogob/dg-consumo/sgips/sanciones/" class="side-nav__link">Sanciones</a>
-<a href="/consumogob/dg-consumo/sgips/reclamaciones/" class="side-nav__link">Reclamaciones</a>
-</nav></aside>
-      <div class="interior-content"><h2 class="interior-content__title">Subdirección General de Inspección y Procedimiento Sancionador</h2>
-<div class="interior-content__body">
-  <p>La SGIPS supervisa el cumplimiento de la normativa de consumo mediante actividades de inspección de mercado, instruye los expedientes sancionadores y coordina la actuación inspectora con las Comunidades Autónomas.</p>
-</div>
-<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1.5rem 0;">
-  <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:6px;padding:1.5rem;text-align:center;">
-    <div style="font-size:2rem;font-weight:700;color:#043263;">45.218</div>
-    <div style="font-size:.875rem;color:#5c5c5c;margin-top:.25rem;">Inspecciones realizadas en 2024</div>
-  </div>
-  <div style="background:#d1e7dd;border:1px solid #a3cfbb;border-radius:6px;padding:1.5rem;text-align:center;">
-    <div style="font-size:2rem;font-weight:700;color:#043263;">312.000</div>
-    <div style="font-size:.875rem;color:#5c5c5c;margin-top:.25rem;">Expedientes SIRC gestionados</div>
-  </div>
-  <div style="background:#cfe2ff;border:1px solid #b6d4fe;border-radius:6px;padding:1.5rem;text-align:center;">
-    <div style="font-size:2rem;font-weight:700;color:#043263;">98%</div>
-    <div style="font-size:.875rem;color:#5c5c5c;margin-top:.25rem;">Arbitrajes resueltos en plazo</div>
-  </div>
-</div>
-<div class="subarea-grid"><a href="/consumogob/dg-consumo/sgips/sanciones/" class="subarea-item">
-    <div><div class="subarea-item__title">Sanciones</div><div class="subarea-item__desc">Procedimiento sancionador, infracciones, resoluciones</div></div>
-    <span class="subarea-item__arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
-  </a><a href="/consumogob/dg-consumo/sgips/reclamaciones/" class="subarea-item">
-    <div><div class="subarea-item__title">Reclamaciones</div><div class="subarea-item__desc">Reclamaciones formales ante la DGC</div></div>
-    <span class="subarea-item__arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
-  </a></div>
-<div class="pending-block">
-  <div class="pending-block__icon">⏳</div>
-  <h2 class="pending-block__title">Contenido en elaboración</h2>
-  <p class="pending-block__text">Los contenidos de esta sección están siendo preparados por <strong>SGIPS — Subdirección General de Inspección y Procedimiento Sancionador</strong>.<br>
-  Esta página se actualizará con los textos definitivos.</p>
-  <!-- CONTENIDO PENDIENTE: SGIPS — Subdirección General de Inspección y Procedimiento Sancionador -->
-</div></div>
+  <nav class="breadcrumb" aria-label="Ruta de navegación"><div class="container"><ol class="breadcrumb__list"><li class="breadcrumb__item"><a href="/consumogob/" class="breadcrumb__link">Inicio</a></li><li class="breadcrumb__item"><a href="/consumogob/" class="breadcrumb__link">Consumo</a></li><li class="breadcrumb__item"><a href="/consumogob/te-ayudamos/" class="breadcrumb__link">Te ayudamos</a></li><li class="breadcrumb__item"><span class="breadcrumb__current" aria-current="page">Consulta tu problema</span></li></ol></div></nav>
+  <div class="interior-header interior-header--compact">
+    <div class="interior-header__inner">
+      <h1 class="interior-header__title">Consulta tu problema</h1>
+      <p class="interior-header__desc">Selecciona tu sector o describe tu consulta para recibir orientación personalizada.</p>
     </div>
   </div>
-</main>
+  <main id="main-content">
+    <div class="container">
+      <div class="interior-layout">
+        <aside class="interior-sidebar">
+          <nav class="side-nav" aria-label="Navegación de sección"><span class="side-nav__title">Te ayudamos</span><a href="/consumogob/te-ayudamos/sac/" class="side-nav__link side-nav__link--active">Consulta tu problema (SAC)</a>
+<a href="/consumogob/te-ayudamos/reclamaciones/" class="side-nav__link">Haz una reclamación</a>
+<a href="/consumogob/te-ayudamos/alertas-seguridad/" class="side-nav__link">Alertas de seguridad</a>
+<a href="/consumogob/te-ayudamos/normativa/" class="side-nav__link">Consulta normativa</a>
+<a href="/consumogob/te-ayudamos/faq/" class="side-nav__link">Preguntas frecuentes</a>
+<a href="/consumogob/te-ayudamos/contacto/" class="side-nav__link">Contacto</a>
+</nav>
+        </aside>
+        <div class="interior-content">
+          <!-- SAC app cargada aquí -->
+          <div class="container" style="padding:0;">
+            <div class="main-layout">
+              <aside class="sidebar">
+                <div class="sidebar-header">Sectores de consulta</div>
+                <div class="sectores-lista" id="sectoresLista"></div>
+              </aside>
+              <main class="main-area">
+                <div class="pregunta-container">
+                  <button class="btn-volver" id="btnVolver" onclick="volverAtras()">← Volver</button>
+                  <div class="pregunta-principal" id="preguntaPrincipal">¿En qué podemos ayudarte?</div>
+                  <div class="search-container">
+                    <div style="margin-top:1rem;">
+                      <div id="explicacionContainer"></div>
+                      <div id="opcionesContainer"></div>
+                      <p class="mensaje-inicial">Describe tu consulta o selecciona un sector:</p>
+                      <div class="search-box">
+                        <input type="text" class="search-input" id="searchInput" placeholder="Ej: Me han cobrado de más en la factura de la luz...">
+                        <button class="search-btn" onclick="buscarConsulta()">Buscar</button>
+                      </div>
+                      <div id="searchResults" class="search-results"></div>
+                    </div>
+                  </div>
+                </div>
+                <div id="contenidoArea" style="padding:0 0 2rem 0;"></div>
+              </main>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <button id="btnSubir" class="btn-subir" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
   <footer class="site-footer" role="contentinfo">
   <div class="container">
     <div class="site-footer__inner">
@@ -221,6 +270,7 @@
     <p class="site-footer__bottom">© 2025 Ministerio de Derechos Sociales, Consumo y Agenda 2030 · Gobierno de España</p>
   </div>
 </footer>
+  <script type="module" src="/consumogob/te-ayudamos/sac/js/main.js"></script>
   <script src="/consumogob/js/main.js" defer></script>
 </body>
 </html>

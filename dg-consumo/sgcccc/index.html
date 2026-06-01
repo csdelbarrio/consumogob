@@ -4,11 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SGCCCC — Consumo · DSCA</title>
-  <meta name="description" content="SGCCCC — Secretaría General de Consumo y Juego">
-  <!--
-    NOTA PRODUCCIÓN: Open Sans se sirve localmente en Drupal/pinst_theme.
-    En demo (GitHub Pages) se carga desde Google Fonts.
-  -->
+  <meta name="description" content="SGCCCC — Secretaría General de Consumo y Juego · DSCA">
+  <!-- Open Sans: en producción Drupal/pinst_theme la sirve localmente -->
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/consumogob/css/tokens.css">
   <link rel="stylesheet" href="/consumogob/css/base.css">
@@ -20,23 +17,21 @@
   <header class="site-header" role="banner">
   <div class="site-header__bar">
     <div class="container site-header__inner">
-      <a href="https://www.dsca.gob.es/es" class="site-header__logo-link" aria-label="Ir a la página de inicio del ministerio">
-        <img src="https://www.dsca.gob.es/themes/custom/pinst_theme/logo.svg"
-                   alt="Ministerio de Derechos Sociales, Consumo y Agenda 2030"
-                   class="site-header__logo" width="220" height="60">
+      <a href="https://www.dsca.gob.es/es" class="site-header__logo-link" aria-label="Inicio del ministerio">
+        <img src="https://www.dsca.gob.es/themes/custom/pinst_theme/logo.svg" alt="Ministerio de Derechos Sociales, Consumo y Agenda 2030" class="site-header__logo" width="220" height="60">
       </a>
       <div class="site-header__controls">
         <nav aria-label="Selector de idioma">
-          <ul class="site-header__lang-list" role="list" aria-label="Selección de idioma">
-              <li><a href="#" class="site-header__lang-link site-header__lang-link--active" aria-current="true" lang="es">Castellano</a></li>
-              <li><a href="#" class="site-header__lang-link" lang="ca">Català</a></li>
-              <li><a href="#" class="site-header__lang-link" lang="gl">Galego</a></li>
-              <li><a href="#" class="site-header__lang-link" lang="eu">Euskera</a></li>
-              <li><a href="#" class="site-header__lang-link" lang="en">English</a></li>
-              <li><a href="#" class="site-header__lang-link" lang="va">Valencià</a></li>
-            </ul>
+          <ul class="site-header__lang-list" role="list">
+            <li><a href="#" class="site-header__lang-link site-header__lang-link--active" aria-current="true" lang="es">Castellano</a></li>
+            <li><a href="#" class="site-header__lang-link" lang="ca">Català</a></li>
+            <li><a href="#" class="site-header__lang-link" lang="gl">Galego</a></li>
+            <li><a href="#" class="site-header__lang-link" lang="eu">Euskera</a></li>
+            <li><a href="#" class="site-header__lang-link" lang="en">English</a></li>
+            <li><a href="#" class="site-header__lang-link" lang="va">Valencià</a></li>
+          </ul>
         </nav>
-        <a href="https://www.dsca.gob.es/es/search" class="site-header__search-link" aria-label="Buscar en el sitio">
+        <a href="#" class="site-header__search-link" aria-label="Buscar">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
           Buscar
         </a>
@@ -48,90 +43,173 @@
       </div>
     </div>
   </div>
-  <nav class="site-nav" aria-label="Navegación principal">
+  <nav class="site-nav" id="site-nav" aria-label="Navegación principal">
     <div class="container">
       <ul class="site-nav__list">
-        <li class="site-nav__item"><a href="https://www.dsca.gob.es/es/ministerio" class="site-nav__link">Ministerio</a></li>
-        <li class="site-nav__item"><a href="https://www.dsca.gob.es/es/derechos-sociales" class="site-nav__link">Derechos Sociales</a></li>
-        <li class="site-nav__item"><a href="/consumogob/" class="site-nav__link site-nav__link--active" aria-current="page">Consumo</a></li>
-        <li class="site-nav__item"><a href="https://www.dsca.gob.es/es/agenda-2030/conoce-la-agenda" class="site-nav__link">Agenda 2030</a></li>
-        <li class="site-nav__item"><a href="https://www.dsca.gob.es/es/servicio-a-la-ciudadania/atencion-ciudadano" class="site-nav__link">Servicios</a></li>
-        <li class="site-nav__item"><a href="https://www.dsca.gob.es/es/comunicacion/notas-prensa" class="site-nav__link">Comunicación</a></li>
-        <li class="site-nav__item"><a href="https://dsca.sede.gob.es/" class="site-nav__link site-nav__link--sede" target="_blank" rel="noopener">Sede electrónica</a></li>
+        <li class="site-nav__item site-nav__item--has-dropdown">
+          <a href="https://www.dsca.gob.es/es/ministerio" class="site-nav__link" aria-haspopup="true" aria-expanded="false">
+            Ministerio <svg class="site-nav__arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <div class="site-nav__dropdown" role="region"><div class="site-nav__dropdown-inner">
+            <ul role="list">
+              <li><a href="https://www.dsca.gob.es/es/ministerio/conocenos/organizacion-funciones-ministerio">Organización y funciones</a></li>
+              <li><a href="https://www.dsca.gob.es/es/ministerio/conocenos/secretaria-de-estado-servicios-sociales">Secretaría de Estado</a></li>
+              <li><a href="https://www.dsca.gob.es/es/ministerio/transparencia">Transparencia</a></li>
+            </ul>
+          </div></div>
+        </li>
+        <li class="site-nav__item site-nav__item--has-dropdown">
+          <a href="https://www.dsca.gob.es/es/derechos-sociales" class="site-nav__link" aria-haspopup="true" aria-expanded="false">
+            Derechos Sociales <svg class="site-nav__arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <div class="site-nav__dropdown" role="region"><div class="site-nav__dropdown-inner site-nav__dropdown-inner--cols">
+            <ul role="list">
+              <li><a href="https://www.dsca.gob.es/es/derechos-sociales/servicios-sociales">Servicios sociales</a></li>
+              <li><a href="https://www.dsca.gob.es/es/derechos-sociales/inclusion-social">Inclusión social</a></li>
+              <li><a href="https://www.dsca.gob.es/es/derechos-sociales/personas-mayores">Personas mayores</a></li>
+              <li><a href="https://www.dsca.gob.es/es/derechos-sociales/discapacidad">Discapacidad</a></li>
+            </ul>
+          </div></div>
+        </li>
+        
+          <li class="site-nav__item site-nav__item--has-dropdown">
+            <a href="/consumogob/" class="site-nav__link site-nav__link--active"
+               aria-current="page" aria-haspopup="true" aria-expanded="false">
+              Consumo
+              <svg class="site-nav__arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </a>
+            <div class="site-nav__dropdown" role="region" aria-label="Submenú Consumo">
+              <div class="site-nav__dropdown-inner site-nav__dropdown-inner--cols">
+                <ul role="list">
+                  <li class="site-nav__dropdown-group-title">DG Consumo</li>
+                  <li><a href="/consumogob/dg-consumo/">La Dirección General</a></li>
+                  <li><a href="/consumogob/dg-consumo/sgcccc/">Coordinación, Calidad y Cooperación</a></li>
+                  <li><a href="/consumogob/dg-consumo/sgrdpc/">Regulación y Derechos</a></li>
+                  <li><a href="/consumogob/dg-consumo/sgips/">Inspección y Sanciones</a></li>
+                  <li><a href="/consumogob/dg-consumo/cicc/">Centro de Investigación (CICC)</a></li>
+                  <li><a href="/consumogob/dg-consumo/junta-arbitral/">Junta Arbitral Nacional</a></li>
+                </ul>
+                <ul role="list">
+                  <li class="site-nav__dropdown-group-title">Te ayudamos</li>
+                  <li><a href="/consumogob/te-ayudamos/sac/">Consulta tu problema</a></li>
+                  <li><a href="/consumogob/te-ayudamos/reclamaciones/">Haz una reclamación</a></li>
+                  <li><a href="/consumogob/te-ayudamos/alertas-seguridad/">Alertas de seguridad</a></li>
+                  <li><a href="/consumogob/te-ayudamos/normativa/">Consulta normativa</a></li>
+                  <li><a href="/consumogob/te-ayudamos/faq/">Preguntas frecuentes</a></li>
+                  <li><a href="/consumogob/te-ayudamos/contacto/">Contacto</a></li>
+                </ul>
+                <ul role="list">
+                  <li class="site-nav__dropdown-group-title">Juego</li>
+                  <li><a href="https://www.ordenacionjuego.es/" target="_blank" rel="noopener">Inicio DGOJ ↗</a></li>
+                  <li><a href="https://www.ordenacionjuego.es/" target="_blank" rel="noopener">Participantes en el juego ↗</a></li>
+                  <li><a href="https://www.ordenacionjuego.es/" target="_blank" rel="noopener">Operadores de juego ↗</a></li>
+                  <li><a href="https://www.ordenacionjuego.es/" target="_blank" rel="noopener">La DGOJ — Conócenos ↗</a></li>
+                  <li class="site-nav__dropdown-group-title">Seguridad alimentaria</li>
+                  <li><a href="https://www.aesan.gob.es/" target="_blank" rel="noopener">AESAN ↗</a></li>
+                  <li><a href="https://www.aesan.gob.es/" target="_blank" rel="noopener">Seguridad alimentaria ↗</a></li>
+                  <li><a href="https://www.aesan.gob.es/" target="_blank" rel="noopener">Nutrición ↗</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        <li class="site-nav__item site-nav__item--has-dropdown">
+          <a href="https://www.dsca.gob.es/es/agenda-2030/conoce-la-agenda" class="site-nav__link" aria-haspopup="true" aria-expanded="false">
+            Agenda 2030 <svg class="site-nav__arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <div class="site-nav__dropdown" role="region"><div class="site-nav__dropdown-inner">
+            <ul role="list">
+              <li><a href="https://www.dsca.gob.es/es/agenda-2030/conoce-la-agenda">Conoce la Agenda 2030</a></li>
+              <li><a href="https://www.dsca.gob.es/es/agenda-2030/subvenciones-premios-agenda-2030">Subvenciones y Premios</a></li>
+              <li><a href="https://www.dsca.gob.es/es/agenda-2030/documentos-guias-aplicacion-e-informes-de-interes">Documentos e informes</a></li>
+            </ul>
+          </div></div>
+        </li>
+        <li class="site-nav__item site-nav__item--has-dropdown">
+          <a href="https://www.dsca.gob.es/es/servicio-a-la-ciudadania/atencion-ciudadano" class="site-nav__link" aria-haspopup="true" aria-expanded="false">
+            Servicios <svg class="site-nav__arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <div class="site-nav__dropdown" role="region"><div class="site-nav__dropdown-inner">
+            <ul role="list">
+              <li><a href="https://www.dsca.gob.es/es/servicio-a-la-ciudadania/atencion-ciudadano">Atención ciudadanía</a></li>
+              <li><a href="https://www.dsca.gob.es/es/servicio-a-la-ciudadania/perfil-contratante">Perfil del Contratante</a></li>
+              <li><a href="https://www.dsca.gob.es/es/servicio-a-la-ciudadania/cartas-servicio">Cartas de servicios</a></li>
+            </ul>
+          </div></div>
+        </li>
+        <li class="site-nav__item site-nav__item--has-dropdown">
+          <a href="https://www.dsca.gob.es/es/comunicacion/notas-prensa" class="site-nav__link" aria-haspopup="true" aria-expanded="false">
+            Comunicación <svg class="site-nav__arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <div class="site-nav__dropdown" role="region"><div class="site-nav__dropdown-inner">
+            <ul role="list">
+              <li><a href="https://www.dsca.gob.es/es/comunicacion/notas-prensa">Notas de prensa</a></li>
+              <li><a href="https://www.dsca.gob.es/es/comunicacion/campanas">Campañas</a></li>
+            </ul>
+          </div></div>
+        </li>
+        <li class="site-nav__item">
+          <a href="https://dsca.sede.gob.es/" class="site-nav__link site-nav__link--sede" target="_blank" rel="noopener">Sede electrónica</a>
+        </li>
       </ul>
     </div>
   </nav>
 </header>
-  <nav class="breadcrumb" aria-label="Ruta de navegación">
-  <div class="container">
-    <ol class="breadcrumb__list"><li class="breadcrumb__item"><a href="/consumogob/" class="breadcrumb__link">Inicio</a></li><li class="breadcrumb__item"><a href="/consumogob/" class="breadcrumb__link">Consumo</a></li><li class="breadcrumb__item"><a href="/consumogob/dg-consumo/" class="breadcrumb__link">DG Consumo</a></li><li class="breadcrumb__item"><span class="breadcrumb__current" aria-current="page">SGCCCC</span></li></ol>
-  </div>
-</nav>
+  <nav class="breadcrumb" aria-label="Ruta de navegación"><div class="container"><ol class="breadcrumb__list"><li class="breadcrumb__item"><a href="/consumogob/" class="breadcrumb__link">Inicio</a></li><li class="breadcrumb__item"><a href="/consumogob/" class="breadcrumb__link">Consumo</a></li><li class="breadcrumb__item"><a href="/consumogob/dg-consumo/" class="breadcrumb__link">DG Consumo</a></li><li class="breadcrumb__item"><span class="breadcrumb__current" aria-current="page">SGCCCC</span></li></ol></div></nav>
 <div class="interior-header ">
   <div class="interior-header__inner">
-    <h1 class="interior-header__title">Subdirección General de Coordinación, Calidad y Cooperación en Consumo</h1>
-    <p class="interior-header__desc">Control oficial de alimentos, vigilancia de mercado, redes de alerta y cooperación internacional.</p>
+    <h1 class="interior-header__title">SGCCCC — Coordinación, Calidad y Cooperación en Consumo</h1>
+    <p class="interior-header__desc">Control oficial de productos, vigilancia de mercado, redes de alerta y cooperación internacional.</p>
   </div>
 </div>
 <main id="main-content">
   <div class="container">
     <div class="interior-layout">
-      <aside class="interior-sidebar">
-        <nav class="side-nav" aria-label="Navegación de sección">
-  <span class="side-nav__title">SGCCCC</span>
-  <a href="/consumogob/dg-consumo/sgcccc/control-oficial-alimentos/" class="side-nav__link">Control oficial de alimentos</a>
+      <aside class="interior-sidebar"><nav class="side-nav" aria-label="Navegación de sección"><span class="side-nav__title">SGCCCC</span><a href="/consumogob/dg-consumo/sgcccc/control-oficial-alimentos/" class="side-nav__link">Control oficial de alimentos</a>
 <a href="/consumogob/dg-consumo/sgcccc/vigilancia-mercado/" class="side-nav__link">Vigilancia de mercado</a>
 <a href="/consumogob/dg-consumo/sgcccc/red-alerta/" class="side-nav__link">Red de Alerta</a>
 <a href="/consumogob/dg-consumo/sgcccc/oeu-cpc/" class="side-nav__link">OEU — Cooperación CPC</a>
 <a href="/consumogob/dg-consumo/sgcccc/oeu-vm/" class="side-nav__link">OEU — Vigilancia de Mercado</a>
-<a href="/consumogob/dg-consumo/sgcccc/oeu-sgp/" class="side-nav__link">OEU — Seguridad General Productos</a>
+<a href="/consumogob/dg-consumo/sgcccc/oeu-sgp/" class="side-nav__link">OEU — Seguridad Gral. Productos</a>
 <a href="/consumogob/dg-consumo/sgcccc/servicios/" class="side-nav__link">Servicios</a>
 <a href="/consumogob/dg-consumo/sgcccc/formacion-educacion/" class="side-nav__link">Formación y Educación</a>
 <a href="/consumogob/dg-consumo/sgcccc/novedades/" class="side-nav__link">Novedades y divulgación</a>
 <a href="/consumogob/dg-consumo/sgcccc/organismos-internacionales/" class="side-nav__link">Organismos Internacionales</a>
-
-</nav>
-      </aside>
-      <div class="interior-content">
-        <h2 class="interior-content__title">Subdirección General de Coordinación, Calidad y Cooperación en Consumo</h2>
+</nav></aside>
+      <div class="interior-content"><h2 class="interior-content__title">Subdirección General de Coordinación, Calidad y Cooperación en Consumo</h2>
 <div class="interior-content__body">
-  <p>La SGCCCC es el órgano responsable de la coordinación con las Comunidades Autónomas en materia de consumo, la gestión de las redes de alerta de productos, la vigilancia de mercado y el fomento de la formación y educación del consumidor.</p>
+  <p>La SGCCCC gestiona el control oficial sobre productos alimenticios y no alimenticios, coordina las redes de alerta de productos peligrosos, participa en la vigilancia de mercado europea y promueve la formación en materia de consumo.</p>
 </div>
-<div class="subarea-grid">
-  <a href="/consumogob/dg-consumo/sgcccc/control-oficial-alimentos/" class="subarea-item">
-    <div><div class="subarea-item__title">Control oficial de alimentos</div><div class="subarea-item__desc">Planes PNCOCA, planificaciones y resultados</div></div>
+<div class="subarea-grid"><a href="/consumogob/dg-consumo/sgcccc/control-oficial-alimentos/" class="subarea-item">
+    <div><div class="subarea-item__title">Control oficial de alimentos</div><div class="subarea-item__desc">Planes PNCOCA, planificaciones anuales e informes de resultados</div></div>
     <span class="subarea-item__arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
-  </a>
-  <a href="/consumogob/dg-consumo/sgcccc/vigilancia-mercado/" class="subarea-item">
-    <div><div class="subarea-item__title">Vigilancia de mercado</div><div class="subarea-item__desc">Productos no alimenticios, PSC</div></div>
+  </a><a href="/consumogob/dg-consumo/sgcccc/vigilancia-mercado/" class="subarea-item">
+    <div><div class="subarea-item__title">Vigilancia de mercado</div><div class="subarea-item__desc">Productos no alimenticios, PSC 2022-2025, campañas</div></div>
     <span class="subarea-item__arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
-  </a>
-  <a href="/consumogob/dg-consumo/sgcccc/red-alerta/" class="subarea-item">
-    <div><div class="subarea-item__title">Red de Alerta</div><div class="subarea-item__desc">RAPNA y Safety Gate europeo</div></div>
+  </a><a href="/consumogob/dg-consumo/sgcccc/red-alerta/" class="subarea-item">
+    <div><div class="subarea-item__title">Red de Alerta</div><div class="subarea-item__desc">RAPNA nacional y Safety Gate europeo</div></div>
     <span class="subarea-item__arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
-  </a>
-  <a href="/consumogob/dg-consumo/sgcccc/oeu-cpc/" class="subarea-item">
-    <div><div class="subarea-item__title">OEU — Cooperación CPC</div><div class="subarea-item__desc">Red de cooperación para protección al consumidor</div></div>
+  </a><a href="/consumogob/dg-consumo/sgcccc/oeu-cpc/" class="subarea-item">
+    <div><div class="subarea-item__title">OEU — Cooperación CPC</div><div class="subarea-item__desc">Red europea de cooperación para protección al consumidor</div></div>
     <span class="subarea-item__arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
-  </a>
-  <a href="/consumogob/dg-consumo/sgcccc/oeu-vm/" class="subarea-item">
-    <div><div class="subarea-item__title">OEU — Vigilancia de Mercado</div><div class="subarea-item__desc">MENVIME, ICSMS, legislación</div></div>
+  </a><a href="/consumogob/dg-consumo/sgcccc/oeu-vm/" class="subarea-item">
+    <div><div class="subarea-item__title">OEU — Vigilancia de Mercado</div><div class="subarea-item__desc">MENVIME, ICSMS, autoridades competentes</div></div>
     <span class="subarea-item__arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
-  </a>
-  <a href="/consumogob/dg-consumo/sgcccc/oeu-sgp/" class="subarea-item">
-    <div><div class="subarea-item__title">OEU — Seguridad Gral. Productos</div><div class="subarea-item__desc">Barridos, FAQ Rgto 988/2023, CSN</div></div>
+  </a><a href="/consumogob/dg-consumo/sgcccc/oeu-sgp/" class="subarea-item">
+    <div><div class="subarea-item__title">OEU — Seguridad Gral. Productos</div><div class="subarea-item__desc">Barridos, FAQ Rgto 988/2023, Red CSN</div></div>
     <span class="subarea-item__arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
-  </a>
-  <a href="/consumogob/dg-consumo/sgcccc/formacion-educacion/" class="subarea-item">
+  </a><a href="/consumogob/dg-consumo/sgcccc/formacion-educacion/" class="subarea-item">
     <div><div class="subarea-item__title">Formación y Educación</div><div class="subarea-item__desc">PFCI, Consumópolis, CIDOC</div></div>
     <span class="subarea-item__arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
-  </a>
-  <a href="/consumogob/dg-consumo/sgcccc/novedades/" class="subarea-item">
-    <div><div class="subarea-item__title">Novedades y divulgación</div><div class="subarea-item__desc">Boletín DGC, campañas de comunicación</div></div>
+  </a><a href="/consumogob/dg-consumo/sgcccc/novedades/" class="subarea-item">
+    <div><div class="subarea-item__title">Novedades y divulgación</div><div class="subarea-item__desc">Boletín DGC semanal, campañas de comunicación</div></div>
     <span class="subarea-item__arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
-  </a>
-</div>
-      </div>
+  </a><a href="/consumogob/dg-consumo/sgcccc/servicios/" class="subarea-item">
+    <div><div class="subarea-item__title">Servicios</div><div class="subarea-item__desc">Campañas de vigilancia de mercado en servicios</div></div>
+    <span class="subarea-item__arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+  </a><a href="/consumogob/dg-consumo/sgcccc/organismos-internacionales/" class="subarea-item">
+    <div><div class="subarea-item__title">Organismos Internacionales</div><div class="subarea-item__desc">UNCTAD, Codex Alimentarius, OCDE, ICPEN</div></div>
+    <span class="subarea-item__arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
+  </a></div></div>
     </div>
   </div>
 </main>
@@ -139,18 +217,15 @@
   <div class="container">
     <div class="site-footer__inner">
       <div>
-        <img src="https://www.dsca.gob.es/themes/custom/pinst_theme/logo.svg"
-             alt="Ministerio de Derechos Sociales, Consumo y Agenda 2030"
-             class="site-footer__logo" width="160" height="44">
+        <img src="https://www.dsca.gob.es/themes/custom/pinst_theme/logo.svg" alt="Ministerio de Derechos Sociales, Consumo y Agenda 2030" class="site-footer__logo" width="160" height="44">
         <p class="site-footer__name">Ministerio de Derechos Sociales, Consumo y Agenda 2030</p>
       </div>
-      <nav aria-label="Enlaces del pie de página">
+      <nav aria-label="Pie de página">
         <ul class="site-footer__links">
           <li><a href="https://www.dsca.gob.es/es/accesibilidad" class="site-footer__link">Accesibilidad</a></li>
           <li><a href="https://www.dsca.gob.es/es/aviso-legal" class="site-footer__link">Aviso legal</a></li>
-          <li><a href="https://www.dsca.gob.es/es/politica-de-cookies" class="site-footer__link">Política de cookies</a></li>
+          <li><a href="https://www.dsca.gob.es/es/politica-de-cookies" class="site-footer__link">Cookies</a></li>
           <li><a href="https://www.dsca.gob.es/es/mapa-del-sitio" class="site-footer__link">Mapa web</a></li>
-          <li><a href="https://www.dsca.gob.es/es/proteccion-datos" class="site-footer__link">Protección de datos</a></li>
         </ul>
       </nav>
     </div>
