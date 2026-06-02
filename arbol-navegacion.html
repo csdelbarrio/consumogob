@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Árbol de Navegación — Rediseño Web Consumo v2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #043263;
+      --yellow: #ffdb00;
+      --red-border: #c0392b;
+      --bg:     #f4f4f4;
+      --white:  #ffffff;
+      --border: #dee2e6;
+      --text:   #1a1a1a;
+      --muted:  #5c5c5c;
+      --c-new:  #d9ead3; --c-new-t: #27500a;
+      --c-mod:  #fce5cd; --c-mod-t: #854f0b;
+      --c-ok:   #f1efe8; --c-ok-t:  #444441;
+      --c-del:  #fcebeb; --c-del-t: #a32d2d;
+      --c-ext:  #e6f1fb; --c-ext-t: #0c447c;
+      --c-sac:  #eeedfe; --c-sac-t: #3c3489;
+      --c-pend: #faeeda; --c-pend-t:#633806;
+    }
+
+    body {
+      font-family: 'Open Sans', Arial, sans-serif;
+      font-size: 14px;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    /* ── HEADER ── */
+    .site-header { background: var(--yellow); padding: 12px 0; }
+    .site-header__inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .site-header__logo { height: 50px; width: auto; }
+    .site-header__meta { font-size: 12px; color: rgba(0,0,0,0.6); text-align: right; }
+    .site-header__meta strong { display: block; font-size: 13px; color: var(--navy); }
+
+    .site-nav {
+      background: var(--navy);
+      border-bottom: 4px solid var(--red-border);
+      padding: 0 24px;
+    }
+    .site-nav__inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; gap: 4px;
+      padding: 8px 0;
+    }
+    .site-nav__chip {
+      padding: 5px 12px; border-radius: 4px;
+      font-size: 12px; color: rgba(255,255,255,0.8);
+      text-decoration: none;
+    }
+    .site-nav__chip--active {
+      background: rgba(255,255,255,0.15);
+      color: #fff; font-weight: 600;
+      text-decoration: underline; text-underline-offset: 3px;
+    }
+
+    /* ── MAIN ── */
+    .main {
+      max-width: 1100px; margin: 0 auto;
+      padding: 32px 24px 64px;
+    }
+
+    .page-header { margin-bottom: 24px; }
+    .page-header h1 {
+      font-size: 22px; font-weight: 700; color: var(--navy);
+      border-bottom: 3px solid var(--yellow);
+      padding-bottom: 10px; margin-bottom: 12px;
+    }
+    .page-header p { font-size: 13px; color: var(--muted); max-width: 700px; }
+
+    /* ── LEGEND ── */
+    .legend {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      margin-bottom: 24px;
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 8px; padding: 12px 16px;
+    }
+    .badge {
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 3px 9px; border-radius: 20px;
+      font-size: 11px; font-weight: 600; white-space: nowrap;
+    }
+    .b-new  { background: var(--c-new);  color: var(--c-new-t); }
+    .b-mod  { background: var(--c-mod);  color: var(--c-mod-t); }
+    .b-ok   { background: var(--c-ok);   color: var(--c-ok-t);  }
+    .b-del  { background: var(--c-del);  color: var(--c-del-t); }
+    .b-ext  { background: var(--c-ext);  color: var(--c-ext-t); }
+    .b-sac  { background: var(--c-sac);  color: var(--c-sac-t); }
+    .b-pend { background: var(--c-pend); color: var(--c-pend-t);}
+
+    /* ── STATS ── */
+    .stats {
+      display: flex; flex-wrap: wrap; gap: 10px;
+      margin-bottom: 28px;
+    }
+    .stat-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 8px; padding: 12px 18px; text-align: center;
+      flex: 1; min-width: 100px;
+    }
+    .stat-card__n {
+      font-size: 24px; font-weight: 700; color: var(--navy);
+      display: block; line-height: 1;
+    }
+    .stat-card__l {
+      font-size: 11px; color: var(--muted); margin-top: 4px; display: block;
+    }
+
+    /* ── TREE ── */
+    .tree { display: flex; flex-direction: column; gap: 3px; }
+
+    .node-wrap { }
+
+    button.node {
+      display: flex; align-items: center; gap: 8px;
+      width: 100%; text-align: left;
+      background: var(--white); border: 0.5px solid var(--border);
+      border-radius: 6px; padding: 8px 12px;
+      cursor: pointer; font-family: inherit;
+      transition: background .12s; font-size: 13px; color: var(--text);
+    }
+    button.node:hover { background: #f0f4fa; }
+    div.node {
+      display: flex; align-items: center; gap: 8px;
+      background: var(--white); border: 0.5px solid var(--border);
+      border-radius: 6px; padding: 8px 12px; font-size: 13px;
+    }
+
+    /* Level styles */
+    .l0 {
+      background: var(--navy) !important; border-color: var(--navy) !important;
+      color: #fff !important; font-size: 15px !important;
+      font-weight: 700 !important; padding: 12px 16px !important;
+      border-radius: 8px !important;
+    }
+    .l0:hover { background: #022247 !important; }
+    .l0 .node-label { color: #fff !important; }
+
+    .l1 { border-left: 3px solid var(--navy) !important; font-weight: 600 !important; }
+    .l1.sac  { border-left-color: #534ab7 !important; }
+    .l1.ext  { border-left-color: #185fa5 !important; }
+
+    .l2 { border-left: 2px solid #adb5bd !important; font-size: 12px !important; }
+    .l2.sac  { border-left-color: #9b8fe0 !important; }
+
+    .l3 { border-left: 2px solid #dee2e6 !important; font-size: 12px !important; }
+
+    .node-label { flex: 1; }
+    .url {
+      font-size: 10px; color: var(--muted);
+      font-family: 'Courier New', monospace;
+      max-width: 220px; overflow: hidden;
+      text-overflow: ellipsis; white-space: nowrap;
+    }
+    .toggle { font-size: 10px; color: var(--muted); transition: transform .2s; flex-shrink: 0; }
+    .toggle.open { transform: rotate(0deg); }
+
+    .children {
+      display: none;
+      padding-left: 22px;
+      margin-top: 3px;
+      display: flex; flex-direction: column; gap: 3px;
+    }
+    .children.open { display: flex; }
+
+    /* del row */
+    .del-row { opacity: 0.6; }
+    .del-row .node { text-decoration: line-through; }
+
+    /* ── EXPAND ALL ── */
+    .toolbar {
+      display: flex; gap: 8px; margin-bottom: 16px; align-items: center;
+    }
+    .btn-tool {
+      padding: 6px 14px; border-radius: 4px;
+      border: 1px solid var(--border); background: var(--white);
+      font-size: 12px; cursor: pointer; font-family: inherit;
+      color: var(--navy); font-weight: 600;
+      transition: background .12s;
+    }
+    .btn-tool:hover { background: #e8f0fb; }
+    .toolbar-label { font-size: 12px; color: var(--muted); margin-left: auto; }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      background: var(--navy); color: rgba(255,255,255,0.7);
+      font-size: 11px; text-align: center; padding: 16px 24px;
+      margin-top: 48px;
+    }
+    .site-footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+    .site-footer a:hover { color: var(--yellow); }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <img src="https://www.dsca.gob.es/themes/custom/pinst_theme/logo.svg"
+         alt="Ministerio de Derechos Sociales, Consumo y Agenda 2030"
+         class="site-header__logo">
+    <div class="site-header__meta">
+      <strong>Rediseño Web Consumo v2</strong>
+      Árbol de Navegación · Secretaría General de Consumo y Juego
+    </div>
+  </div>
+</header>
+
+<nav class="site-nav">
+  <div class="site-nav__inner">
+    <a href="https://csdelbarrio.github.io/consumogob/" class="site-nav__chip">← Volver al prototipo</a>
+    <span class="site-nav__chip site-nav__chip--active">Árbol de navegación</span>
+  </div>
+</nav>
+
+<main class="main">
+
+  <div class="page-header">
+    <h1>Árbol de Navegación — Rediseño Web Consumo v2</h1>
+    <p>Estructura completa de páginas: DG Consumo, SGCCCC, SGRDPC, SGIPS, CICC, Junta Arbitral, sección «Te ayudamos» (SAC), y organismos externos (DGOJ y AESAN). Haz clic en cualquier nodo para expandir o contraer.</p>
+  </div>
+
+  <!-- LEYENDA -->
+  <div class="legend">
+    <span class="badge b-new">🟢 Nueva</span>
+    <span class="badge b-mod">🟠 Modificada</span>
+    <span class="badge b-ok">⚪ Sin cambios</span>
+    <span class="badge b-del">🔴 Eliminar</span>
+    <span class="badge b-ext">🔗 Enlace externo</span>
+    <span class="badge b-sac">🟣 Te ayudamos / SAC</span>
+    <span class="badge b-pend">⏳ Pendiente ficha</span>
+  </div>
+
+  <!-- ESTADÍSTICAS -->
+  <div class="stats">
+    <div class="stat-card"><span class="stat-card__n">99</span><span class="stat-card__l">Total páginas</span></div>
+    <div class="stat-card"><span class="stat-card__n" style="color:#27500a">38</span><span class="stat-card__l">🟢 Nuevas</span></div>
+    <div class="stat-card"><span class="stat-card__n" style="color:#854f0b">28</span><span class="stat-card__l">🟠 Modificadas</span></div>
+    <div class="stat-card"><span class="stat-card__n" style="color:#444441">8</span><span class="stat-card__l">⚪ Sin cambios</span></div>
+    <div class="stat-card"><span class="stat-card__n" style="color:#a32d2d">3</span><span class="stat-card__l">🔴 Eliminar</span></div>
+    <div class="stat-card"><span class="stat-card__n" style="color:#185fa5">13</span><span class="stat-card__l">🔗 Externas</span></div>
+    <div class="stat-card"><span class="stat-card__n" style="color:#633806">9</span><span class="stat-card__l">⏳ Pendientes</span></div>
+  </div>
+
+  <!-- TOOLBAR -->
+  <div class="toolbar">
+    <button class="btn-tool" onclick="expandAll()">Expandir todo</button>
+    <button class="btn-tool" onclick="collapseAll()">Colapsar todo</button>
+    <span class="toolbar-label">Haz clic en cualquier nodo para expandir / contraer</span>
+  </div>
+
+  <!-- ÁRBOL -->
+  <div class="tree" id="tree">
+
+    <!-- ROOT -->
+    <div class="node-wrap">
+      <button class="node l0" onclick="toggle('root')">
+        <span class="node-label">Consumo — csdelbarrio.github.io/consumogob/</span>
+        <span class="badge b-new">🟢 Nueva</span>
+        <span class="toggle open" id="t-root">▼</span>
+      </button>
+      <div class="children open" id="root">
+
+        <!-- TE AYUDAMOS -->
+        <div class="node-wrap">
+          <button class="node l1 sac" onclick="toggle('sac')">
+            <span class="node-label">🟣 Te ayudamos</span>
+            <span class="url">/te-ayudamos/</span>
+            <span class="badge b-new">🟢 Nueva</span>
+            <span class="toggle open" id="t-sac">▼</span>
+          </button>
+          <div class="children open" id="sac">
+
+            <div class="node-wrap">
+              <button class="node l2 sac" onclick="toggle('sac-consulta')">
+                <span class="node-label">Consulta tu problema (SAC)</span>
+                <span class="url">/te-ayudamos/sac/</span>
+                <span class="badge b-new">🟢 Nueva</span>
+                <span class="toggle open" id="t-sac-consulta">▼</span>
+              </button>
+              <div class="children open" id="sac-consulta">
+                <div class="node-wrap"><div class="node l3"><span class="node-label">🏠 Vivienda</span><span class="badge b-new">🟢</span></div></div>
+                <div class="node-wrap"><div class="node l3"><span class="node-label">🏦 Banca y seguros</span><span class="badge b-new">🟢</span></div></div>
+                <div class="node-wrap"><div class="node l3"><span class="node-label">✈️ Viajes y transportes</span><span class="badge b-new">🟢</span></div></div>
+                <div class="node-wrap"><div class="node l3"><span class="node-label">⚡ Suministros</span><span class="badge b-new">🟢</span></div></div>
+                <div class="node-wrap"><div class="node l3"><span class="node-label">🛒 Compras</span><span class="badge b-new">🟢</span></div></div>
+                <div class="node-wrap"><div class="node l3"><span class="node-label">🔒 Protección de datos personales</span><span class="badge b-new">🟢</span></div></div>
+                <div class="node-wrap"><div class="node l3"><span class="node-label">🏨 Turismo</span><span class="badge b-new">🟢</span></div></div>
+                <div class="node-wrap"><div class="node l3"><span class="node-label">🔧 Servicios varios</span><span class="badge b-new">🟢</span></div></div>
+              </div>
+            </div>
+
+            <div class="node-wrap">
+              <button class="node l2 sac" onclick="toggle('reclamaciones')">
+                <span class="node-label">Haz una reclamación</span>
+                <span class="url">/te-ayudamos/reclamaciones/</span>
+                <span class="badge b-new">🟢 Nueva</span>
+                <span class="toggle" id="t-reclamaciones">▶</span>
+              </button>
+              <div class="children" id="reclamaciones">
+                <div class="node-wrap"><div class="node l3"><span class="node-label">Sistema Arbitral de Consumo</span><span class="badge b-new">🟢</span></div></div>
+                <div class="node-wrap"><div class="node l3"><span class="node-label">Empresas adheridas — Distintivo Oficial</span><span class="badge b-new">🟢</span></div></div>
+                <div class="node-wrap"><div class="node l3"><span class="node-label">Mediación de consumo</span><span class="badge b-new">🟢</span></div></div>
+              </div>
+            </div>
+
+            <div class="node-wrap"><div class="node l2 sac"><span class="node-label">Alertas de seguridad de productos</span><span class="url">/te-ayudamos/alertas-seguridad/</span><span class="badge b-new">🟢 Nueva</span></div></div>
+            <div class="node-wrap"><div class="node l2 sac"><span class="node-label">Consulta normativa</span><span class="url">/te-ayudamos/normativa/</span><span class="badge b-new">🟢 Nueva</span></div></div>
+            <div class="node-wrap"><div class="node l2 sac"><span class="node-label">Preguntas frecuentes (FAQ)</span><span class="url">/te-ayudamos/faq/ → consumo/</span><span class="badge b-new">🟢 Nueva</span></div></div>
+            <div class="node-wrap"><div class="node l2 sac"><span class="node-label">Contacto</span><span class="url">/te-ayudamos/contacto/</span><span class="badge b-new">🟢 Nueva</span></div></div>
+
+          </div>
+        </div>
+
+        <!-- DG CONSUMO -->
+        <div class="node-wrap">
+          <button class="node l1" onclick="toggle('dgc')">
+            <span class="node-label">DG Consumo</span>
+            <span class="url">/dg-consumo/</span>
+            <span class="badge b-new">🟢 Nueva landing</span>
+            <span class="toggle open" id="t-dgc">▼</span>
+          </button>
+          <div class="children open" id="dgc">
+
+            <!-- SGCCCC -->
+            <div class="node-wrap">
+              <button class="node l2" onclick="toggle('sgcccc')">
+                <span class="node-label">SGCCCC — Coordinación, Calidad y Cooperación en Consumo</span>
+                <span class="url">/dg-consumo/sgcccc/</span>
+                <span class="badge b-mod">🟠 Modificada</span>
+                <span class="toggle open" id="t-sgcccc">▼</span>
+              </button>
+              <div class="children open" id="sgcccc">
+
+                <!-- COA -->
+                <div class="node-wrap">
+                  <button class="node l3" onclick="toggle('coa')">
+                    <span class="node-label">Control oficial de alimentos y comercio minorista</span>
+                    <span class="url">/sgcccc/control-oficial-alimentos/</span>
+                    <span class="badge b-mod">🟠</span>
+                    <span class="toggle open" id="t-coa">▼</span>
+                  </button>
+                  <div class="children open" id="coa" style="padding-left:36px">
+                    <div class="node-wrap"><div class="node l3"><span class="node-label">Planes Nacionales de Control Oficial (PNCOCA)</span><span class="badge b-mod">🟠 Mod.</span></div></div>
+                    <div class="node-wrap"><div class="node l3"><span class="node-label">Planificaciones anuales del control oficial</span><span class="badge b-mod">🟠 Mod.</span></div></div>
+                    <div class="node-wrap"><div class="node l3"><span class="node-label">Informes de resultados</span><span class="badge b-mod">🟠 Mod.</span></div></div>
+                    <div class="node-wrap"><div class="node l3"><span class="node-label">Campañas Europeas de control oficial</span><span class="badge b-mod">🟠 Mod.</span></div></div>
+                    <div class="node-wrap"><div class="node l3"><span class="node-label">Histórico de campañas autonómicas</span><span class="badge b-new">🟢 Nueva</span></div></div>
+                    <div class="node-wrap"><div class="node l3"><span class="node-label">Otras actividades del área de alimentos</span><span class="badge b-new">🟢 Nueva</span></div></div>
+                  </div>
+                </div>
+
+                <!-- VM -->
+                <div class="node-wrap">
+                  <button class="node l3" onclick="toggle('vm')">
+                    <span class="node-label">Vigilancia de mercado — productos no alimenticios</span>
+                    <span class="url">/sgcccc/vigilancia-mercado/</span>
+                    <span class="badge b-mod">🟠</span>
+                    <span class="toggle" id="t-vm">▶</span>
+                  </button>
+                  <div class="children" id="vm" style="padding-left:36px">
+                    <div class="node-wrap"><div class="node l3"><span class="node-label">Plan Sectorial de Consumo (PSC)</span><span class="badge b-mod">🟠</span></div></div>
+                    <div class="node-wrap"><div class="node l3"><span class="node-label">Planificaciones anuales</span><span class="badge b-mod">🟠</span></div></div>
+                    <div class="node-wrap"><div class="node l3"><span class="node-label">Informes de resultados (PSC)</span><span class="badge b-mod">🟠</span></div></div>
+                    <div class="node-wrap"><div class="node l3"><span class="node-label">Campañas Nacionales de vigilancia de mercado</span><span class="badge b-mod">🟠</span></div></div>
+                    <div class="node-wrap"><div class="node l3"><span class="node-label">Campañas Europeas</span><span class="badge b-mod">🟠</span></div></div>
+                    <div class="node-wrap"><div class="node l3"><span class="node-label">Otras actividades del área de no alimenticios</span><span class="badge b-new">🟢 Nueva</span></div></div>
+                    <div class="node-wrap"><div class="node l3"><span class="node-label">Histórico campañas autonómicas</span><span class="badge b-mod">🟠</span></div></div>
+                    <div class="node-wrap"><div class="node l3"><span class="node-label">Noticias relacionadas</span><span class="badge b-new">🟢 Nueva</span></div></div>
+                  </div>
+                </div>
+
+                <!-- RED ALERTA -->
+                <div class="node-wrap">
+                  <button class="node l3" onclick="toggle('ra')">
+                    <span class="node-label">Red de Alerta</span>
+                    <span class="url">/sgcccc/red-alerta/</span>
+                    <span class="badge b-mod">🟠</span>
+                    <span class="toggle" id="t-ra">▶</span>
+                  </button>
+                  <div class="children" id="ra" style="padding-left:36px">
+                    <div class="node-wrap"><div class="node l3"><span class="node-label">Alertas nacionales (RAPNA)</span><span class="badge b-mod">🟠</span></div></div>
+                    <div class="node-wrap"><div class="node l3"><span class="node-label">Safety Gate — alertas europeas</span><span class="badge b-mod">🟠</span></div></div>
+                    <div class="node-wrap"><div class="node l3"><span class="node-label">Estadísticas de alertas</span><span class="badge b-mod">🟠</span></div></div>
+                    <div class="node-wrap del-row"><div class="node l3"><span class="node-label">Alertas internacionales</span><span class="badge b-del">🔴 Eliminar</span></div></div>
+                    <div class="node-wrap del-row"><div class="node l3"><span class="node-label">Restricciones a la comercialización</span><span class="badge b-del">🔴 Eliminar</span></div></div>
+                    <div class="node-wrap del-row"><div class="node l3"><span class="node-label">Consejos de seguridad de productos</span><span class="badge b-del">🔴 Eliminar</span></div></div>
+                  </div>
+                </div>
+
+                <!-- OEU VM -->
+                <div class="node-wrap">
+                  <button class="node l3" onclick="toggle('oeuvm')">
+                    <span class="node-label">OEU — Vigilancia de Mercado (VM)</span>
+                    <span class="url">/sgcccc/oeu-vm/</span>
+                    <span class="badge b-mod">🟠</span>
+                    <span class="toggle" id="t-oeuvm">▶</span>
+                  </button>
+                  <div class="children" id="oeuvm" style="padding-left:36px">
+                    <div class="node-wrap"><div class="node l3"><span class="node-label">Funciones OEU-VM</span><span class="badge b-ok">⚪</span></div></div>
+                    <div class="node-wrap"><div class="node l3"><span class="node-label">Red de la Unión / ICSMS</span><span class="badge b-ok">⚪</span></div></div>
+                    <div class="node-wrap"><div class="node l3"><span class="node-label">MENVIME 2022-2025</span><span class="badge b-mod">🟠</span></div></div>
+                    <div class="node-wrap"><div class="node l3"><span class="node-label">MENVIME 2026-2029</span><span class="badge b-new">🟢 Nueva</span></div></div>
+                    <div class="node-wrap"><div class="node l3"><span class="node-label">Legislación relacionada (MENVIME)</span><span class="badge b-new">🟢 Nueva</span></div></div>
+                    <div class="node-wrap"><div class="node l3"><span class="node-label">Autoridades MENVIME</span><span class="badge b-new">🟢 Nueva</span></div></div>
+                    <div class="node-wrap"><div class="node l3"><span class="node-label">Legislación complementaria</span><span class="badge b-ok">⚪</span></div></div>
+                  </div>
+                </div>
+
+                <!-- OEU CPC -->
+                <div class="node-wrap">
+                  <button class="node l3" onclick="toggle('oeucpc')">
+                    <span class="node-label">OEU — Cooperación para Protección al Consumidor (CPC)</span>
+                    <span class="url">/sgcccc/oeu-cpc/</span>
+                    <span class="badge b-mod">🟠</span>
+                    <span class="toggle" id="t-oeucpc">▶</span>
+                  </button>
+                  <div class="children" id="oeucpc" style="padding-left:36px">
+                    <div class="node-wrap"><div class="node l3"><span class="node-label">Funciones OEU-CPC</span><span class="badge b-ok">⚪</span></div></div>
+                  </div>
+                </div>
+
+                <!-- OEU SGP -->
+                <div class="node-wrap">
+                  <button class="node l3" onclick="toggle('oesgp')">
+                    <span class="node-label">OEU — Seguridad General de Productos (SGP)</span>
+                    <span class="url">/sgcccc/oeu-sgp/</span>
+                    <span class="badge b-mod">🟠</span>
+                    <span class="toggle" id="t-oesgp">▶</span>
+                  </button>
+                  <div class="children" id="oesgp" style="padding-left:36px">
+                    <div class="node-wrap"><div class="node l3"><span class="node-label">Funciones OEU-SGP</span><span class="badge b-ok">⚪</span></div></div>
+                    <div class="node-wrap"><div class="node l3"><span class="node-label">Red Seguridad Consumidores (CSN)</span><span class="badge b-ok">⚪</span></div></div>
+                    <div class="node-wrap"><div class="node l3"><span class="node-label">Barridos</span><span class="badge b-mod">🟠</span></div></div>
+                    <div class="node-wrap"><div class="node l3"><span class="node-label">FAQ — Reglamento (UE) 988/2023</span><span class="badge b-new">🟢 Nueva</span></div></div>
+                    <div class="node-wrap"><div class="node l3"><span class="node-label">Legislación complementaria</span><span class="badge b-ok">⚪</span></div></div>
+                  </div>
+                </div>
+
+                <div class="node-wrap"><div class="node l3"><span class="node-label">Servicios — campañas vigilancia de mercado</span><span class="url">/sgcccc/servicios/</span><span class="badge b-mod">🟠 Mod.</span></div></div>
+
+                <!-- IFE -->
+                <div class="node-wrap">
+                  <button class="node l3" onclick="toggle('ife')">
+                    <span class="node-label">Información, Formación y Educación</span>
+                    <span class="url">/sgcccc/formacion-educacion/</span>
+                    <span class="badge b-mod">🟠</span>
+                    <span class="toggle" id="t-ife">▶</span>
+                  </button>
+                  <div class="children" id="ife" style="padding-left:36px">
+                    <div class="node-wrap"><div class="node l3"><span class="node-label">PFCI — Formación de profesionales de consumo</span><span class="badge b-mod">🟠</span></div></div>
+                    <div class="node-wrap"><div class="node l3"><span class="node-label">Concurso escolar Consumópolis</span><span class="badge b-mod">🟠</span></div></div>
+                    <div class="node-wrap"><div class="node l3"><span class="node-label">CIDOC — Centro de Información y Documentación</span><span class="badge b-mod">🟠</span></div></div>
+                  </div>
+                </div>
+
+                <!-- NOVEDADES -->
+                <div class="node-wrap">
+                  <button class="node l3" onclick="toggle('novedades')">
+                    <span class="node-label">Novedades y divulgación</span>
+                    <span class="url">/sgcccc/novedades/</span>
+                    <span class="badge b-mod">🟠</span>
+                    <span class="toggle" id="t-novedades">▶</span>
+                  </button>
+                  <div class="children" id="novedades" style="padding-left:36px">
+                    <div class="node-wrap"><div class="node l3"><span class="node-label">Boletín de información DGC</span><span class="badge b-mod">🟠</span></div></div>
+                    <div class="node-wrap"><div class="node l3"><span class="node-label">Campañas de comunicación</span><span class="badge b-mod">🟠</span></div></div>
+                  </div>
+                </div>
+
+                <div class="node-wrap"><div class="node l3"><span class="node-label">Participación en Organismos Internacionales</span><span class="url">/sgcccc/organismos-internacionales/</span><span class="badge b-new">🟢 Nueva</span></div></div>
+
+              </div>
+            </div>
+
+            <!-- SGRDPC -->
+            <div class="node-wrap">
+              <button class="node l2" onclick="toggle('sgrdpc')">
+                <span class="node-label">SGRDPC — Regulación y Derechos de las Personas Consumidoras</span>
+                <span class="url">/dg-consumo/sgrdpc/</span>
+                <span class="badge b-pend">⏳ Pendiente</span>
+                <span class="toggle" id="t-sgrdpc">▶</span>
+              </button>
+              <div class="children" id="sgrdpc">
+                <div class="node-wrap"><div class="node l3"><span class="node-label">Normativa de consumo</span><span class="badge b-pend">⏳</span></div></div>
+                <div class="node-wrap"><div class="node l3"><span class="node-label">Derechos de las personas consumidoras</span><span class="badge b-pend">⏳</span></div></div>
+                <div class="node-wrap"><div class="node l3"><span class="node-label">Cooperación institucional</span><span class="badge b-pend">⏳</span></div></div>
+                <div class="node-wrap"><div class="node l3"><span class="node-label">Asociaciones de personas consumidoras</span><span class="badge b-pend">⏳</span></div></div>
+              </div>
+            </div>
+
+            <!-- SGIPS -->
+            <div class="node-wrap">
+              <button class="node l2" onclick="toggle('sgips')">
+                <span class="node-label">SGIPS — Inspección y Procedimiento Sancionador</span>
+                <span class="url">/dg-consumo/sgips/</span>
+                <span class="badge b-pend">⏳ Pendiente</span>
+                <span class="toggle" id="t-sgips">▶</span>
+              </button>
+              <div class="children" id="sgips">
+                <div class="node-wrap"><div class="node l3"><span class="node-label">Sanciones</span><span class="badge b-pend">⏳</span></div></div>
+                <div class="node-wrap"><div class="node l3"><span class="node-label">Reclamaciones</span><span class="badge b-pend">⏳</span></div></div>
+              </div>
+            </div>
+
+            <!-- CICC -->
+            <div class="node-wrap">
+              <button class="node l2" onclick="toggle('cicc')">
+                <span class="node-label">CICC — Centro de Investigación y Control de la Calidad</span>
+                <span class="url">/dg-consumo/cicc/</span>
+                <span class="badge b-pend">⏳ Pendiente</span>
+                <span class="toggle" id="t-cicc">▶</span>
+              </button>
+              <div class="children" id="cicc">
+                <div class="node-wrap"><div class="node l3"><span class="node-label">Análisis y ensayos de productos</span><span class="badge b-pend">⏳</span></div></div>
+                <div class="node-wrap"><div class="node l3"><span class="node-label">Laboratorios</span><span class="badge b-pend">⏳</span></div></div>
+                <div class="node-wrap"><div class="node l3"><span class="node-label">Publicaciones técnicas</span><span class="badge b-pend">⏳</span></div></div>
+                <div class="node-wrap"><div class="node l3"><span class="node-label">Convenio UAM</span><span class="badge b-pend">⏳</span></div></div>
+              </div>
+            </div>
+
+            <!-- JUNTA ARBITRAL -->
+            <div class="node-wrap">
+              <div class="node l2">
+                <span class="node-label">Junta Arbitral Nacional de Consumo</span>
+                <span class="url">/dg-consumo/junta-arbitral/</span>
+                <span class="badge b-pend">⏳ Pendiente</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- DGOJ -->
+        <div class="node-wrap">
+          <button class="node l1 ext" onclick="toggle('dgoj')">
+            <span class="node-label">🔗 Juego — Dirección General de Ordenación del Juego (DGOJ)</span>
+            <span class="url">ordenacionjuego.es ↗</span>
+            <span class="badge b-ext">🔗 Externa</span>
+            <span class="toggle" id="t-dgoj">▶</span>
+          </button>
+          <div class="children" id="dgoj">
+            <div class="node-wrap"><div class="node l2"><span class="node-label">Inicio DGOJ</span><span class="badge b-ext">🔗</span></div></div>
+            <div class="node-wrap"><div class="node l2"><span class="node-label">Participantes en el juego</span><span class="badge b-ext">🔗</span></div></div>
+            <div class="node-wrap"><div class="node l2"><span class="node-label">Operadores de juego</span><span class="badge b-ext">🔗</span></div></div>
+            <div class="node-wrap"><div class="node l2"><span class="node-label">Datos, estudios y sanciones</span><span class="badge b-ext">🔗</span></div></div>
+            <div class="node-wrap"><div class="node l2"><span class="node-label">La DGOJ — Conócenos</span><span class="badge b-ext">🔗</span></div></div>
+            <div class="node-wrap"><div class="node l2"><span class="node-label">Normativa en vigor</span><span class="badge b-ext">🔗</span></div></div>
+            <div class="node-wrap"><div class="node l2"><span class="node-label">Servicios ciudadanía / Sede electrónica</span><span class="badge b-ext">🔗</span></div></div>
+          </div>
+        </div>
+
+        <!-- AESAN -->
+        <div class="node-wrap">
+          <button class="node l1 ext" onclick="toggle('aesan')">
+            <span class="node-label">🔗 Seguridad alimentaria — AESAN</span>
+            <span class="url">aesan.gob.es ↗</span>
+            <span class="badge b-ext">🔗 Externa</span>
+            <span class="toggle" id="t-aesan">▶</span>
+          </button>
+          <div class="children" id="aesan">
+            <div class="node-wrap"><div class="node l2"><span class="node-label">Agencia</span><span class="badge b-ext">🔗</span></div></div>
+            <div class="node-wrap"><div class="node l2"><span class="node-label">Seguridad alimentaria</span><span class="badge b-ext">🔗</span></div></div>
+            <div class="node-wrap"><div class="node l2"><span class="node-label">Nutrición</span><span class="badge b-ext">🔗</span></div></div>
+            <div class="node-wrap"><div class="node l2"><span class="node-label">Laboratorios</span><span class="badge b-ext">🔗</span></div></div>
+            <div class="node-wrap"><div class="node l2"><span class="node-label">Noticias y publicaciones</span><span class="badge b-ext">🔗</span></div></div>
+            <div class="node-wrap"><div class="node l2"><span class="node-label">Para la ciudadanía</span><span class="badge b-ext">🔗</span></div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div><!-- /tree -->
+
+</main>
+
+<footer class="site-footer">
+  Ministerio de Derechos Sociales, Consumo y Agenda 2030 · Rediseño Web Consumo v2 ·
+  <a href="https://csdelbarrio.github.io/consumogob/">Ver prototipo</a>
+</footer>
+
+<script>
+function toggle(id) {
+  const c = document.getElementById(id);
+  const t = document.getElementById('t-' + id);
+  if (!c || !t) return;
+  const open = c.classList.toggle('open');
+  t.textContent = open ? '▼' : '▶';
+}
+
+function expandAll() {
+  document.querySelectorAll('.children').forEach(el => el.classList.add('open'));
+  document.querySelectorAll('.toggle').forEach(el => el.textContent = '▼');
+}
+
+function collapseAll() {
+  document.querySelectorAll('.children').forEach(el => {
+    if (el.id !== 'root') el.classList.remove('open');
+  });
+  document.querySelectorAll('.toggle').forEach(el => {
+    const id = el.id.replace('t-', '');
+    el.textContent = (id === 'root') ? '▼' : '▶';
+  });
+}
+</script>
+
+</body>
+</html>
