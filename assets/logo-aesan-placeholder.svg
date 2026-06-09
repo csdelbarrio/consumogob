@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 60" role="img" aria-label="AESAN">
+  <!-- PLACEHOLDER: sustituir por el logotipo oficial de AESAN cuando esté disponible -->
+  <circle cx="22" cy="30" r="16" fill="none" stroke="#9a0941" stroke-width="3"/>
+  <path d="M22 18 a12 12 0 0 1 0 24" fill="none" stroke="#f29100" stroke-width="3"/>
+  <text x="46" y="37" font-family="Arial, sans-serif" font-size="19" font-weight="bold" fill="#9a0941">AESAN</text>
+</svg>

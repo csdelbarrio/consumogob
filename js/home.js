@@ -105,6 +105,45 @@
   }
 
   /* ------------------------------------------------------------------
+     2b. INSTAGRAM SCROLLER (vertical)
+     ------------------------------------------------------------------ */
+  var insta = document.querySelector('.insta-scroller');
+  if (insta) {
+    var iUp = document.querySelector('[data-insta-up]');
+    var iDown = document.querySelector('[data-insta-down]');
+    var STEP = 340;
+    function updateInstaArrows() {
+      if (!iUp || !iDown) return;
+      iUp.disabled = insta.scrollTop <= 4;
+      iDown.disabled = insta.scrollTop + insta.clientHeight >= insta.scrollHeight - 4;
+    }
+    if (iUp) iUp.addEventListener('click', function () { insta.scrollBy({ top: -STEP, behavior: 'smooth' }); });
+    if (iDown) iDown.addEventListener('click', function () { insta.scrollBy({ top: STEP, behavior: 'smooth' }); });
+    insta.addEventListener('scroll', updateInstaArrows, { passive: true });
+    updateInstaArrows();
+  }
+
+  /* ------------------------------------------------------------------
+     2c. VIDEO SCROLLER (horizontal)
+     ------------------------------------------------------------------ */
+  var vtrack = document.querySelector('.video-scroller__track');
+  if (vtrack) {
+    var vPrev = document.querySelector('[data-video-prev]');
+    var vNext = document.querySelector('[data-video-next]');
+    var VCARD = 356;
+    function updateVideoArrows() {
+      if (!vPrev || !vNext) return;
+      vPrev.disabled = vtrack.scrollLeft <= 4;
+      vNext.disabled = vtrack.scrollLeft + vtrack.clientWidth >= vtrack.scrollWidth - 4;
+    }
+    if (vPrev) vPrev.addEventListener('click', function () { vtrack.scrollBy({ left: -VCARD * 2, behavior: 'smooth' }); });
+    if (vNext) vNext.addEventListener('click', function () { vtrack.scrollBy({ left: VCARD * 2, behavior: 'smooth' }); });
+    vtrack.addEventListener('scroll', updateVideoArrows, { passive: true });
+    window.addEventListener('resize', updateVideoArrows);
+    updateVideoArrows();
+  }
+
+  /* ------------------------------------------------------------------
      3. CHATBOT — panel demo
      ------------------------------------------------------------------ */
   var fab = document.querySelector('.chatbot-fab');
