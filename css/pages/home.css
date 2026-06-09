@@ -250,3 +250,165 @@
     align-items: flex-start;
   }
 }
+
+/* ==========================================================================
+   PORTADA B — secciones adicionales (novedades + organismos en tarjetas)
+   Misma línea limpia: navy solo texto, fondos blancos
+   ========================================================================== */
+
+/* Etiqueta de sección reutilizable */
+.home-section {
+  max-width: var(--max-width, 1200px);
+  margin-inline: auto;
+  padding: 0 var(--space-lg, 24px);
+}
+
+.home-section__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin: var(--space-xl, 40px) 0 var(--space-lg, 24px);
+  gap: var(--space-md, 16px);
+}
+
+.home-section__title {
+  font-size: var(--font-size-xl, 22px);
+  font-weight: var(--font-weight-bold, 700);
+  color: var(--color-primary, #043263);
+  margin: 0;
+  padding-bottom: var(--space-xs, 4px);
+  border-bottom: 3px solid var(--color-accent, #ffdb00);
+}
+
+.home-section__link {
+  font-size: var(--font-size-sm, 14px);
+  color: var(--color-primary, #043263);
+  text-decoration: none;
+  font-weight: var(--font-weight-semibold, 600);
+  white-space: nowrap;
+}
+
+.home-section__link:hover { text-decoration: underline; }
+
+/* --- Novedades --- */
+.home-news__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg, 24px);
+}
+
+.home-news-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid var(--color-border, #e3e6ea);
+  border-radius: var(--border-radius, 4px);
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--color-text, #1a1a1a);
+  transition: all var(--transition-fast, .15s);
+}
+
+.home-news-card:hover {
+  box-shadow: var(--shadow-md, 0 2px 8px rgba(0,0,0,.08));
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.home-news-card__img {
+  height: 140px;
+  background: var(--color-bg-alt, #f7f8fa);
+  background-size: cover;
+  background-position: center;
+}
+
+.home-news-card__body {
+  padding: var(--space-md, 16px);
+}
+
+.home-news-card__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm, 8px);
+  margin-bottom: var(--space-xs, 4px);
+}
+
+.home-news-card__tag {
+  font-size: var(--font-size-xs, 12px);
+  font-weight: var(--font-weight-semibold, 600);
+  color: var(--color-primary, #043263);
+  background: var(--color-bg-alt, #f7f8fa);
+  border: 1px solid var(--color-border, #e3e6ea);
+  padding: 1px 8px;
+  border-radius: 12px;
+}
+
+.home-news-card__date {
+  font-size: var(--font-size-xs, 12px);
+  color: var(--color-text-muted, #5c5c5c);
+}
+
+.home-news-card__title {
+  font-size: var(--font-size-base, 16px);
+  font-weight: var(--font-weight-semibold, 600);
+  color: var(--color-primary, #043263);
+  line-height: 1.35;
+  margin: 0;
+}
+
+/* --- Organismos en tarjetas --- */
+.home-orgs__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg, 24px);
+  padding-bottom: var(--space-xxl, 72px);
+}
+
+.home-org-card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-lg, 24px);
+  background: #fff;
+  border: 1px solid var(--color-border, #e3e6ea);
+  border-top: 3px solid var(--color-primary, #043263);
+  border-radius: var(--border-radius, 4px);
+  text-decoration: none;
+  color: var(--color-text, #1a1a1a);
+  transition: all var(--transition-fast, .15s);
+}
+
+.home-org-card:hover {
+  box-shadow: var(--shadow-md, 0 2px 8px rgba(0,0,0,.08));
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.home-org-card__name {
+  font-size: var(--font-size-lg, 18px);
+  font-weight: var(--font-weight-semibold, 600);
+  color: var(--color-primary, #043263);
+  margin: 0 0 var(--space-xs, 4px);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.home-org-card__desc {
+  font-size: var(--font-size-sm, 14px);
+  color: var(--color-text-muted, #5c5c5c);
+  margin: 0;
+  line-height: 1.45;
+}
+
+.home-org-card__ext {
+  font-size: var(--font-size-xs, 12px);
+  color: var(--color-text-muted, #5c5c5c);
+  margin-top: var(--space-sm, 8px);
+}
+
+@media (max-width: 900px) {
+  .home-news__grid,
+  .home-orgs__grid {
+    grid-template-columns: 1fr;
+  }
+}

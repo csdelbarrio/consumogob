@@ -21,10 +21,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/tokens.css">
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/pages/home.css">
+  <link rel="stylesheet" href="/consumogob/css/tokens.css">
+  <link rel="stylesheet" href="/consumogob/css/base.css">
+  <link rel="stylesheet" href="/consumogob/css/components.css">
+  <link rel="stylesheet" href="/consumogob/css/pages/home.css">
 
   <style>
     /* Animaciones de entrada */
@@ -42,16 +42,7 @@
   </style>
 </head>
 <body>
-
-  <!-- ======================================================================
-       Skip link (Accesibilidad)
-       ====================================================================== -->
   <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
-
-  <!-- ======================================================================
-       HEADER — Réplica fiel de www.dsca.gob.es / pinst_theme
-       DRUPAL: region='header'
-       ====================================================================== -->
   <header class="site-header" role="banner">
 
     <!-- Barra principal: logo + idiomas + buscar + menú -->
@@ -316,52 +307,43 @@
     </nav>
 
   </header>
-
-
-  <!-- ======================================================================
-       MAIN
-       ====================================================================== -->
   <main id="main-content" tabindex="-1">
 
-    <!-- DRUPAL: region='content' / block='page_title_block' -->
     <!-- ============================================================
-         1. HERO — buscador del SAC como protagonista
+         1. HERO — bloque "¿Te ayudamos?" que lleva al SAC (página A)
          ============================================================ -->
     <section class="home-hero" aria-labelledby="home-hero-title">
       <div class="home-hero__inner">
-        <h1 class="home-hero__title" id="home-hero-title">¿En qué podemos ayudarte?</h1>
-        <p class="home-hero__subtitle">Describe tu problema de consumo y te orientamos hacia la solución.</p>
+        <h1 class="home-hero__title" id="home-hero-title">Consumo</h1>
+        <p class="home-hero__subtitle">Información, orientación y servicios para las personas consumidoras.</p>
 
-        <!-- Buscador: enlaza al SAC -->
-        <form class="home-search" role="search" action="/consumogob/te-ayudamos/sac/" method="get">
-          <label for="home-search-input" class="sr-only">Describe tu consulta de consumo</label>
-          <input class="home-search__input" id="home-search-input" name="q" type="search"
-                 placeholder="Ej: me han cobrado de más en la factura de la luz…">
-          <button class="home-search__btn" type="submit">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-            Buscar
-          </button>
-        </form>
-
-        <!-- Chips de sectores -->
-        <nav class="home-sectors" aria-label="Sectores de consulta">
-          <a href="/consumogob/te-ayudamos/sac/" class="home-sector">Vivienda</a>
-          <a href="/consumogob/te-ayudamos/sac/" class="home-sector">Banca y seguros</a>
-          <a href="/consumogob/te-ayudamos/sac/" class="home-sector">Viajes y transportes</a>
-          <a href="/consumogob/te-ayudamos/sac/" class="home-sector">Compras</a>
-          <a href="/consumogob/te-ayudamos/sac/" class="home-sector">Suministros</a>
-          <a href="/consumogob/te-ayudamos/sac/" class="home-sector">Turismo</a>
-          <a href="/consumogob/te-ayudamos/sac/" class="home-sector">Servicios</a>
-        </nav>
+        <!-- CTA principal → página "Te ayudamos" (Opción A / SAC) -->
+        <div style="display:flex;gap:var(--space-md,16px);justify-content:center;flex-wrap:wrap;margin-top:var(--space-lg,24px);">
+          <a href="/consumogob/te-ayudamos/" class="home-search__btn" style="text-decoration:none;padding:14px 28px;border-radius:var(--border-radius,4px);font-size:var(--font-size-lg,18px);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            ¿Te ayudamos?
+          </a>
+          <a href="/consumogob/te-ayudamos/reclamaciones/" class="home-sector" style="padding:14px 28px;font-size:var(--font-size-base,16px);">
+            Haz una reclamación
+          </a>
+        </div>
       </div>
     </section>
 
     <!-- ============================================================
          2. ACCESOS RÁPIDOS — gestiones más frecuentes
          ============================================================ -->
-    <section class="home-quick" aria-labelledby="home-quick-title">
+    <section class="home-quick" aria-labelledby="home-quick-title" style="padding-bottom:var(--space-xl,40px);">
       <h2 class="sr-only" id="home-quick-title">Gestiones más frecuentes</h2>
       <div class="home-quick__grid">
+
+        <a href="/consumogob/te-ayudamos/" class="home-quick__card">
+          <span class="home-quick__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          </span>
+          <h3 class="home-quick__title">Consulta tu problema</h3>
+          <p class="home-quick__desc">Te orientamos según tu caso</p>
+        </a>
 
         <a href="/consumogob/te-ayudamos/reclamaciones/" class="home-quick__card">
           <span class="home-quick__icon" aria-hidden="true">
@@ -369,14 +351,6 @@
           </span>
           <h3 class="home-quick__title">Reclamar</h3>
           <p class="home-quick__desc">Sistema Arbitral de Consumo</p>
-        </a>
-
-        <a href="/consumogob/te-ayudamos/normativa/" class="home-quick__card">
-          <span class="home-quick__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v18"/><path d="M5 7h14"/><path d="m5 7-2 6h6z"/><path d="m19 7 2 6h-6z"/><path d="M8 21h8"/></svg>
-          </span>
-          <h3 class="home-quick__title">Tus derechos</h3>
-          <p class="home-quick__desc">Garantías, devoluciones, desistimiento</p>
         </a>
 
         <a href="/consumogob/te-ayudamos/alertas-seguridad/" class="home-quick__card">
@@ -399,25 +373,87 @@
     </section>
 
     <!-- ============================================================
-         3. Línea institucional — discreta
+         3. NOVEDADES
          ============================================================ -->
-    <aside class="home-institutional" aria-label="Organismos institucionales">
-      <div class="home-institutional__inner">
-        <p class="home-institutional__text">
-          <strong>Secretaría General de Consumo y Juego:</strong>
-          Dirección General de Consumo · Ordenación del Juego (DGOJ) · AESAN
-        </p>
-        <a href="/consumogob/dg-consumo/" class="home-institutional__link">Información institucional →</a>
+    <section class="home-section" aria-labelledby="home-news-title">
+      <div class="home-section__head">
+        <h2 class="home-section__title" id="home-news-title">Novedades</h2>
+        <a href="#" class="home-section__link">Ver todas →</a>
       </div>
-    </aside>
+      <div class="home-news__grid">
+
+        <a href="#" class="home-news-card">
+          <div class="home-news-card__img"></div>
+          <div class="home-news-card__body">
+            <div class="home-news-card__meta">
+              <span class="home-news-card__tag">Normativa</span>
+              <time class="home-news-card__date" datetime="2025-05-12">12 may 2025</time>
+            </div>
+            <h3 class="home-news-card__title">Nuevo reglamento de garantías adaptado a la Directiva europea</h3>
+          </div>
+        </a>
+
+        <a href="#" class="home-news-card">
+          <div class="home-news-card__img"></div>
+          <div class="home-news-card__body">
+            <div class="home-news-card__meta">
+              <span class="home-news-card__tag">Arbitraje</span>
+              <time class="home-news-card__date" datetime="2025-04-05">5 abr 2025</time>
+            </div>
+            <h3 class="home-news-card__title">El Sistema Arbitral de Consumo supera los 300.000 expedientes</h3>
+          </div>
+        </a>
+
+        <a href="#" class="home-news-card">
+          <div class="home-news-card__img"></div>
+          <div class="home-news-card__body">
+            <div class="home-news-card__meta">
+              <span class="home-news-card__tag">Seguridad</span>
+              <time class="home-news-card__date" datetime="2025-03-18">18 mar 2025</time>
+            </div>
+            <h3 class="home-news-card__title">Campaña de vigilancia de mercado en juguetes acuáticos 2025</h3>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         4. ORGANISMOS — Secretaría General de Consumo y Juego
+         ============================================================ -->
+    <section class="home-section" aria-labelledby="home-orgs-title">
+      <div class="home-section__head">
+        <h2 class="home-section__title" id="home-orgs-title">Organismos de la Secretaría General</h2>
+      </div>
+      <div class="home-orgs__grid">
+
+        <a href="/consumogob/dg-consumo/" class="home-org-card">
+          <h3 class="home-org-card__name">Dirección General de Consumo</h3>
+          <p class="home-org-card__desc">Normativa, inspección, vigilancia de mercado, arbitraje y formación en materia de consumo.</p>
+        </a>
+
+        <a href="https://www.ordenacionjuego.es/" target="_blank" rel="noopener" class="home-org-card">
+          <h3 class="home-org-card__name">
+            Ordenación del Juego (DGOJ)
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </h3>
+          <p class="home-org-card__desc">Regulación y supervisión del juego de ámbito estatal, online y presencial.</p>
+          <span class="home-org-card__ext">ordenacionjuego.es — abre en nueva pestaña</span>
+        </a>
+
+        <a href="https://www.aesan.gob.es/" target="_blank" rel="noopener" class="home-org-card">
+          <h3 class="home-org-card__name">
+            AESAN
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </h3>
+          <p class="home-org-card__desc">Agencia Española de Seguridad Alimentaria y Nutrición.</p>
+          <span class="home-org-card__ext">aesan.gob.es — abre en nueva pestaña</span>
+        </a>
+
+      </div>
+    </section>
 
   </main>
-
-
-  <!-- ======================================================================
-       FOOTER
-       DRUPAL: region='footer'
-       ====================================================================== -->
   <footer class="site-footer" role="contentinfo">
     <div class="container">
       <div class="site-footer__inner">
@@ -444,8 +480,6 @@
       </p>
     </div>
   </footer>
-
-  <script src="js/main.js"></script>
-
+  <script src="/consumogob/js/main.js" defer></script>
 </body>
 </html>
