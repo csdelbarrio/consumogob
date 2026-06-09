@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/pages/landing.css">
+  <link rel="stylesheet" href="css/pages/home.css">
 
   <style>
     /* Animaciones de entrada */
@@ -323,584 +323,93 @@
        ====================================================================== -->
   <main id="main-content" tabindex="-1">
 
-    <!-- ====================================================================
-         1. HERO — Cabecera visual de sección
-         DRUPAL: region='content' / block='consumo_hero'
-         ==================================================================== -->
-    <section class="consumo-hero" aria-labelledby="hero-title">
-      <!--
-        IMAGEN HERO:
-        Producción → /themes/custom/pinst_theme/images/hero-consumo.jpg
-        Imagen: sede SGCyJ, Príncipe de Vergara 54, Madrid
-        PENDIENTE: imagen oficial proporcionada por el equipo de comunicación
-      -->
-      <img class="consumo-hero__bg"
-           src="/consumogob/assets/SecretariaGeneralConsumoyJuego-sede.jpg"
-           alt=""
-           aria-hidden="true"
-           loading="eager"
-           width="1600" height="600">
-      <div class="consumo-hero__overlay" aria-hidden="true"></div>
+    <!-- DRUPAL: region='content' / block='page_title_block' -->
+    <!-- ============================================================
+         1. HERO — buscador del SAC como protagonista
+         ============================================================ -->
+    <section class="home-hero" aria-labelledby="home-hero-title">
+      <div class="home-hero__inner">
+        <h1 class="home-hero__title" id="home-hero-title">¿En qué podemos ayudarte?</h1>
+        <p class="home-hero__subtitle">Describe tu problema de consumo y te orientamos hacia la solución.</p>
 
-      <div class="container">
-        <div class="consumo-hero__content">
-          <p class="consumo-hero__eyebrow" aria-hidden="true">Ministerio de Derechos Sociales, Consumo y Agenda 2030</p>
-          <h1 class="consumo-hero__title" id="hero-title">
-            Secretaría General<br>de Consumo y Juego
-          </h1>
-          <p class="consumo-hero__subtitle">
-            Protegemos los derechos e intereses de las personas consumidoras
-            y usuarias, promoviendo un mercado justo, seguro y sostenible.
-          </p>
-          <div class="consumo-hero__actions">
-            <a href="/consumogob/dg-consumo/" class="btn-primary btn-primary--accent">
-              Conoce la Dirección General
-            </a>
-            <a href="#accesos-rapidos" class="btn-secondary">
-              ¿Tienes una reclamación?
-            </a>
-          </div>
-        </div>
+        <!-- Buscador: enlaza al SAC -->
+        <form class="home-search" role="search" action="/consumogob/te-ayudamos/sac/" method="get">
+          <label for="home-search-input" class="sr-only">Describe tu consulta de consumo</label>
+          <input class="home-search__input" id="home-search-input" name="q" type="search"
+                 placeholder="Ej: me han cobrado de más en la factura de la luz…">
+          <button class="home-search__btn" type="submit">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            Buscar
+          </button>
+        </form>
+
+        <!-- Chips de sectores -->
+        <nav class="home-sectors" aria-label="Sectores de consulta">
+          <a href="/consumogob/te-ayudamos/sac/" class="home-sector">Vivienda</a>
+          <a href="/consumogob/te-ayudamos/sac/" class="home-sector">Banca y seguros</a>
+          <a href="/consumogob/te-ayudamos/sac/" class="home-sector">Viajes y transportes</a>
+          <a href="/consumogob/te-ayudamos/sac/" class="home-sector">Compras</a>
+          <a href="/consumogob/te-ayudamos/sac/" class="home-sector">Suministros</a>
+          <a href="/consumogob/te-ayudamos/sac/" class="home-sector">Turismo</a>
+          <a href="/consumogob/te-ayudamos/sac/" class="home-sector">Servicios</a>
+        </nav>
       </div>
     </section>
 
+    <!-- ============================================================
+         2. ACCESOS RÁPIDOS — gestiones más frecuentes
+         ============================================================ -->
+    <section class="home-quick" aria-labelledby="home-quick-title">
+      <h2 class="sr-only" id="home-quick-title">Gestiones más frecuentes</h2>
+      <div class="home-quick__grid">
 
-    <!-- ====================================================================
-         2. ORGANISMOS — Tres tarjetas de acceso
-         DRUPAL: region='content' / block='consumo_organismos'
-         ==================================================================== -->
-    <section class="consumo-organisms" aria-labelledby="organismos-title">
-      <div class="container">
+        <a href="/consumogob/te-ayudamos/reclamaciones/" class="home-quick__card">
+          <span class="home-quick__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m14 13-7.5 7.5a2.12 2.12 0 0 1-3-3L11 10"/><path d="m16 16 6-6"/><path d="m8 8 6-6"/><path d="m9 7 8 8"/><path d="m21 11-8-8"/></svg>
+          </span>
+          <h3 class="home-quick__title">Reclamar</h3>
+          <p class="home-quick__desc">Sistema Arbitral de Consumo</p>
+        </a>
 
-        <div class="section-header">
-          <h2 class="section-header__title" id="organismos-title">Organismos dependientes</h2>
-        </div>
+        <a href="/consumogob/te-ayudamos/normativa/" class="home-quick__card">
+          <span class="home-quick__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v18"/><path d="M5 7h14"/><path d="m5 7-2 6h6z"/><path d="m19 7 2 6h-6z"/><path d="M8 21h8"/></svg>
+          </span>
+          <h3 class="home-quick__title">Tus derechos</h3>
+          <p class="home-quick__desc">Garantías, devoluciones, desistimiento</p>
+        </a>
 
-        <!-- DRUPAL: view='consumo_organismos' / display='landing_grid' -->
-        <div class="consumo-organism-grid">
+        <a href="/consumogob/te-ayudamos/alertas-seguridad/" class="home-quick__card">
+          <span class="home-quick__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+          </span>
+          <h3 class="home-quick__title">Alertas de seguridad</h3>
+          <p class="home-quick__desc">Productos retirados del mercado</p>
+        </a>
 
-          <!-- Tarjeta 1: DG Consumo (interna) -->
-          <article class="organism-card reveal-on-scroll" aria-labelledby="card-dgc-title">
-            <div class="organism-card__logo-wrap">
-              <!-- PENDIENTE: logotipo oficial DG Consumo -->
-              <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg"
-                   role="img" aria-label="Icono de la Dirección General de Consumo">
-                <circle cx="28" cy="28" r="28" fill="#043263"/>
-                <path d="M18 20h20v4H18zm0 7h14v4H18zm0 7h20v4H18z" fill="#ffdb00"/>
-              </svg>
-            </div>
-            <h3 class="organism-card__name" id="card-dgc-title">
-              Dirección General de Consumo
-            </h3>
-            <span class="organism-card__abbr">DG Consumo</span>
-            <p class="organism-card__desc">
-              Órgano directivo responsable de la política estatal de protección de los derechos
-              de las personas consumidoras y usuarias: normativa, inspección, mediación y formación.
-            </p>
-            <a href="/consumogob/dg-consumo/" class="btn-primary" aria-label="Acceder a la Dirección General de Consumo">
-              Acceder
-            </a>
-          </article>
+        <a href="/consumogob/te-ayudamos/faq/" class="home-quick__card">
+          <span class="home-quick__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+          </span>
+          <h3 class="home-quick__title">Preguntas frecuentes</h3>
+          <p class="home-quick__desc">Dudas más habituales</p>
+        </a>
 
-          <!-- Tarjeta 2: DGOJ (externa) -->
-          <article class="organism-card organism-card--external reveal-on-scroll" aria-labelledby="card-dgoj-title">
-            <div class="organism-card__logo-wrap">
-              <!-- PENDIENTE: logotipo oficial DGOJ en SVG -->
-              <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg"
-                   role="img" aria-label="Icono de la Dirección General de Ordenación del Juego">
-                <circle cx="28" cy="28" r="28" fill="#043263"/>
-                <polygon points="28,14 34,24 42,24 36,30 38,40 28,34 18,40 20,30 14,24 22,24"
-                         fill="#ffdb00" stroke="#ffdb00" stroke-width="0.5"/>
-              </svg>
-            </div>
-            <h3 class="organism-card__name" id="card-dgoj-title">
-              Dirección General de Ordenación del Juego
-            </h3>
-            <span class="organism-card__abbr">DGOJ</span>
-            <p class="organism-card__desc">
-              Regula y supervisa las actividades de juego de ámbito estatal, velando por la
-              protección de los participantes y la prevención de conductas adictivas.
-            </p>
-            <a href="https://www.ordenacionjuego.es/"
-               class="btn-primary"
-               target="_blank"
-               rel="noopener noreferrer"
-               aria-label="Acceder a la web de la Dirección General de Ordenación del Juego (abre en nueva pestaña)">
-              Acceder al organismo
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                   stroke-width="2.5" aria-hidden="true">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                <polyline points="15 3 21 3 21 9"/>
-                <line x1="10" y1="14" x2="21" y2="3"/>
-              </svg>
-            </a>
-          </article>
-
-          <!-- Tarjeta 3: AESAN (externa) -->
-          <article class="organism-card organism-card--external reveal-on-scroll" aria-labelledby="card-aesan-title">
-            <div class="organism-card__logo-wrap">
-              <!-- PENDIENTE: logotipo oficial AESAN en SVG -->
-              <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg"
-                   role="img" aria-label="Icono de la Agencia Española de Seguridad Alimentaria y Nutrición">
-                <circle cx="28" cy="28" r="28" fill="#043263"/>
-                <path d="M28 14c-7.7 0-14 6.3-14 14s6.3 14 14 14 14-6.3 14-14-6.3-14-14-14zm-2 20v-8l6 4-6 4z"
-                      fill="#ffdb00"/>
-              </svg>
-            </div>
-            <h3 class="organism-card__name" id="card-aesan-title">
-              Agencia Española de Seguridad Alimentaria y Nutrición
-            </h3>
-            <span class="organism-card__abbr">AESAN</span>
-            <p class="organism-card__desc">
-              Promueve la seguridad alimentaria como aspecto fundamental de la salud pública,
-              con evaluación de riesgos, gestión de alertas y fomento de una nutrición saludable.
-            </p>
-            <a href="https://www.aesan.gob.es/"
-               class="btn-primary"
-               target="_blank"
-               rel="noopener noreferrer"
-               aria-label="Acceder a la web de la Agencia Española de Seguridad Alimentaria y Nutrición (abre en nueva pestaña)">
-              Acceder al organismo
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                   stroke-width="2.5" aria-hidden="true">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                <polyline points="15 3 21 3 21 9"/>
-                <line x1="10" y1="14" x2="21" y2="3"/>
-              </svg>
-            </a>
-          </article>
-
-        </div>
       </div>
     </section>
 
-
-    <!-- ====================================================================
-         3. ESTADÍSTICAS — Cifras destacadas
-         DRUPAL: region='content' / block='consumo_stats'
-         ==================================================================== -->
-    <div class="stats-strip consumo-stats" aria-label="Cifras clave de consumo">
-      <div class="container">
-        <div class="stats-strip__grid">
-          <div class="stats-strip__item">
-            <span class="stats-strip__number"
-                  data-counter="47800"
-                  data-suffix=""
-                  aria-label="47.800 inspecciones realizadas">47.800</span>
-            <span class="stats-strip__label">Inspecciones de consumo realizadas en 2024</span>
-          </div>
-          <div class="stats-strip__item">
-            <span class="stats-strip__number"
-                  data-counter="312000"
-                  data-suffix=""
-                  aria-label="312.000 reclamaciones gestionadas">312.000</span>
-            <span class="stats-strip__label">Reclamaciones gestionadas en el SIRC</span>
-          </div>
-          <div class="stats-strip__item">
-            <span class="stats-strip__number"
-                  data-counter="1240"
-                  data-suffix=""
-                  aria-label="1.240 alertas de producto tramitadas">1.240</span>
-            <span class="stats-strip__label">Alertas de producto tramitadas en RAPEX</span>
-          </div>
-          <div class="stats-strip__item">
-            <span class="stats-strip__number"
-                  data-counter="98"
-                  data-suffix="%"
-                  aria-label="98% de procedimientos arbitrales resueltos">98%</span>
-            <span class="stats-strip__label">Procedimientos arbitrales resueltos en plazo</span>
-          </div>
-        </div>
+    <!-- ============================================================
+         3. Línea institucional — discreta
+         ============================================================ -->
+    <aside class="home-institutional" aria-label="Organismos institucionales">
+      <div class="home-institutional__inner">
+        <p class="home-institutional__text">
+          <strong>Secretaría General de Consumo y Juego:</strong>
+          Dirección General de Consumo · Ordenación del Juego (DGOJ) · AESAN
+        </p>
+        <a href="/consumogob/dg-consumo/" class="home-institutional__link">Información institucional →</a>
       </div>
-    </div>
-
-
-    <!-- ====================================================================
-         4. NOTICIAS — Novedades destacadas
-         DRUPAL: region='content' / view='consumo_noticias' / display='landing_3col'
-         ==================================================================== -->
-    <section class="consumo-news" aria-labelledby="noticias-title">
-      <div class="container">
-
-        <div class="section-header">
-          <h2 class="section-header__title" id="noticias-title">Novedades</h2>
-          <a href="/consumogob/dg-consumo/sgcccc/novedades/" class="section-header__link" aria-label="Ver todas las novedades de Consumo">
-            Ver todas
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                 stroke-width="2" aria-hidden="true">
-              <polyline points="9 18 15 12 9 6"/>
-            </svg>
-          </a>
-        </div>
-
-        <!-- DRUPAL: contenido real desde vista consumo_noticias -->
-        <!-- Contenido sintético realista 2024-2025 -->
-        <div class="consumo-news-grid">
-
-          <!-- Noticia 1 -->
-          <article class="news-card reveal-on-scroll">
-            <div class="news-card__image-wrap">
-              <img class="news-card__image"
-                   src="https://picsum.photos/id/180/600/360"
-                   alt="Personas en una tienda revisando etiquetas de productos"
-                   loading="lazy" width="600" height="360">
-            </div>
-            <div class="news-card__body">
-              <div class="news-card__meta">
-                <span class="tag tag--primary">Normativa</span>
-                <time class="news-card__date" datetime="2025-03-18">18 mar 2025</time>
-              </div>
-              <h3 class="news-card__title">
-                <a href="#" class="news-card__title-link">
-                  El Gobierno aprueba el reglamento de desarrollo de la LGDCU sobre garantías comerciales
-                </a>
-              </h3>
-              <p class="news-card__excerpt">
-                El Consejo de Ministros ha aprobado el reglamento que desarrolla la Ley General
-                para la Defensa de los Consumidores y Usuarios en materia de garantías comerciales,
-                adaptando la normativa española a la Directiva (UE) 2019/771.
-              </p>
-              <a href="#" class="news-card__link" aria-label="Leer más sobre el reglamento de desarrollo de la LGDCU">
-                Leer más
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                     stroke-width="2" aria-hidden="true">
-                  <polyline points="9 18 15 12 9 6"/>
-                </svg>
-              </a>
-            </div>
-          </article>
-
-          <!-- Noticia 2 -->
-          <article class="news-card reveal-on-scroll">
-            <div class="news-card__image-wrap">
-              <img class="news-card__image"
-                   src="https://picsum.photos/id/96/600/360"
-                   alt="Reunión institucional sobre mediación de consumo"
-                   loading="lazy" width="600" height="360">
-            </div>
-            <div class="news-card__body">
-              <div class="news-card__meta">
-                <span class="tag tag--primary">Resolución alternativa</span>
-                <time class="news-card__date" datetime="2025-02-05">5 feb 2025</time>
-              </div>
-              <h3 class="news-card__title">
-                <a href="#" class="news-card__title-link">
-                  El Sistema Arbitral de Consumo supera los 300.000 expedientes en 2024
-                </a>
-              </h3>
-              <p class="news-card__excerpt">
-                La red de Juntas Arbitrales de Consumo alcanzó un nuevo récord en la tramitación
-                de reclamaciones, con una tasa de resolución favorable al consumidor superior
-                al 70% en sectores como telecomunicaciones y energía.
-              </p>
-              <a href="#" class="news-card__link" aria-label="Leer más sobre el Sistema Arbitral de Consumo">
-                Leer más
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                     stroke-width="2" aria-hidden="true">
-                  <polyline points="9 18 15 12 9 6"/>
-                </svg>
-              </a>
-            </div>
-          </article>
-
-          <!-- Noticia 3 -->
-          <article class="news-card reveal-on-scroll">
-            <div class="news-card__image-wrap">
-              <img class="news-card__image"
-                   src="https://picsum.photos/id/367/600/360"
-                   alt="Inspección de seguridad de productos en el mercado"
-                   loading="lazy" width="600" height="360">
-            </div>
-            <div class="news-card__body">
-              <div class="news-card__meta">
-                <span class="tag tag--primary">Seguridad</span>
-                <time class="news-card__date" datetime="2025-01-20">20 ene 2025</time>
-              </div>
-              <h3 class="news-card__title">
-                <a href="#" class="news-card__title-link">
-                  España lidera en Europa el número de alertas de seguridad de productos notificadas a RAPEX
-                </a>
-              </h3>
-              <p class="news-card__excerpt">
-                Los servicios de inspección de consumo notificaron 1.240 alertas al sistema
-                europeo RAPEX durante 2024, situando a España entre los países con mayor
-                actividad en vigilancia de mercado de la Unión Europea.
-              </p>
-              <a href="#" class="news-card__link" aria-label="Leer más sobre alertas de seguridad de productos en RAPEX">
-                Leer más
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                     stroke-width="2" aria-hidden="true">
-                  <polyline points="9 18 15 12 9 6"/>
-                </svg>
-              </a>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ====================================================================
-         4b. CARRUSEL — Noticias y páginas destacadas
-         DRUPAL: region='content' / view='consumo_carrusel' / display='landing_carousel'
-         ==================================================================== -->
-    <section class="consumo-carousel" aria-labelledby="carousel-title" aria-roledescription="carrusel">
-      <div class="container">
-
-        <div class="section-header">
-          <h2 class="section-header__title" id="carousel-title">Destacados</h2>
-        </div>
-
-        <div class="carousel" role="region" aria-label="Noticias y contenidos destacados">
-
-          <!-- Pista de tarjetas -->
-          <div class="carousel__track-wrap">
-            <ul class="carousel__track" id="carousel-track" aria-live="polite">
-
-              <!-- Slide 1 -->
-              <li class="carousel__slide" role="group" aria-roledescription="diapositiva" aria-label="1 de 5">
-                <article class="carousel__card">
-                  <div class="carousel__card-img-wrap">
-                    <img src="https://picsum.photos/id/26/800/450"
-                         alt="Persona consultando derechos de consumidor en smartphone"
-                         loading="lazy" width="800" height="450" class="carousel__card-img">
-                  </div>
-                  <div class="carousel__card-body">
-                    <div class="carousel__card-meta">
-                      <span class="tag tag--primary">Normativa</span>
-                      <time datetime="2025-03-18">18 mar 2025</time>
-                    </div>
-                    <h3 class="carousel__card-title">
-                      <a href="#">Nuevo reglamento de garantías comerciales adapta la LGDCU a la directiva europea</a>
-                    </h3>
-                    <p class="carousel__card-excerpt">
-                      El Consejo de Ministros aprueba el desarrollo reglamentario que refuerza los derechos de garantía de los consumidores frente a productos defectuosos.
-                    </p>
-                  </div>
-                </article>
-              </li>
-
-              <!-- Slide 2 -->
-              <li class="carousel__slide" role="group" aria-roledescription="diapositiva" aria-label="2 de 5">
-                <article class="carousel__card">
-                  <div class="carousel__card-img-wrap">
-                    <img src="https://picsum.photos/id/96/800/450"
-                         alt="Reunión de mediación de consumo"
-                         loading="lazy" width="800" height="450" class="carousel__card-img">
-                  </div>
-                  <div class="carousel__card-body">
-                    <div class="carousel__card-meta">
-                      <span class="tag tag--primary">Arbitraje</span>
-                      <time datetime="2025-02-05">5 feb 2025</time>
-                    </div>
-                    <h3 class="carousel__card-title">
-                      <a href="#">El Sistema Arbitral de Consumo supera los 300.000 expedientes en 2024</a>
-                    </h3>
-                    <p class="carousel__card-excerpt">
-                      La red de Juntas Arbitrales alcanza un nuevo récord con una tasa de resolución favorable al consumidor superior al 70%.
-                    </p>
-                  </div>
-                </article>
-              </li>
-
-              <!-- Slide 3 -->
-              <li class="carousel__slide" role="group" aria-roledescription="diapositiva" aria-label="3 de 5">
-                <article class="carousel__card">
-                  <div class="carousel__card-img-wrap">
-                    <img src="https://picsum.photos/id/367/800/450"
-                         alt="Inspección de seguridad de productos"
-                         loading="lazy" width="800" height="450" class="carousel__card-img">
-                  </div>
-                  <div class="carousel__card-body">
-                    <div class="carousel__card-meta">
-                      <span class="tag tag--primary">Seguridad</span>
-                      <time datetime="2025-01-20">20 ene 2025</time>
-                    </div>
-                    <h3 class="carousel__card-title">
-                      <a href="#">España lidera en Europa el número de alertas de seguridad notificadas a RAPEX</a>
-                    </h3>
-                    <p class="carousel__card-excerpt">
-                      Los servicios de inspección notificaron 1.240 alertas al sistema europeo durante 2024, situando a España entre los países más activos en vigilancia de mercado.
-                    </p>
-                  </div>
-                </article>
-              </li>
-
-              <!-- Slide 4 -->
-              <li class="carousel__slide" role="group" aria-roledescription="diapositiva" aria-label="4 de 5">
-                <article class="carousel__card">
-                  <div class="carousel__card-img-wrap">
-                    <img src="https://picsum.photos/id/180/800/450"
-                         alt="Consumidor revisando etiquetas de producto"
-                         loading="lazy" width="800" height="450" class="carousel__card-img">
-                  </div>
-                  <div class="carousel__card-body">
-                    <div class="carousel__card-meta">
-                      <span class="tag tag--primary">Digital</span>
-                      <time datetime="2024-12-10">10 dic 2024</time>
-                    </div>
-                    <h3 class="carousel__card-title">
-                      <a href="#">La Directiva de Servicios Digitales (DSA) refuerza derechos en plataformas online</a>
-                    </h3>
-                    <p class="carousel__card-excerpt">
-                      Las grandes plataformas están obligadas a ofrecer transparencia algorítmica y mecanismos de reclamación accesibles para los consumidores europeos.
-                    </p>
-                  </div>
-                </article>
-              </li>
-
-              <!-- Slide 5 -->
-              <li class="carousel__slide" role="group" aria-roledescription="diapositiva" aria-label="5 de 5">
-                <article class="carousel__card">
-                  <div class="carousel__card-img-wrap">
-                    <img src="https://picsum.photos/id/453/800/450"
-                         alt="Formación en derechos de consumo"
-                         loading="lazy" width="800" height="450" class="carousel__card-img">
-                  </div>
-                  <div class="carousel__card-body">
-                    <div class="carousel__card-meta">
-                      <span class="tag tag--primary">Formación</span>
-                      <time datetime="2024-11-15">15 nov 2024</time>
-                    </div>
-                    <h3 class="carousel__card-title">
-                      <a href="#">Nueva guía práctica sobre derechos en compras online para consumidores</a>
-                    </h3>
-                    <p class="carousel__card-excerpt">
-                      El Ministerio publica una guía actualizada con los derechos de desistimiento, garantías y reclamaciones en el comercio electrónico.
-                    </p>
-                  </div>
-                </article>
-              </li>
-
-            </ul>
-          </div><!-- /.carousel__track-wrap -->
-
-          <!-- Dots de navegación -->
-          <div class="carousel__dots" role="tablist" aria-label="Seleccionar diapositiva">
-            <button class="carousel__dot carousel__dot--active" role="tab" aria-selected="true"
-                    aria-label="Diapositiva 1" data-carousel-dot="0"></button>
-            <button class="carousel__dot" role="tab" aria-selected="false"
-                    aria-label="Diapositiva 2" data-carousel-dot="1"></button>
-            <button class="carousel__dot" role="tab" aria-selected="false"
-                    aria-label="Diapositiva 3" data-carousel-dot="2"></button>
-            <button class="carousel__dot" role="tab" aria-selected="false"
-                    aria-label="Diapositiva 4" data-carousel-dot="3"></button>
-            <button class="carousel__dot" role="tab" aria-selected="false"
-                    aria-label="Diapositiva 5" data-carousel-dot="4"></button>
-          </div>
-
-        </div><!-- /.carousel -->
-      </div>
-    </section>
-
-
-    <!-- ====================================================================
-         5. ACCESOS RÁPIDOS CIUDADANO
-         DRUPAL: region='content' / block='consumo_accesos_rapidos'
-         ==================================================================== -->
-    <section class="consumo-quick-access" id="accesos-rapidos" aria-labelledby="accesos-title">
-      <div class="container">
-
-        <div class="consumo-quick-access__intro">
-          <h2 id="accesos-title">¿Qué necesitas?</h2>
-          <p>Accede directamente a los servicios más demandados por la ciudadanía.</p>
-        </div>
-
-        <!-- DRUPAL: block='consumo_accesos_rapidos' -->
-        <div class="quick-access-grid">
-
-          <a href="#" class="quick-access-item" aria-label="Haz una reclamación de consumo">
-            <div class="quick-access-item__icon" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                   stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                <polyline points="14 2 14 8 20 8"/>
-                <line x1="16" y1="13" x2="8" y2="13"/>
-                <line x1="16" y1="17" x2="8" y2="17"/>
-                <polyline points="10 9 9 9 8 9"/>
-              </svg>
-            </div>
-            <div class="quick-access-item__text">
-              <div class="quick-access-item__title">Haz una reclamación</div>
-              <div class="quick-access-item__desc">Sistema Arbitral de Consumo</div>
-            </div>
-          </a>
-
-          <a href="#" class="quick-access-item" aria-label="Consulta la normativa de consumo">
-            <div class="quick-access-item__icon" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                   stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
-              </svg>
-            </div>
-            <div class="quick-access-item__text">
-              <div class="quick-access-item__title">Consulta normativa</div>
-              <div class="quick-access-item__desc">Legislación y disposiciones</div>
-            </div>
-          </a>
-
-          <a href="#" class="quick-access-item" aria-label="Verifica si tu empresa está adherida al Sistema Arbitral de Consumo">
-            <div class="quick-access-item__icon" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                   stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                <polyline points="22 4 12 14.01 9 11.01"/>
-              </svg>
-            </div>
-            <div class="quick-access-item__text">
-              <div class="quick-access-item__title">Empresas adheridas</div>
-              <div class="quick-access-item__desc">Distintivo Oficial de Calidad</div>
-            </div>
-          </a>
-
-          <a href="#" class="quick-access-item" aria-label="Consulta alertas de seguridad de productos">
-            <div class="quick-access-item__icon" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                   stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
-                <line x1="12" y1="9" x2="12" y2="13"/>
-                <line x1="12" y1="17" x2="12.01" y2="17"/>
-              </svg>
-            </div>
-            <div class="quick-access-item__text">
-              <div class="quick-access-item__title">Alertas de seguridad</div>
-              <div class="quick-access-item__desc">Productos retirados del mercado</div>
-            </div>
-          </a>
-
-          <a href="#" class="quick-access-item" aria-label="Información sobre etiquetado y publicidad">
-            <div class="quick-access-item__icon" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                   stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"/>
-                <line x1="12" y1="8" x2="12" y2="12"/>
-                <line x1="12" y1="16" x2="12.01" y2="16"/>
-              </svg>
-            </div>
-            <div class="quick-access-item__text">
-              <div class="quick-access-item__title">Etiquetado y publicidad</div>
-              <div class="quick-access-item__desc">Guías y criterios oficiales</div>
-            </div>
-          </a>
-
-          <a href="#" class="quick-access-item" aria-label="Contacta con nosotros">
-            <div class="quick-access-item__icon" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                   stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-              </svg>
-            </div>
-            <div class="quick-access-item__text">
-              <div class="quick-access-item__title">Contacta con nosotros</div>
-              <div class="quick-access-item__desc">Teléfono, correo y presencial</div>
-            </div>
-          </a>
-
-        </div>
-      </div>
-    </section>
+    </aside>
 
   </main>
 

@@ -1,0 +1,252 @@
+/* ==========================================================================
+   HOME.CSS — Portada Consumo · diseño limpio centrado en el ciudadano
+   Navy (#043263) solo como color de texto y acentos. Todo lo demás blanco.
+   ========================================================================== */
+
+.home {
+  background: var(--color-bg-white, #ffffff);
+}
+
+/* --------------------------------------------------------------------------
+   1. HERO — buscador del SAC como protagonista (fondo blanco)
+   -------------------------------------------------------------------------- */
+.home-hero {
+  background: var(--color-bg-white, #ffffff);
+  padding: var(--space-xxl, 72px) var(--space-lg, 24px) var(--space-xl, 40px);
+  text-align: center;
+}
+
+.home-hero__inner {
+  max-width: 720px;
+  margin-inline: auto;
+}
+
+.home-hero__title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: var(--font-weight-bold, 700);
+  color: var(--color-primary, #043263);
+  line-height: 1.15;
+  margin: 0 0 var(--space-sm, 8px);
+}
+
+.home-hero__subtitle {
+  font-size: var(--font-size-lg, 18px);
+  color: var(--color-text-muted, #5c5c5c);
+  margin: 0 0 var(--space-xl, 40px);
+}
+
+/* Buscador */
+.home-search {
+  display: flex;
+  max-width: 540px;
+  margin: 0 auto var(--space-lg, 24px);
+  border: 2px solid var(--color-primary, #043263);
+  border-radius: var(--border-radius, 4px);
+  overflow: hidden;
+  background: #fff;
+  transition: box-shadow var(--transition-fast, .15s);
+}
+
+.home-search:focus-within {
+  box-shadow: 0 0 0 3px rgba(4, 50, 99, 0.15);
+}
+
+.home-search__input {
+  flex: 1;
+  border: none;
+  padding: 14px 18px;
+  font-size: var(--font-size-base, 16px);
+  font-family: inherit;
+  color: var(--color-text, #1a1a1a);
+  outline: none;
+  min-width: 0;
+}
+
+.home-search__input::placeholder {
+  color: var(--color-text-muted, #5c5c5c);
+}
+
+.home-search__btn {
+  background: var(--color-accent, #ffdb00);
+  border: none;
+  padding: 0 24px;
+  font-size: var(--font-size-base, 16px);
+  font-weight: var(--font-weight-semibold, 600);
+  color: var(--color-black, #1a1a1a);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  transition: background var(--transition-fast, .15s);
+}
+
+.home-search__btn:hover {
+  background: var(--color-accent-dark, #e6c500);
+}
+
+/* Chips de sectores */
+.home-sectors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm, 8px);
+  justify-content: center;
+}
+
+.home-sector {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 14px;
+  border: 1px solid var(--color-border, #e3e6ea);
+  border-radius: 20px;
+  background: #fff;
+  font-size: var(--font-size-sm, 14px);
+  color: var(--color-primary, #043263);
+  text-decoration: none;
+  transition: all var(--transition-fast, .15s);
+}
+
+.home-sector:hover {
+  border-color: var(--color-primary, #043263);
+  background: var(--color-bg-alt, #f7f8fa);
+  text-decoration: none;
+}
+
+/* --------------------------------------------------------------------------
+   2. ACCESOS RÁPIDOS — 4 tarjetas blancas
+   -------------------------------------------------------------------------- */
+.home-quick {
+  max-width: var(--max-width, 1200px);
+  margin-inline: auto;
+  padding: var(--space-md, 16px) var(--space-lg, 24px) var(--space-xxl, 72px);
+}
+
+.home-quick__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg, 24px);
+}
+
+.home-quick__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-xl, 40px) var(--space-md, 16px);
+  background: #fff;
+  border: 1px solid var(--color-border, #e3e6ea);
+  border-radius: var(--border-radius, 4px);
+  border-top: 3px solid transparent;
+  text-decoration: none;
+  color: var(--color-text, #1a1a1a);
+  transition: all var(--transition-fast, .15s);
+}
+
+.home-quick__card:hover {
+  border-top-color: var(--color-accent, #ffdb00);
+  background: var(--color-bg-alt, #f7f8fa);
+  box-shadow: var(--shadow-md, 0 2px 8px rgba(0,0,0,.08));
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+.home-quick__icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary, #043263);
+  margin-bottom: var(--space-md, 16px);
+}
+
+.home-quick__icon svg {
+  width: 36px;
+  height: 36px;
+}
+
+.home-quick__title {
+  font-size: var(--font-size-lg, 18px);
+  font-weight: var(--font-weight-semibold, 600);
+  color: var(--color-primary, #043263);
+  margin: 0 0 var(--space-xs, 4px);
+}
+
+.home-quick__desc {
+  font-size: var(--font-size-sm, 14px);
+  color: var(--color-text-muted, #5c5c5c);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* --------------------------------------------------------------------------
+   3. Línea institucional — discreta, antes del footer
+   -------------------------------------------------------------------------- */
+.home-institutional {
+  border-top: 1px solid var(--color-border, #e3e6ea);
+  background: var(--color-bg-alt, #f7f8fa);
+}
+
+.home-institutional__inner {
+  max-width: var(--max-width, 1200px);
+  margin-inline: auto;
+  padding: var(--space-lg, 24px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md, 16px);
+  flex-wrap: wrap;
+}
+
+.home-institutional__text {
+  font-size: var(--font-size-sm, 14px);
+  color: var(--color-text-muted, #5c5c5c);
+  margin: 0;
+}
+
+.home-institutional__text strong {
+  color: var(--color-primary, #043263);
+  font-weight: var(--font-weight-semibold, 600);
+}
+
+.home-institutional__link {
+  font-size: var(--font-size-sm, 14px);
+  color: var(--color-primary, #043263);
+  text-decoration: none;
+  font-weight: var(--font-weight-semibold, 600);
+  white-space: nowrap;
+}
+
+.home-institutional__link:hover {
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .home-quick__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .home-hero {
+    padding-top: var(--space-xl, 40px);
+  }
+  .home-quick__grid {
+    grid-template-columns: 1fr;
+  }
+  .home-search {
+    flex-direction: column;
+  }
+  .home-search__btn {
+    padding: 12px;
+    justify-content: center;
+  }
+  .home-institutional__inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
