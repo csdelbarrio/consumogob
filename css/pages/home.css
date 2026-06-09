@@ -1,414 +1,412 @@
 /* ==========================================================================
-   HOME.CSS — Portada Consumo · diseño limpio centrado en el ciudadano
-   Navy (#043263) solo como color de texto y acentos. Todo lo demás blanco.
+   HOME.CSS — Portada Consumo · diseño limpio y con nivel visual
+   Navy (#043263) como texto/acento. Fondos claros. Amarillo institucional
+   usado con intención. Jerarquía editorial.
    ========================================================================== */
 
-.home {
-  background: var(--color-bg-white, #ffffff);
-}
+.home { background: var(--color-bg-white); }
 
-/* --------------------------------------------------------------------------
-   1. HERO — buscador del SAC como protagonista (fondo blanco)
-   -------------------------------------------------------------------------- */
-.home-hero {
-  background: var(--color-bg-white, #ffffff);
-  padding: var(--space-xxl, 72px) var(--space-lg, 24px) var(--space-xl, 40px);
-  text-align: center;
-}
-
-.home-hero__inner {
-  max-width: 720px;
+.home .container,
+.home-wrap {
+  max-width: var(--max-width, 1200px);
   margin-inline: auto;
+  padding-inline: var(--space-lg);
 }
 
-.home-hero__title {
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
-  font-weight: var(--font-weight-bold, 700);
-  color: var(--color-primary, #043263);
-  line-height: 1.15;
-  margin: 0 0 var(--space-sm, 8px);
-}
-
-.home-hero__subtitle {
-  font-size: var(--font-size-lg, 18px);
-  color: var(--color-text-muted, #5c5c5c);
-  margin: 0 0 var(--space-xl, 40px);
-}
-
-/* Buscador */
-.home-search {
-  display: flex;
-  max-width: 540px;
-  margin: 0 auto var(--space-lg, 24px);
-  border: 2px solid var(--color-primary, #043263);
-  border-radius: var(--border-radius, 4px);
-  overflow: hidden;
-  background: #fff;
-  transition: box-shadow var(--transition-fast, .15s);
-}
-
-.home-search:focus-within {
-  box-shadow: 0 0 0 3px rgba(4, 50, 99, 0.15);
-}
-
-.home-search__input {
-  flex: 1;
-  border: none;
-  padding: 14px 18px;
-  font-size: var(--font-size-base, 16px);
-  font-family: inherit;
-  color: var(--color-text, #1a1a1a);
-  outline: none;
-  min-width: 0;
-}
-
-.home-search__input::placeholder {
-  color: var(--color-text-muted, #5c5c5c);
-}
-
-.home-search__btn {
-  background: var(--color-accent, #ffdb00);
-  border: none;
-  padding: 0 24px;
-  font-size: var(--font-size-base, 16px);
-  font-weight: var(--font-weight-semibold, 600);
-  color: var(--color-black, #1a1a1a);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  white-space: nowrap;
-  transition: background var(--transition-fast, .15s);
-}
-
-.home-search__btn:hover {
-  background: var(--color-accent-dark, #e6c500);
-}
-
-/* Chips de sectores */
-.home-sectors {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-sm, 8px);
-  justify-content: center;
-}
-
-.home-sector {
+/* etiqueta de sección reutilizable */
+.home-eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  padding: 6px 14px;
-  border: 1px solid var(--color-border, #e3e6ea);
-  border-radius: 20px;
-  background: #fff;
-  font-size: var(--font-size-sm, 14px);
-  color: var(--color-primary, #043263);
-  text-decoration: none;
-  transition: all var(--transition-fast, .15s);
+  gap: 8px;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin: 0 0 var(--space-sm);
 }
-
-.home-sector:hover {
-  border-color: var(--color-primary, #043263);
-  background: var(--color-bg-alt, #f7f8fa);
-  text-decoration: none;
-}
-
-/* --------------------------------------------------------------------------
-   2. ACCESOS RÁPIDOS — 4 tarjetas blancas
-   -------------------------------------------------------------------------- */
-.home-quick {
-  max-width: var(--max-width, 1200px);
-  margin-inline: auto;
-  padding: var(--space-md, 16px) var(--space-lg, 24px) var(--space-xxl, 72px);
-}
-
-.home-quick__grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-lg, 24px);
-}
-
-.home-quick__card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: var(--space-xl, 40px) var(--space-md, 16px);
-  background: #fff;
-  border: 1px solid var(--color-border, #e3e6ea);
-  border-radius: var(--border-radius, 4px);
-  border-top: 3px solid transparent;
-  text-decoration: none;
-  color: var(--color-text, #1a1a1a);
-  transition: all var(--transition-fast, .15s);
-}
-
-.home-quick__card:hover {
-  border-top-color: var(--color-accent, #ffdb00);
-  background: var(--color-bg-alt, #f7f8fa);
-  box-shadow: var(--shadow-md, 0 2px 8px rgba(0,0,0,.08));
-  text-decoration: none;
-  transform: translateY(-2px);
-}
-
-.home-quick__icon {
-  width: 56px;
-  height: 56px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-primary, #043263);
-  margin-bottom: var(--space-md, 16px);
-}
-
-.home-quick__icon svg {
-  width: 36px;
-  height: 36px;
-}
-
-.home-quick__title {
-  font-size: var(--font-size-lg, 18px);
-  font-weight: var(--font-weight-semibold, 600);
-  color: var(--color-primary, #043263);
-  margin: 0 0 var(--space-xs, 4px);
-}
-
-.home-quick__desc {
-  font-size: var(--font-size-sm, 14px);
-  color: var(--color-text-muted, #5c5c5c);
-  margin: 0;
-  line-height: 1.4;
-}
-
-/* --------------------------------------------------------------------------
-   3. Línea institucional — discreta, antes del footer
-   -------------------------------------------------------------------------- */
-.home-institutional {
-  border-top: 1px solid var(--color-border, #e3e6ea);
-  background: var(--color-bg-alt, #f7f8fa);
-}
-
-.home-institutional__inner {
-  max-width: var(--max-width, 1200px);
-  margin-inline: auto;
-  padding: var(--space-lg, 24px);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-md, 16px);
-  flex-wrap: wrap;
-}
-
-.home-institutional__text {
-  font-size: var(--font-size-sm, 14px);
-  color: var(--color-text-muted, #5c5c5c);
-  margin: 0;
-}
-
-.home-institutional__text strong {
-  color: var(--color-primary, #043263);
-  font-weight: var(--font-weight-semibold, 600);
-}
-
-.home-institutional__link {
-  font-size: var(--font-size-sm, 14px);
-  color: var(--color-primary, #043263);
-  text-decoration: none;
-  font-weight: var(--font-weight-semibold, 600);
-  white-space: nowrap;
-}
-
-.home-institutional__link:hover {
-  text-decoration: underline;
-}
-
-/* --------------------------------------------------------------------------
-   Responsive
-   -------------------------------------------------------------------------- */
-@media (max-width: 900px) {
-  .home-quick__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 560px) {
-  .home-hero {
-    padding-top: var(--space-xl, 40px);
-  }
-  .home-quick__grid {
-    grid-template-columns: 1fr;
-  }
-  .home-search {
-    flex-direction: column;
-  }
-  .home-search__btn {
-    padding: 12px;
-    justify-content: center;
-  }
-  .home-institutional__inner {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+.home-eyebrow::before {
+  content: "";
+  width: 28px;
+  height: 3px;
+  background: var(--color-accent);
+  border-radius: 2px;
 }
 
 /* ==========================================================================
-   PORTADA B — secciones adicionales (novedades + organismos en tarjetas)
-   Misma línea limpia: navy solo texto, fondos blancos
+   1. HERO — foto de la sede + mensaje + CTA, dos columnas
    ========================================================================== */
-
-/* Etiqueta de sección reutilizable */
-.home-section {
+.home-hero {
+  position: relative;
+  background: var(--color-primary);
+  overflow: hidden;
+}
+.home-hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.home-hero__media img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: .28;
+}
+.home-hero__media::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(105deg,
+    rgba(4,50,99,.96) 0%,
+    rgba(4,50,99,.82) 48%,
+    rgba(4,50,99,.55) 100%);
+}
+.home-hero__inner {
+  position: relative;
+  z-index: 1;
   max-width: var(--max-width, 1200px);
   margin-inline: auto;
-  padding: 0 var(--space-lg, 24px);
+  padding: clamp(48px, 8vw, 96px) var(--space-lg);
 }
-
-.home-section__head {
+.home-hero__content { max-width: 620px; }
+.home-hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin: 0 0 var(--space-md);
+}
+.home-hero__eyebrow::before {
+  content: "";
+  width: 28px; height: 3px;
+  background: var(--color-accent);
+  border-radius: 2px;
+}
+.home-hero__title {
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.08;
+  color: #fff;
+  margin: 0 0 var(--space-md);
+  letter-spacing: -.01em;
+}
+.home-hero__subtitle {
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  line-height: 1.5;
+  color: rgba(255,255,255,.85);
+  margin: 0 0 var(--space-xl);
+  max-width: 520px;
+}
+.home-hero__actions {
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  margin: var(--space-xl, 40px) 0 var(--space-lg, 24px);
-  gap: var(--space-md, 16px);
+  gap: var(--space-md);
+  flex-wrap: wrap;
 }
-
-.home-section__title {
-  font-size: var(--font-size-xl, 22px);
-  font-weight: var(--font-weight-bold, 700);
-  color: var(--color-primary, #043263);
-  margin: 0;
-  padding-bottom: var(--space-xs, 4px);
-  border-bottom: 3px solid var(--color-accent, #ffdb00);
-}
-
-.home-section__link {
-  font-size: var(--font-size-sm, 14px);
-  color: var(--color-primary, #043263);
+.btn-hero {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 30px;
+  border-radius: var(--border-radius-md);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
   text-decoration: none;
-  font-weight: var(--font-weight-semibold, 600);
-  white-space: nowrap;
+  transition: transform .15s, box-shadow .15s, background .15s;
 }
-
-.home-section__link:hover { text-decoration: underline; }
-
-/* --- Novedades --- */
-.home-news__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-lg, 24px);
+.btn-hero--primary {
+  background: var(--color-accent);
+  color: var(--color-primary-dark);
+  box-shadow: 0 4px 16px rgba(255,219,0,.28);
 }
-
-.home-news-card {
-  display: flex;
-  flex-direction: column;
-  background: #fff;
-  border: 1px solid var(--color-border, #e3e6ea);
-  border-radius: var(--border-radius, 4px);
-  overflow: hidden;
+.btn-hero--primary:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(255,219,0,.38);
   text-decoration: none;
-  color: var(--color-text, #1a1a1a);
-  transition: all var(--transition-fast, .15s);
 }
-
-.home-news-card:hover {
-  box-shadow: var(--shadow-md, 0 2px 8px rgba(0,0,0,.08));
+.btn-hero--ghost {
+  background: rgba(255,255,255,.10);
+  color: #fff;
+  border: 1.5px solid rgba(255,255,255,.45);
+}
+.btn-hero--ghost:hover {
+  background: rgba(255,255,255,.18);
+  border-color: #fff;
   transform: translateY(-2px);
   text-decoration: none;
 }
 
-.home-news-card__img {
-  height: 140px;
-  background: var(--color-bg-alt, #f7f8fa);
-  background-size: cover;
-  background-position: center;
+/* ==========================================================================
+   2. ACCESOS RÁPIDOS — banda que "flota" sobre el hero
+   ========================================================================== */
+.home-quick {
+  max-width: var(--max-width, 1200px);
+  margin: -56px auto 0;
+  padding: 0 var(--space-lg);
+  position: relative;
+  z-index: 2;
+}
+.home-quick__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+}
+.home-quick__card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: var(--space-lg);
+  background: #fff;
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md, 0 2px 8px rgba(0,0,0,.08));
+  text-decoration: none;
+  color: var(--color-text);
+  transition: transform .15s, box-shadow .15s, border-color .15s;
+}
+.home-quick__card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(4,50,99,.14);
+  border-color: var(--color-accent);
+  text-decoration: none;
+}
+.home-quick__icon {
+  width: 52px; height: 52px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--color-primary);
+  color: var(--color-accent);
+  border-radius: var(--border-radius-md);
+  margin-bottom: var(--space-md);
+  transition: background .15s;
+}
+.home-quick__card:hover .home-quick__icon { background: var(--color-primary-dark); }
+.home-quick__icon svg { width: 26px; height: 26px; }
+.home-quick__title {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  margin: 0 0 4px;
+}
+.home-quick__desc {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin: 0;
+  line-height: 1.45;
+}
+.home-quick__arrow {
+  margin-top: var(--space-md);
+  color: var(--color-accent);
+  display: flex;
+  transition: transform .15s;
+}
+.home-quick__card:hover .home-quick__arrow { transform: translateX(4px); }
+
+/* ==========================================================================
+   3. NOVEDADES — destacado editorial (1 grande + 2 pequeñas)
+   ========================================================================== */
+.home-news { padding: var(--space-xxl) 0 var(--space-xl); }
+.home-section__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+.home-section__title {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin: 0;
+  line-height: 1.1;
+}
+.home-section__link {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+.home-section__link:hover { color: var(--color-primary-light); gap: 9px; }
+
+.home-news__grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: var(--space-lg);
+}
+.home-news__side {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
 }
 
-.home-news-card__body {
-  padding: var(--space-md, 16px);
+.news-card2 {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--color-text);
+  transition: transform .15s, box-shadow .15s;
 }
-
-.home-news-card__meta {
+.news-card2:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(4,50,99,.12);
+  text-decoration: none;
+}
+.news-card2__media {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-primary);
+}
+.news-card2__media img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform .4s;
+}
+.news-card2:hover .news-card2__media img { transform: scale(1.04); }
+.news-card2__tag {
+  position: absolute;
+  top: 12px; left: 12px;
+  background: var(--color-accent);
+  color: var(--color-primary-dark);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  padding: 4px 12px;
+  border-radius: 20px;
+  letter-spacing: .02em;
+}
+.news-card2__body { padding: var(--space-lg); }
+.news-card2__date {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
   display: flex;
   align-items: center;
-  gap: var(--space-sm, 8px);
-  margin-bottom: var(--space-xs, 4px);
+  gap: 5px;
+  margin-bottom: 6px;
 }
-
-.home-news-card__tag {
-  font-size: var(--font-size-xs, 12px);
-  font-weight: var(--font-weight-semibold, 600);
-  color: var(--color-primary, #043263);
-  background: var(--color-bg-alt, #f7f8fa);
-  border: 1px solid var(--color-border, #e3e6ea);
-  padding: 1px 8px;
-  border-radius: 12px;
-}
-
-.home-news-card__date {
-  font-size: var(--font-size-xs, 12px);
-  color: var(--color-text-muted, #5c5c5c);
-}
-
-.home-news-card__title {
-  font-size: var(--font-size-base, 16px);
-  font-weight: var(--font-weight-semibold, 600);
-  color: var(--color-primary, #043263);
-  line-height: 1.35;
+.news-card2__title {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  line-height: 1.3;
   margin: 0;
 }
 
-/* --- Organismos en tarjetas --- */
+/* destacada (grande) */
+.news-card2--featured .news-card2__media { aspect-ratio: 16 / 9; }
+.news-card2--featured .news-card2__title { font-size: var(--font-size-xl); }
+.news-card2--featured .news-card2__excerpt {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  line-height: 1.55;
+  margin: 10px 0 0;
+}
+
+/* laterales (pequeñas, horizontal) */
+.news-card2--mini { flex-direction: row; align-items: stretch; }
+.news-card2--mini .news-card2__media {
+  flex: 0 0 38%;
+  min-height: 100%;
+}
+.news-card2--mini .news-card2__media img { position: absolute; inset: 0; }
+.news-card2--mini .news-card2__body { padding: var(--space-md); flex: 1; }
+.news-card2--mini .news-card2__title { font-size: var(--font-size-base); }
+
+/* ==========================================================================
+   4. ORGANISMOS — tratamiento de marca, banda con fondo claro
+   ========================================================================== */
+.home-orgs {
+  background: var(--color-bg-light);
+  border-top: 1px solid var(--color-border-light);
+  padding: var(--space-xxl) 0;
+}
 .home-orgs__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-lg, 24px);
-  padding-bottom: var(--space-xxl, 72px);
+  gap: var(--space-lg);
+  margin-top: var(--space-lg);
 }
-
-.home-org-card {
+.org-card2 {
+  position: relative;
   display: flex;
   flex-direction: column;
-  padding: var(--space-lg, 24px);
+  padding: var(--space-xl);
   background: #fff;
-  border: 1px solid var(--color-border, #e3e6ea);
-  border-top: 3px solid var(--color-primary, #043263);
-  border-radius: var(--border-radius, 4px);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--border-radius-lg);
   text-decoration: none;
-  color: var(--color-text, #1a1a1a);
-  transition: all var(--transition-fast, .15s);
+  color: var(--color-text);
+  overflow: hidden;
+  transition: transform .15s, box-shadow .15s;
 }
-
-.home-org-card:hover {
-  box-shadow: var(--shadow-md, 0 2px 8px rgba(0,0,0,.08));
-  transform: translateY(-2px);
+.org-card2::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: var(--color-accent);
+}
+.org-card2:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(4,50,99,.14);
   text-decoration: none;
 }
-
-.home-org-card__name {
-  font-size: var(--font-size-lg, 18px);
-  font-weight: var(--font-weight-semibold, 600);
-  color: var(--color-primary, #043263);
-  margin: 0 0 var(--space-xs, 4px);
+.org-card2__logo {
+  width: 48px; height: 48px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: var(--border-radius-md);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-md);
+  margin-bottom: var(--space-md);
+}
+.org-card2__name {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  margin: 0 0 6px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.org-card2__desc {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin: 0;
+  flex: 1;
+}
+.org-card2__foot {
+  margin-top: var(--space-md);
+  font-size: var(--font-size-xs);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
   display: flex;
   align-items: center;
   gap: 6px;
 }
 
-.home-org-card__desc {
-  font-size: var(--font-size-sm, 14px);
-  color: var(--color-text-muted, #5c5c5c);
-  margin: 0;
-  line-height: 1.45;
-}
-
-.home-org-card__ext {
-  font-size: var(--font-size-xs, 12px);
-  color: var(--color-text-muted, #5c5c5c);
-  margin-top: var(--space-sm, 8px);
-}
-
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
 @media (max-width: 900px) {
-  .home-news__grid,
-  .home-orgs__grid {
-    grid-template-columns: 1fr;
-  }
+  .home-quick__grid { grid-template-columns: repeat(2, 1fr); }
+  .home-news__grid { grid-template-columns: 1fr; }
+  .home-orgs__grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .home-quick { margin-top: var(--space-lg); }
+  .home-quick__grid { grid-template-columns: 1fr; }
+  .home-hero__actions { flex-direction: column; }
+  .btn-hero { justify-content: center; }
+  .news-card2--mini { flex-direction: column; }
+  .news-card2--mini .news-card2__media { aspect-ratio: 16/9; flex-basis: auto; }
+  .news-card2--mini .news-card2__media img { position: static; }
 }
