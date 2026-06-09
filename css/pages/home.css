@@ -1,19 +1,17 @@
 /* ==========================================================================
-   HOME.CSS — Portada Consumo · diseño limpio y con nivel visual
-   Navy (#043263) como texto/acento. Fondos claros. Amarillo institucional
-   usado con intención. Jerarquía editorial.
+   HOME.CSS — Portada Consumo v3
+   Carrusel hero + organismos + atención ciudadana + noticias + cifras + chatbot
+   Línea limpia: navy texto/acentos, fondos claros, amarillo con intención.
    ========================================================================== */
 
 .home { background: var(--color-bg-white); }
 
-.home .container,
 .home-wrap {
   max-width: var(--max-width, 1200px);
   margin-inline: auto;
   padding-inline: var(--space-lg);
 }
 
-/* etiqueta de sección reutilizable */
 .home-eyebrow {
   display: inline-flex;
   align-items: center;
@@ -27,186 +25,11 @@
 }
 .home-eyebrow::before {
   content: "";
-  width: 28px;
-  height: 3px;
-  background: var(--color-accent);
-  border-radius: 2px;
-}
-
-/* ==========================================================================
-   1. HERO — foto de la sede + mensaje + CTA, dos columnas
-   ========================================================================== */
-.home-hero {
-  position: relative;
-  background: var(--color-primary);
-  overflow: hidden;
-}
-.home-hero__media {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-.home-hero__media img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  opacity: .28;
-}
-.home-hero__media::after {
-  content: "";
-  position: absolute; inset: 0;
-  background: linear-gradient(105deg,
-    rgba(4,50,99,.96) 0%,
-    rgba(4,50,99,.82) 48%,
-    rgba(4,50,99,.55) 100%);
-}
-.home-hero__inner {
-  position: relative;
-  z-index: 1;
-  max-width: var(--max-width, 1200px);
-  margin-inline: auto;
-  padding: clamp(48px, 8vw, 96px) var(--space-lg);
-}
-.home-hero__content { max-width: 620px; }
-.home-hero__eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-semibold);
-  letter-spacing: .04em;
-  text-transform: uppercase;
-  color: var(--color-accent);
-  margin: 0 0 var(--space-md);
-}
-.home-hero__eyebrow::before {
-  content: "";
   width: 28px; height: 3px;
   background: var(--color-accent);
   border-radius: 2px;
 }
-.home-hero__title {
-  font-size: clamp(2rem, 5vw, 3.25rem);
-  font-weight: var(--font-weight-bold);
-  line-height: 1.08;
-  color: #fff;
-  margin: 0 0 var(--space-md);
-  letter-spacing: -.01em;
-}
-.home-hero__subtitle {
-  font-size: clamp(1.05rem, 2vw, 1.35rem);
-  line-height: 1.5;
-  color: rgba(255,255,255,.85);
-  margin: 0 0 var(--space-xl);
-  max-width: 520px;
-}
-.home-hero__actions {
-  display: flex;
-  gap: var(--space-md);
-  flex-wrap: wrap;
-}
-.btn-hero {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 15px 30px;
-  border-radius: var(--border-radius-md);
-  font-size: var(--font-size-md);
-  font-weight: var(--font-weight-semibold);
-  text-decoration: none;
-  transition: transform .15s, box-shadow .15s, background .15s;
-}
-.btn-hero--primary {
-  background: var(--color-accent);
-  color: var(--color-primary-dark);
-  box-shadow: 0 4px 16px rgba(255,219,0,.28);
-}
-.btn-hero--primary:hover {
-  background: var(--color-accent-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 22px rgba(255,219,0,.38);
-  text-decoration: none;
-}
-.btn-hero--ghost {
-  background: rgba(255,255,255,.10);
-  color: #fff;
-  border: 1.5px solid rgba(255,255,255,.45);
-}
-.btn-hero--ghost:hover {
-  background: rgba(255,255,255,.18);
-  border-color: #fff;
-  transform: translateY(-2px);
-  text-decoration: none;
-}
 
-/* ==========================================================================
-   2. ACCESOS RÁPIDOS — banda que "flota" sobre el hero
-   ========================================================================== */
-.home-quick {
-  max-width: var(--max-width, 1200px);
-  margin: -56px auto 0;
-  padding: 0 var(--space-lg);
-  position: relative;
-  z-index: 2;
-}
-.home-quick__grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-md);
-}
-.home-quick__card {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: var(--space-lg);
-  background: #fff;
-  border: 1px solid var(--color-border-light);
-  border-radius: var(--border-radius-lg);
-  box-shadow: var(--shadow-md, 0 2px 8px rgba(0,0,0,.08));
-  text-decoration: none;
-  color: var(--color-text);
-  transition: transform .15s, box-shadow .15s, border-color .15s;
-}
-.home-quick__card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(4,50,99,.14);
-  border-color: var(--color-accent);
-  text-decoration: none;
-}
-.home-quick__icon {
-  width: 52px; height: 52px;
-  display: flex; align-items: center; justify-content: center;
-  background: var(--color-primary);
-  color: var(--color-accent);
-  border-radius: var(--border-radius-md);
-  margin-bottom: var(--space-md);
-  transition: background .15s;
-}
-.home-quick__card:hover .home-quick__icon { background: var(--color-primary-dark); }
-.home-quick__icon svg { width: 26px; height: 26px; }
-.home-quick__title {
-  font-size: var(--font-size-md);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-primary);
-  margin: 0 0 4px;
-}
-.home-quick__desc {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-muted);
-  margin: 0;
-  line-height: 1.45;
-}
-.home-quick__arrow {
-  margin-top: var(--space-md);
-  color: var(--color-accent);
-  display: flex;
-  transition: transform .15s;
-}
-.home-quick__card:hover .home-quick__arrow { transform: translateX(4px); }
-
-/* ==========================================================================
-   3. NOVEDADES — destacado editorial (1 grande + 2 pequeñas)
-   ========================================================================== */
-.home-news { padding: var(--space-xxl) 0 var(--space-xl); }
 .home-section__head {
   display: flex;
   align-items: flex-end;
@@ -231,182 +54,534 @@
   gap: 6px;
   white-space: nowrap;
 }
-.home-section__link:hover { color: var(--color-primary-light); gap: 9px; }
-
-.home-news__grid {
-  display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: var(--space-lg);
-}
-.home-news__side {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
-}
-
-.news-card2 {
-  display: flex;
-  flex-direction: column;
-  background: #fff;
-  border: 1px solid var(--color-border-light);
-  border-radius: var(--border-radius-lg);
-  overflow: hidden;
-  text-decoration: none;
-  color: var(--color-text);
-  transition: transform .15s, box-shadow .15s;
-}
-.news-card2:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 28px rgba(4,50,99,.12);
-  text-decoration: none;
-}
-.news-card2__media {
-  position: relative;
-  overflow: hidden;
-  background: var(--color-primary);
-}
-.news-card2__media img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  transition: transform .4s;
-}
-.news-card2:hover .news-card2__media img { transform: scale(1.04); }
-.news-card2__tag {
-  position: absolute;
-  top: 12px; left: 12px;
-  background: var(--color-accent);
-  color: var(--color-primary-dark);
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-bold);
-  padding: 4px 12px;
-  border-radius: 20px;
-  letter-spacing: .02em;
-}
-.news-card2__body { padding: var(--space-lg); }
-.news-card2__date {
-  font-size: var(--font-size-xs);
-  color: var(--color-text-muted);
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  margin-bottom: 6px;
-}
-.news-card2__title {
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-primary);
-  line-height: 1.3;
-  margin: 0;
-}
-
-/* destacada (grande) */
-.news-card2--featured .news-card2__media { aspect-ratio: 16 / 9; }
-.news-card2--featured .news-card2__title { font-size: var(--font-size-xl); }
-.news-card2--featured .news-card2__excerpt {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-muted);
-  line-height: 1.55;
-  margin: 10px 0 0;
-}
-
-/* laterales (pequeñas, horizontal) */
-.news-card2--mini { flex-direction: row; align-items: stretch; }
-.news-card2--mini .news-card2__media {
-  flex: 0 0 38%;
-  min-height: 100%;
-}
-.news-card2--mini .news-card2__media img { position: absolute; inset: 0; }
-.news-card2--mini .news-card2__body { padding: var(--space-md); flex: 1; }
-.news-card2--mini .news-card2__title { font-size: var(--font-size-base); }
+.home-section__link:hover { color: var(--color-primary-light); }
 
 /* ==========================================================================
-   4. ORGANISMOS — tratamiento de marca, banda con fondo claro
+   1. HERO CARRUSEL
+   ========================================================================== */
+.hero-carousel {
+  position: relative;
+  background: var(--color-primary);
+  overflow: hidden;
+}
+.hero-carousel__track {
+  display: flex;
+  transition: transform .5s ease;
+}
+.hero-slide {
+  flex: 0 0 100%;
+  position: relative;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+}
+.hero-slide__media {
+  position: absolute; inset: 0;
+}
+.hero-slide__media img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: .30;
+}
+.hero-slide__media::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(105deg,
+    rgba(4,50,99,.95) 0%, rgba(4,50,99,.80) 50%, rgba(4,50,99,.50) 100%);
+}
+.hero-slide__inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max-width, 1200px);
+  margin-inline: auto;
+  padding: clamp(48px, 7vw, 80px) var(--space-lg) clamp(72px, 9vw, 104px);
+  width: 100%;
+}
+.hero-slide__content { max-width: 640px; }
+.hero-slide__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin: 0 0 var(--space-md);
+}
+.hero-slide__eyebrow::before {
+  content: "";
+  width: 28px; height: 3px;
+  background: var(--color-accent);
+  border-radius: 2px;
+}
+.hero-slide__title {
+  font-size: clamp(1.75rem, 4.5vw, 2.9rem);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.1;
+  color: #fff;
+  margin: 0 0 var(--space-md);
+  letter-spacing: -.01em;
+}
+.hero-slide__text {
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  line-height: 1.5;
+  color: rgba(255,255,255,.85);
+  margin: 0 0 var(--space-xl);
+  max-width: 540px;
+}
+.btn-hero {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: var(--border-radius-md);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+  transition: transform .15s, box-shadow .15s, background .15s;
+}
+.btn-hero--primary {
+  background: var(--color-accent);
+  color: var(--color-primary-dark);
+  box-shadow: 0 4px 16px rgba(255,219,0,.28);
+}
+.btn-hero--primary:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+/* Controles carrusel */
+.hero-carousel__controls {
+  position: absolute;
+  bottom: 24px;
+  left: 0; right: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--max-width, 1200px);
+  margin-inline: auto;
+  padding-inline: var(--space-lg);
+}
+.hero-carousel__dots {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.hero-dot {
+  width: 34px; height: 5px;
+  border-radius: 3px;
+  background: rgba(255,255,255,.30);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background .2s;
+}
+.hero-dot[aria-current="true"] { background: var(--color-accent); }
+.hero-dot:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+.hero-carousel__nav {
+  display: flex;
+  gap: 8px;
+}
+.hero-arrow,
+.hero-pause {
+  width: 42px; height: 42px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.35);
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  transition: background .15s;
+}
+.hero-arrow:hover, .hero-pause:hover { background: rgba(255,255,255,.24); }
+.hero-arrow:focus-visible, .hero-pause:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-carousel__track { transition: none; }
+}
+
+/* ==========================================================================
+   2. ORGANISMOS — 3 destacados que flotan sobre el hero
    ========================================================================== */
 .home-orgs {
-  background: var(--color-bg-light);
-  border-top: 1px solid var(--color-border-light);
-  padding: var(--space-xxl) 0;
+  max-width: var(--max-width, 1200px);
+  margin: -48px auto 0;
+  padding: 0 var(--space-lg);
+  position: relative;
+  z-index: 3;
 }
 .home-orgs__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-lg);
-  margin-top: var(--space-lg);
+  gap: var(--space-md);
 }
-.org-card2 {
-  position: relative;
+.org-card {
   display: flex;
-  flex-direction: column;
-  padding: var(--space-xl);
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-lg);
   background: #fff;
   border: 1px solid var(--color-border-light);
   border-radius: var(--border-radius-lg);
+  box-shadow: 0 6px 20px rgba(4,50,99,.10);
   text-decoration: none;
   color: var(--color-text);
-  overflow: hidden;
   transition: transform .15s, box-shadow .15s;
+  position: relative;
+  overflow: hidden;
 }
-.org-card2::before {
+.org-card::before {
   content: "";
   position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 4px;
+  top: 0; left: 0; bottom: 0;
+  width: 4px;
   background: var(--color-accent);
 }
-.org-card2:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(4,50,99,.14);
+.org-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px rgba(4,50,99,.16);
   text-decoration: none;
 }
-.org-card2__logo {
-  width: 48px; height: 48px;
+.org-card__logo {
+  flex-shrink: 0;
+  width: 52px; height: 52px;
   display: flex; align-items: center; justify-content: center;
   background: var(--color-primary);
   color: #fff;
   border-radius: var(--border-radius-md);
   font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-md);
-  margin-bottom: var(--space-md);
-}
-.org-card2__name {
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-primary);
-  margin: 0 0 6px;
-  display: flex;
-  align-items: center;
-  gap: 7px;
-}
-.org-card2__desc {
   font-size: var(--font-size-sm);
-  color: var(--color-text-muted);
-  line-height: 1.5;
-  margin: 0;
-  flex: 1;
 }
-.org-card2__foot {
-  margin-top: var(--space-md);
-  font-size: var(--font-size-xs);
-  color: var(--color-primary);
+.org-card__name {
+  font-size: var(--font-size-base);
   font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  margin: 0;
   display: flex;
   align-items: center;
   gap: 6px;
+}
+.org-card__desc {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  margin: 2px 0 0;
+}
+
+/* ==========================================================================
+   3. ATENCIÓN A LA PERSONA CONSUMIDORA
+   ========================================================================== */
+.home-attention { padding: var(--space-xxl) 0 var(--space-xl); }
+.attention__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+.attention-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: var(--space-lg);
+  background: #fff;
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--border-radius-lg);
+  text-decoration: none;
+  color: var(--color-text);
+  transition: transform .15s, box-shadow .15s, border-color .15s;
+}
+.attention-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 26px rgba(4,50,99,.12);
+  border-color: var(--color-accent);
+  text-decoration: none;
+}
+.attention-card__icon {
+  width: 48px; height: 48px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--color-primary);
+  color: var(--color-accent);
+  border-radius: var(--border-radius-md);
+  margin-bottom: var(--space-md);
+}
+.attention-card__icon svg { width: 24px; height: 24px; }
+.attention-card__title {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  margin: 0 0 4px;
+}
+.attention-card__desc {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* ==========================================================================
+   4. CIFRAS CLAVE — banda amarilla
+   ========================================================================== */
+.home-stats {
+  background: var(--color-accent);
+  padding: var(--space-xl) 0;
+}
+.home-stats__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+}
+.stat-item { text-align: center; }
+.stat-item__n {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary-dark);
+  line-height: 1;
+  display: block;
+}
+.stat-item__l {
+  font-size: var(--font-size-sm);
+  color: rgba(0,0,0,.65);
+  margin-top: 6px;
+  display: block;
+}
+
+/* ==========================================================================
+   5. MINI-CARRUSEL DE NOTICIAS (scroll horizontal)
+   ========================================================================== */
+.home-news { padding: var(--space-xxl) 0; }
+.news-scroller {
+  position: relative;
+}
+.news-scroller__track {
+  display: flex;
+  gap: var(--space-md);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding-bottom: var(--space-sm);
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+.news-scroller__track::-webkit-scrollbar { height: 6px; }
+.news-scroller__track::-webkit-scrollbar-thumb {
+  background: var(--color-gray-300);
+  border-radius: 3px;
+}
+.news-mini {
+  flex: 0 0 300px;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--color-text);
+  transition: transform .15s, box-shadow .15s;
+}
+.news-mini:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 26px rgba(4,50,99,.12);
+  text-decoration: none;
+}
+.news-mini__media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: var(--color-gray-200);
+  overflow: hidden;
+}
+.news-mini__media img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.news-mini__tag {
+  position: absolute;
+  top: 10px; left: 10px;
+  background: var(--color-accent);
+  color: var(--color-primary-dark);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  padding: 3px 10px;
+  border-radius: 16px;
+}
+.news-mini__body { padding: var(--space-md); }
+.news-mini__date {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  display: block;
+  margin-bottom: 4px;
+}
+.news-mini__title {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  line-height: 1.35;
+  margin: 0;
+}
+.news-scroller__nav {
+  display: flex;
+  gap: 8px;
+}
+.news-arrow {
+  width: 40px; height: 40px;
+  display: flex; align-items: center; justify-content: center;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  color: var(--color-primary);
+  cursor: pointer;
+  transition: all .15s;
+}
+.news-arrow:hover { background: var(--color-primary); color: #fff; }
+.news-arrow:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; }
+.news-arrow:disabled { opacity: .35; cursor: default; }
+.news-arrow:disabled:hover { background: #fff; color: var(--color-primary); }
+
+/* ==========================================================================
+   6. CHATBOT — botón flotante + panel demo
+   ========================================================================== */
+.chatbot-fab {
+  position: fixed;
+  bottom: 24px; right: 24px;
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: 32px;
+  font-family: inherit;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(4,50,99,.35);
+  transition: transform .15s, box-shadow .15s;
+}
+.chatbot-fab:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(4,50,99,.45);
+}
+.chatbot-fab:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 2px; }
+.chatbot-fab__dot {
+  width: 8px; height: 8px;
+  background: var(--color-accent);
+  border-radius: 50%;
+  animation: chatbot-pulse 2s infinite;
+}
+@keyframes chatbot-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .4; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .chatbot-fab__dot { animation: none; }
+}
+
+.chatbot-panel {
+  position: fixed;
+  bottom: 88px; right: 24px;
+  z-index: 901;
+  width: min(360px, calc(100vw - 48px));
+  background: #fff;
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0 20px 60px rgba(4,50,99,.25);
+  overflow: hidden;
+  display: none;
+}
+.chatbot-panel.is-open { display: block; }
+.chatbot-panel__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 14px 16px;
+}
+.chatbot-panel__title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  margin: 0;
+}
+.chatbot-panel__close {
+  background: none; border: none;
+  color: rgba(255,255,255,.8);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+}
+.chatbot-panel__close:hover { color: #fff; }
+.chatbot-panel__body {
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 340px;
+  overflow-y: auto;
+}
+.chatbot-msg {
+  font-size: var(--font-size-sm);
+  line-height: 1.45;
+  padding: 10px 14px;
+  border-radius: 14px;
+  max-width: 88%;
+}
+.chatbot-msg--bot {
+  background: var(--color-bg-light);
+  border: 1px solid var(--color-border-light);
+  color: var(--color-text);
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+}
+.chatbot-suggestions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.chatbot-suggestion {
+  text-align: left;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 9px 12px;
+  font-family: inherit;
+  font-size: var(--font-size-xs);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition: all .12s;
+}
+.chatbot-suggestion:hover {
+  border-color: var(--color-primary);
+  background: var(--color-bg-light);
+}
+.chatbot-panel__foot {
+  padding: 10px var(--space-md);
+  border-top: 1px solid var(--color-border-light);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  text-align: center;
 }
 
 /* ==========================================================================
    Responsive
    ========================================================================== */
 @media (max-width: 900px) {
-  .home-quick__grid { grid-template-columns: repeat(2, 1fr); }
-  .home-news__grid { grid-template-columns: 1fr; }
   .home-orgs__grid { grid-template-columns: 1fr; }
+  .home-orgs { margin-top: var(--space-lg); }
+  .attention__grid { grid-template-columns: repeat(2, 1fr); }
+  .home-stats__grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 560px) {
-  .home-quick { margin-top: var(--space-lg); }
-  .home-quick__grid { grid-template-columns: 1fr; }
-  .home-hero__actions { flex-direction: column; }
-  .btn-hero { justify-content: center; }
-  .news-card2--mini { flex-direction: column; }
-  .news-card2--mini .news-card2__media { aspect-ratio: 16/9; flex-basis: auto; }
-  .news-card2--mini .news-card2__media img { position: static; }
+  .attention__grid { grid-template-columns: 1fr; }
+  .hero-slide { min-height: 460px; }
+  .chatbot-fab span:not(.chatbot-fab__dot) { display: none; }
+  .chatbot-fab { padding: 14px; border-radius: 50%; }
 }
