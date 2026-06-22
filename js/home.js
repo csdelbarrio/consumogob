@@ -13,14 +13,10 @@
     var track = carousel.querySelector('.hero-carousel__track');
     var slides = Array.prototype.slice.call(track.children);
     var dots = Array.prototype.slice.call(carousel.querySelectorAll('.hero-dot'));
-    var prevBtn = carousel.querySelector('[data-hero-prev]');
-    var nextBtn = carousel.querySelector('[data-hero-next]');
-    var pauseBtn = carousel.querySelector('[data-hero-pause]');
     var current = 0;
     var timer = null;
-    var INTERVAL = 7000;
+    var INTERVAL = 5000;
     var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var playing = !reducedMotion;
 
     function goTo(i) {
       current = (i + slides.length) % slides.length;
@@ -36,49 +32,33 @@
       });
     }
 
-    function play() {
+    function startAuto() {
       if (timer || reducedMotion) return;
-      playing = true;
-      updatePauseBtn();
       timer = setInterval(function () { goTo(current + 1); }, INTERVAL);
     }
-
-    function stop() {
-      playing = false;
-      updatePauseBtn();
+    function stopAuto() {
       clearInterval(timer);
       timer = null;
     }
 
-    function updatePauseBtn() {
-      if (!pauseBtn) return;
-      pauseBtn.setAttribute('aria-label', playing ? 'Pausar carrusel' : 'Reproducir carrusel');
-      pauseBtn.querySelector('.icon-pause').hidden = !playing;
-      pauseBtn.querySelector('.icon-play').hidden = playing;
-    }
-
-    if (prevBtn) prevBtn.addEventListener('click', function () { stop(); goTo(current - 1); });
-    if (nextBtn) nextBtn.addEventListener('click', function () { stop(); goTo(current + 1); });
-    if (pauseBtn) pauseBtn.addEventListener('click', function () { playing ? stop() : play(); });
-
     dots.forEach(function (d, idx) {
-      d.addEventListener('click', function () { stop(); goTo(idx); });
+      d.addEventListener('click', function () { goTo(idx); });
     });
 
-    // Pausa al pasar el ratón o al enfocar con teclado
-    carousel.addEventListener('mouseenter', function () { if (playing) { clearInterval(timer); timer = null; } });
-    carousel.addEventListener('mouseleave', function () { if (playing && !timer) { timer = setInterval(function () { goTo(current + 1); }, INTERVAL); } });
-    carousel.addEventListener('focusin', function () { if (playing) { clearInterval(timer); timer = null; } });
-    carousel.addEventListener('focusout', function () { if (playing && !timer) { timer = setInterval(function () { goTo(current + 1); }, INTERVAL); } });
+    // Avance automático: se detiene con el ratón encima o al enfocar con teclado
+    carousel.addEventListener('mouseenter', stopAuto);
+    carousel.addEventListener('mouseleave', startAuto);
+    carousel.addEventListener('focusin', stopAuto);
+    carousel.addEventListener('focusout', startAuto);
 
     // Teclado: flechas izquierda/derecha cuando el carrusel tiene foco
     carousel.addEventListener('keydown', function (e) {
-      if (e.key === 'ArrowLeft') { stop(); goTo(current - 1); }
-      if (e.key === 'ArrowRight') { stop(); goTo(current + 1); }
+      if (e.key === 'ArrowLeft') { goTo(current - 1); }
+      if (e.key === 'ArrowRight') { goTo(current + 1); }
     });
 
     goTo(0);
-    play();
+    startAuto();
   }
 
   /* ------------------------------------------------------------------

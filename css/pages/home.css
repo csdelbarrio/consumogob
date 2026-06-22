@@ -155,12 +155,12 @@
 /* Controles carrusel */
 .hero-carousel__controls {
   position: absolute;
-  bottom: 24px;
+  bottom: 20px;
   left: 0; right: 0;
   z-index: 2;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   max-width: var(--max-width, 1200px);
   margin-inline: auto;
   padding-inline: var(--space-lg);
@@ -208,10 +208,10 @@
    ========================================================================== */
 .home-orgs {
   max-width: var(--max-width, 1200px);
-  margin: -48px auto 0;
+  margin: var(--space-xxl) auto 0;
   padding: 0 var(--space-lg);
   position: relative;
-  z-index: 3;
+  z-index: 1;
 }
 .home-orgs__grid {
   display: grid;
