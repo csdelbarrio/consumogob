@@ -813,3 +813,21 @@
   display: block;
   border: 0;
 }
+
+/* ==========================================================================
+   9. Instagram — posts de uno en uno con scroll, sin cabecera de perfil
+   ========================================================================== */
+.insta-scroller {
+  scroll-snap-type: y mandatory;
+}
+.insta-scroller .instagram-media {
+  scroll-snap-align: start;
+  margin: 0 0 var(--space-md) !important;
+  min-width: 0 !important;
+  width: 100% !important;
+}
+/* El widget de Instagram inserta un iframe; lo dejamos a lo ancho de la columna */
+.insta-scroller iframe.instagram-media {
+  width: 100% !important;
+  min-width: 0 !important;
+}

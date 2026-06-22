@@ -68,17 +68,21 @@
           <!-- Controles: idiomas + buscar + menú -->
           <div class="site-header__controls">
 
-            <!-- Selector de idioma -->
-            <nav class="site-header__lang" aria-label="Selector de idioma">
+            <!-- Selector de idioma (desplegable, como dsca.gob.es) -->
+            <div class="site-header__lang">
+              <button class="site-header__lang-toggle" aria-haspopup="true" aria-expanded="false" aria-label="Cambiar idioma. Idioma actual: Castellano">
+                Castellano
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
               <ul class="site-header__lang-list" role="list">
-                <li><a href="#" class="site-header__lang-link site-header__lang-link--active" aria-current="true" lang="es">Castellano</a></li>
                 <li><a href="#" class="site-header__lang-link" lang="ca">Català</a></li>
                 <li><a href="#" class="site-header__lang-link" lang="gl">Galego</a></li>
                 <li><a href="#" class="site-header__lang-link" lang="eu">Euskera</a></li>
                 <li><a href="#" class="site-header__lang-link" lang="en">English</a></li>
                 <li><a href="#" class="site-header__lang-link" lang="va">Valencià</a></li>
               </ul>
-            </nav>
+            </div>
+            <span class="site-header__divider" aria-hidden="true">|</span>
 
             <!-- Buscar -->
             <a href="https://www.dsca.gob.es/es/search"
@@ -181,35 +185,16 @@
               <svg class="site-nav__arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
             </a>
             <div class="site-nav__dropdown" role="region" aria-label="Submenú Consumo">
-              <div class="site-nav__dropdown-inner site-nav__dropdown-inner--cols">
+              <div class="site-nav__dropdown-inner">
                 <ul role="list">
-                  <li class="site-nav__dropdown-group-title">DG Consumo</li>
-                  <li><a href="/consumogob/dg-consumo/">La Dirección General</a></li>
-                  <li><a href="/consumogob/dg-consumo/sgcccc/">Coordinación, Calidad y Cooperación</a></li>
-                  <li><a href="/consumogob/dg-consumo/sgrdpc/">Regulación y Derechos</a></li>
-                  <li><a href="/consumogob/dg-consumo/sgips/">Inspección y Sanciones</a></li>
-                  <li><a href="/consumogob/dg-consumo/cicc/">Centro de Investigación (CICC)</a></li>
-                  <li><a href="/consumogob/dg-consumo/junta-arbitral/">Junta Arbitral Nacional</a></li>
-                </ul>
-                <ul role="list">
-                  <li class="site-nav__dropdown-group-title">Te ayudamos</li>
-                  <li><a href="/consumogob/te-ayudamos/sac/">Consulta tu problema</a></li>
+                  <li><a href="/consumogob/te-ayudamos/">¿Te ayudamos?</a></li>
+                  <li><a href="/consumogob/te-ayudamos/normativa/">Tus derechos</a></li>
                   <li><a href="/consumogob/te-ayudamos/reclamaciones/">Haz una reclamación</a></li>
-                  <li><a href="/consumogob/te-ayudamos/alertas-seguridad/">Alertas de seguridad</a></li>
-                  <li><a href="/consumogob/te-ayudamos/normativa/">Consulta normativa</a></li>
-                  <li><a href="/consumogob/te-ayudamos/faq/">Preguntas frecuentes</a></li>
-                  <li><a href="/consumogob/te-ayudamos/contacto/">Contacto</a></li>
-                </ul>
-                <ul role="list">
-                  <li class="site-nav__dropdown-group-title">Juego</li>
-                  <li><a href="https://www.ordenacionjuego.es/" target="_blank" rel="noopener">Inicio DGOJ ↗</a></li>
-                  <li><a href="https://www.ordenacionjuego.es/" target="_blank" rel="noopener">Participantes en el juego ↗</a></li>
-                  <li><a href="https://www.ordenacionjuego.es/" target="_blank" rel="noopener">Operadores de juego ↗</a></li>
-                  <li><a href="https://www.ordenacionjuego.es/" target="_blank" rel="noopener">La DGOJ — Conócenos ↗</a></li>
-                  <li class="site-nav__dropdown-group-title">Seguridad alimentaria</li>
-                  <li><a href="https://www.aesan.gob.es/" target="_blank" rel="noopener">AESAN ↗</a></li>
-                  <li><a href="https://www.aesan.gob.es/" target="_blank" rel="noopener">Seguridad alimentaria ↗</a></li>
-                  <li><a href="https://www.aesan.gob.es/" target="_blank" rel="noopener">Nutrición ↗</a></li>
+                  <li><a href="/consumogob/dg-consumo/sgrdpc/cooperacion-institucional/">Cooperación institucional</a></li>
+                  <li><a href="/consumogob/dg-consumo/sgrdpc/asociaciones/">Asociaciones y formación</a></li>
+                  <li><a href="/consumogob/dg-consumo/sgcccc/vigilancia-mercado/">Vigilancia de mercado</a></li>
+                  <li><a href="/consumogob/dg-consumo/cicc/">Laboratorios</a></li>
+                  <li><a href="/consumogob/dg-consumo/sgips/sanciones/">Sanciones</a></li>
                 </ul>
               </div>
             </div>
@@ -292,17 +277,16 @@
             </div>
           </li>
 
-          <!-- Sede electrónica — CTA especial -->
-          <li class="site-nav__item site-nav__item--sede">
-            <a href="https://dsca.sede.gob.es/"
-               class="site-nav__link site-nav__link--sede"
-               target="_blank" rel="noopener noreferrer"
-               aria-label="Ir a Sede electrónica (abre en nueva pestaña)">
-              Sede electrónica
-            </a>
-          </li>
-
         </ul>
+      </div>
+      <!-- Sede electrónica — franja gris inferior, como dsca.gob.es -->
+      <div class="site-nav__sede-strip">
+        <a href="https://dsca.sede.gob.es/"
+           class="site-nav__link--sede"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Ir a Sede electrónica (abre en nueva pestaña)">
+          Sede electrónica
+        </a>
       </div>
     </nav>
 
@@ -612,19 +596,12 @@
         </div>
         <div class="insta-scroller" tabindex="0" aria-label="Publicaciones de Instagram de consumo.gob">
           <!--
-            EMBED REAL DE INSTAGRAM (@consumo.gob)
-            Funciona en la demo (GitHub Pages). En RedSARA hay que permitir:
-              - www.instagram.com  (carga de embed.js y de los posts)
-              - *.cdninstagram.com (imágenes y vídeos)
-            El script embed.js convierte estos blockquote en tarjetas reales.
-            Para fijar publicaciones concretas, sustituir la URL del permalink
-            por la de cada post: https://www.instagram.com/p/CODIGO/
+            EMBEDS REALES DE INSTAGRAM (@consumo.gob) — uno por uno, scroll vertical.
+            Cada bloque es un post individual. Para fijar publicaciones concretas,
+            sustituir el permalink /p/CODIGO/ por el de cada post real del perfil.
+            En RedSARA debe permitirse: www.instagram.com y *.cdninstagram.com
           -->
-          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/consumo.gob/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:8px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin:0; padding:0; width:100%;">
-            <a href="https://www.instagram.com/consumo.gob/" target="_blank" rel="noopener" style="display:block;padding:16px;text-decoration:none;color:#043263;">
-              Ver el perfil de @consumo.gob en Instagram
-            </a>
-          </blockquote>
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/consumo.gob/" data-instgrm-version="14"></blockquote>
         </div>
       </aside>
 
@@ -660,7 +637,7 @@
               https://www.youtube.com/embed/videoseries?list=UU________________
           -->
           <div class="video-embed">
-            <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=UUq2GFGtN-Wc8oU8nGyq-2dQ"
+            <iframe src="https://www.youtube-nocookie.com/embed/TZyIL-LI74I?rel=0"
                     title="Vídeos del canal de Consumo en YouTube"
                     loading="lazy" frameborder="0" allowfullscreen
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>

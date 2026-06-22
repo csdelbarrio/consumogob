@@ -264,14 +264,16 @@ p:last-child { margin-bottom: 0; }
    SITE NAV — Barra azul oscuro con borde rojo inferior (dsca.gob.es)
    ========================================================================== */
 .site-nav {
-  background: var(--color-primary); /* #043263 */
+  background: var(--color-accent); /* AMARILLO #ffdb00 — igual que dsca.gob.es */
   position: relative;
-  border-bottom: 4px solid #c0392b; /* borde rojo igual que dsca */
+  /* Barra roja inferior con segmentos, como en dsca */
+  border-bottom: 4px solid #a3173c;
 }
 
 .site-nav__list {
   display: flex;
   align-items: stretch;
+  justify-content: flex-end; /* menú alineado a la derecha, como la imagen */
   margin: 0;
   padding: 0;
 }
@@ -283,30 +285,29 @@ p:last-child { margin-bottom: 0; }
 .site-nav__link {
   display: flex;
   align-items: center;
-  gap: 4px;
-  padding: 12px 16px;
-  color: rgba(255,255,255,0.92);
+  gap: 5px;
+  padding: 14px 16px;
+  color: var(--color-primary); /* texto navy sobre amarillo */
   text-decoration: none;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: var(--font-weight-semibold);
-  border-bottom: 3px solid transparent;
   white-space: nowrap;
-  transition: color var(--transition-fast), background var(--transition-fast),
-              border-color var(--transition-fast);
+  transition: color var(--transition-fast);
   height: 100%;
 }
 
 .site-nav__link:hover {
-  color: var(--color-white);
-  background: rgba(255,255,255,0.08);
-  text-decoration: none;
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+  text-underline-offset: 5px;
 }
 
 .site-nav__link--active {
-  color: var(--color-white);
+  color: var(--color-primary);
   font-weight: var(--font-weight-bold);
   text-decoration: underline;
-  text-underline-offset: 4px;
+  text-underline-offset: 5px;
+  text-decoration-thickness: 2px;
 }
 
 /* Flecha del desplegable */
@@ -320,21 +321,21 @@ p:last-child { margin-bottom: 0; }
   transform: rotate(180deg);
 }
 
-/* Sede electrónica — al final, con borde */
-.site-nav__link--sede {
-  margin-left: auto;
-  border: 1px solid rgba(255,255,255,0.40);
-  border-radius: 3px;
-  margin-top: 8px;
-  margin-bottom: 8px;
-  padding: 4px 12px;
-  font-size: 13px;
+/* Sede electrónica — franja gris inferior centrada, como dsca */
+.site-nav__sede-strip {
+  background: #e9e7e2;
+  text-align: center;
 }
-
+.site-nav__link--sede {
+  display: inline-block;
+  color: var(--color-primary);
+  font-size: 14px;
+  font-weight: var(--font-weight-semibold);
+  padding: 8px 16px;
+  text-decoration: none;
+}
 .site-nav__link--sede:hover {
-  border-color: var(--color-accent);
-  color: var(--color-accent);
-  background: transparent;
+  text-decoration: underline;
 }
 
 /* --------------------------------------------------------------------------
@@ -348,7 +349,7 @@ p:last-child { margin-bottom: 0; }
   z-index: var(--z-dropdown);
   min-width: 240px;
   background: var(--color-white);
-  border-top: 3px solid var(--color-accent);
+  border-top: 3px solid var(--color-primary);
   box-shadow: var(--shadow-lg);
   border-radius: 0 0 var(--border-radius-md) var(--border-radius-md);
 }
@@ -591,4 +592,51 @@ main {
 
   /* Footer */
   .site-footer__inner { grid-template-columns: 1fr; }
+}
+
+/* ── Selector de idioma como desplegable (réplica dsca) ── */
+.site-header__lang { position: relative; }
+.site-header__lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  color: var(--color-primary);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  padding: 4px 2px;
+}
+.site-header__lang-toggle:hover { text-decoration: underline; }
+.site-header__lang-list {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: var(--z-dropdown);
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--shadow-md);
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 4px 0;
+  min-width: 130px;
+}
+.site-header__lang:hover .site-header__lang-list,
+.site-header__lang:focus-within .site-header__lang-list { display: block; }
+.site-header__lang-link {
+  display: block;
+  padding: 6px 14px;
+  color: var(--color-primary);
+  text-decoration: none;
+  font-size: 14px;
+}
+.site-header__lang-link:hover { background: var(--color-bg-light); }
+.site-header__divider {
+  color: rgba(0,0,0,.35);
+  margin: 0 4px;
+  font-size: 14px;
 }
