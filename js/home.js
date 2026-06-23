@@ -53,8 +53,8 @@
 
     // Teclado: flechas izquierda/derecha cuando el carrusel tiene foco
     carousel.addEventListener('keydown', function (e) {
-      if (e.key === 'ArrowLeft') { goTo(current - 1); }
-      if (e.key === 'ArrowRight') { goTo(current + 1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); stopAuto(); goTo(current - 1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); stopAuto(); goTo(current + 1); }
     });
 
     goTo(0);

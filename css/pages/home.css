@@ -852,8 +852,11 @@
 .home-search-hero__sub {
   font-size: var(--font-size-md);
   color: var(--color-text-muted);
-  margin: 0 auto var(--space-lg);
-  max-width: 560px;
+  margin: 0 auto var(--space-md);
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .home-search-box {
   display: flex;
@@ -1086,4 +1089,10 @@
 .news-scroller__track.news-grid3 .news-card3 {
   flex: 0 0 clamp(280px, 32%, 380px);
   scroll-snap-align: start;
+}
+
+/* Foco visible del carrusel para navegación por teclado */
+.hero-carousel:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: -3px;
 }
