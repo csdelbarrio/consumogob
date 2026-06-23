@@ -122,7 +122,28 @@ document.addEventListener('DOMContentLoaded', async function() {
     // Cargar interfaz
     cargarSectores();
     mostrarBusquedaInicial();
-    
+
+    // Preselección desde la URL: ?sector=Nombre  o  ?q=texto
+    // Permite que la portada y la página "Te ayudamos" enlacen directos a un sector
+    try {
+        const params = new URLSearchParams(window.location.search);
+        const sectorParam = params.get('sector');
+        const queryParam = params.get('q');
+        if (sectorParam) {
+            const match = SECTORES.find(s =>
+                s.nombre.toLowerCase() === sectorParam.toLowerCase());
+            if (match) iniciarPorSector(match.nombre);
+        } else if (queryParam) {
+            const input = document.getElementById('searchInput');
+            if (input) {
+                input.value = queryParam;
+                input.dispatchEvent(new Event('input', { bubbles: true }));
+            }
+        }
+    } catch (e) {
+        console.warn('No se pudo leer la preselección de la URL:', e);
+    }
+
     console.log('✓ Sistema inicializado');
 });
 

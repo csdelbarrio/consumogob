@@ -327,6 +327,17 @@
     <!-- ============================================================
          1. HERO — buscador del SAC como protagonista
          ============================================================ -->
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Ruta de navegación">
+      <div class="breadcrumb__inner">
+        <ol class="breadcrumb__list" role="list">
+          <li class="breadcrumb__item"><a href="https://www.dsca.gob.es/es" class="breadcrumb__link">Inicio</a></li>
+          <li class="breadcrumb__item"><a href="/consumogob/" class="breadcrumb__link">Consumo</a></li>
+          <li class="breadcrumb__item breadcrumb__item--current" aria-current="page">¿Te ayudamos?</li>
+        </ol>
+      </div>
+    </nav>
+
     <section class="home-hero" aria-labelledby="home-hero-title">
       <div class="home-hero__inner">
         <h1 class="home-hero__title" id="home-hero-title">¿En qué podemos ayudarte?</h1>
@@ -343,15 +354,16 @@
           </button>
         </form>
 
-        <!-- Chips de sectores -->
+        <!-- Chips de sectores: enlazan al SAC con el sector preseleccionado (?sector=) -->
         <nav class="home-sectors" aria-label="Sectores de consulta">
-          <a href="/consumogob/te-ayudamos/sac/" class="home-sector">Vivienda</a>
-          <a href="/consumogob/te-ayudamos/sac/" class="home-sector">Banca y seguros</a>
-          <a href="/consumogob/te-ayudamos/sac/" class="home-sector">Viajes y transportes</a>
-          <a href="/consumogob/te-ayudamos/sac/" class="home-sector">Compras</a>
-          <a href="/consumogob/te-ayudamos/sac/" class="home-sector">Suministros</a>
-          <a href="/consumogob/te-ayudamos/sac/" class="home-sector">Turismo</a>
-          <a href="/consumogob/te-ayudamos/sac/" class="home-sector">Servicios</a>
+          <a href="/consumogob/te-ayudamos/sac/?sector=Vivienda" class="home-sector">🏠 Vivienda</a>
+          <a href="/consumogob/te-ayudamos/sac/?sector=Banca%20y%20seguros" class="home-sector">🏦 Banca y seguros</a>
+          <a href="/consumogob/te-ayudamos/sac/?sector=Viajes%20y%20transportes" class="home-sector">✈️ Viajes y transportes</a>
+          <a href="/consumogob/te-ayudamos/sac/?sector=Compras" class="home-sector">🛒 Compras</a>
+          <a href="/consumogob/te-ayudamos/sac/?sector=Suministros" class="home-sector">⚡ Suministros</a>
+          <a href="/consumogob/te-ayudamos/sac/?sector=Protecci%C3%B3n%20de%20datos%20personales" class="home-sector">🔒 Protección de datos</a>
+          <a href="/consumogob/te-ayudamos/sac/?sector=Turismo" class="home-sector">🏨 Turismo</a>
+          <a href="/consumogob/te-ayudamos/sac/?sector=Servicios%20varios" class="home-sector">🔧 Servicios varios</a>
         </nav>
       </div>
     </section>
@@ -395,6 +407,54 @@
           <p class="home-quick__desc">Dudas más habituales</p>
         </a>
 
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         DERIVACIÓN A OTROS ORGANISMOS (checklist fila 21)
+         Algunos conflictos no se resuelven por consumo, sino por el
+         supervisor sectorial competente. Esto orienta al ciudadano.
+         ============================================================ -->
+    <section class="derivacion" aria-labelledby="derivacion-title">
+      <div class="derivacion__inner">
+        <div class="derivacion__head">
+          <h2 class="derivacion__title" id="derivacion-title">¿Tu caso es de otro organismo?</h2>
+          <p class="derivacion__sub">Según el tipo de problema, el organismo competente puede ser un supervisor especializado. Te indicamos a dónde acudir.</p>
+        </div>
+        <div class="derivacion__grid">
+
+          <a href="https://www.bde.es/" target="_blank" rel="noopener" class="derivacion-card">
+            <span class="derivacion-card__name">Banco de España <span class="derivacion-card__ext" aria-hidden="true">↗</span></span>
+            <span class="derivacion-card__desc">Cuentas, hipotecas, comisiones bancarias y tarjetas.</span>
+          </a>
+
+          <a href="https://www.cnmv.es/" target="_blank" rel="noopener" class="derivacion-card">
+            <span class="derivacion-card__name">CNMV <span class="derivacion-card__ext" aria-hidden="true">↗</span></span>
+            <span class="derivacion-card__desc">Inversiones, fondos y productos financieros del mercado de valores.</span>
+          </a>
+
+          <a href="https://www.dgsfp.mineco.es/" target="_blank" rel="noopener" class="derivacion-card">
+            <span class="derivacion-card__name">DGSFP <span class="derivacion-card__ext" aria-hidden="true">↗</span></span>
+            <span class="derivacion-card__desc">Seguros y planes de pensiones.</span>
+          </a>
+
+          <a href="https://www.cnmc.es/" target="_blank" rel="noopener" class="derivacion-card">
+            <span class="derivacion-card__name">CNMC <span class="derivacion-card__ext" aria-hidden="true">↗</span></span>
+            <span class="derivacion-card__desc">Telecomunicaciones, energía y transporte.</span>
+          </a>
+
+          <a href="https://www.aesa.seguridadaerea.gob.es/" target="_blank" rel="noopener" class="derivacion-card">
+            <span class="derivacion-card__name">AESA <span class="derivacion-card__ext" aria-hidden="true">↗</span></span>
+            <span class="derivacion-card__desc">Derechos de pasajeros aéreos: retrasos, cancelaciones y equipajes.</span>
+          </a>
+
+          <a href="https://www.aepd.es/" target="_blank" rel="noopener" class="derivacion-card">
+            <span class="derivacion-card__name">AEPD <span class="derivacion-card__ext" aria-hidden="true">↗</span></span>
+            <span class="derivacion-card__desc">Protección de datos personales y privacidad.</span>
+          </a>
+
+        </div>
       </div>
     </section>
 
