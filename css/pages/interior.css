@@ -960,3 +960,32 @@ a.vm-card:hover {
   .contacto-grid { grid-template-columns: 1fr; }
   .noti-grid { grid-template-columns: 1fr; }
 }
+
+/* ==========================================================================
+   FICHA — bloque de contacto (páginas con URL propia)
+   ========================================================================== */
+.ficha-contacto {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+  padding: var(--space-md) var(--space-lg);
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  margin: var(--space-lg) 0;
+}
+.ficha-contacto__item { display: flex; flex-direction: column; gap: 2px; }
+.ficha-contacto__label {
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: var(--color-text-muted);
+  font-weight: var(--font-weight-semibold);
+}
+.ficha-contacto__val {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  text-decoration: none;
+}
+a.ficha-contacto__val:hover { text-decoration: underline; }
