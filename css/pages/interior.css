@@ -768,3 +768,67 @@ a.vm-card:hover {
   line-height: 1.4;
 }
 @media (max-width: 768px) { .vm-grid { grid-template-columns: 1fr; } }
+
+/* ==========================================================================
+   SANCIONES — carrusel de noticias
+   ========================================================================== */
+.san-news {
+  margin-top: var(--space-xxl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--color-border);
+}
+.san-news__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+.san-news__nav { display: flex; gap: 8px; }
+.san-news__track {
+  display: flex;
+  gap: var(--space-md);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding-bottom: var(--space-sm);
+  scrollbar-width: thin;
+}
+.san-news__track::-webkit-scrollbar { height: 6px; }
+.san-news__track::-webkit-scrollbar-thumb { background: var(--color-gray-300); border-radius: 3px; }
+.san-news-card {
+  flex: 0 0 clamp(240px, 80%, 300px);
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: var(--space-md);
+  background: #fff;
+  border: 1px solid var(--color-border-light);
+  border-top: 3px solid var(--color-accent);
+  border-radius: var(--border-radius-md);
+  text-decoration: none;
+  color: var(--color-text);
+  transition: transform .15s, box-shadow .15s;
+}
+.san-news-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(4,50,99,.12);
+  text-decoration: none;
+}
+.san-news-card__tag {
+  align-self: flex-start;
+  background: var(--color-bg-alt);
+  color: var(--color-primary);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  padding: 2px 10px;
+  border-radius: 12px;
+}
+.san-news-card__date { font-size: var(--font-size-xs); color: var(--color-text-muted); }
+.san-news-card__title {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  line-height: 1.35;
+}
