@@ -559,12 +559,15 @@
   border: 1px solid var(--color-border);
   border-radius: var(--border-radius-md);
   overflow: hidden;
+  display: block;
 }
 
 .side-nav__title {
+  display: block;
   background: var(--color-accent);
   color: var(--color-black);
   padding: var(--space-md) var(--space-lg);
+  margin: 0;
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-bold);
   text-transform: uppercase;
