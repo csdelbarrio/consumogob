@@ -85,6 +85,30 @@
   }
 
   /* ------------------------------------------------------------------
+     2b. VIDEO SCROLLER (YouTube, 3 columnas)
+     ------------------------------------------------------------------ */
+  var vtrack = document.querySelector('.social-yt .video-scroller__track');
+  if (vtrack) {
+    var vPrev = document.querySelector('[data-video-prev]');
+    var vNext = document.querySelector('[data-video-next]');
+    function videoStep() {
+      var first = vtrack.querySelector('.video-embed');
+      var gap = 16;
+      return first ? first.getBoundingClientRect().width + gap : 320;
+    }
+    function updateVideoArrows() {
+      if (!vPrev || !vNext) return;
+      vPrev.disabled = vtrack.scrollLeft <= 4;
+      vNext.disabled = vtrack.scrollLeft + vtrack.clientWidth >= vtrack.scrollWidth - 4;
+    }
+    if (vPrev) vPrev.addEventListener('click', function () { vtrack.scrollBy({ left: -videoStep(), behavior: 'smooth' }); });
+    if (vNext) vNext.addEventListener('click', function () { vtrack.scrollBy({ left: videoStep(), behavior: 'smooth' }); });
+    vtrack.addEventListener('scroll', updateVideoArrows, { passive: true });
+    window.addEventListener('resize', updateVideoArrows);
+    updateVideoArrows();
+  }
+
+  /* ------------------------------------------------------------------
      3. CHATBOT — panel demo
      ------------------------------------------------------------------ */
   var fab = document.querySelector('.chatbot-fab');

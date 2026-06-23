@@ -293,146 +293,98 @@
   </header>
   <main id="main-content" tabindex="-1" class="home">
 
-  <!-- ════════════════════════════════════════════════════
-       1. HERO CARRUSEL — 5 slides
-       ════════════════════════════════════════════════════ -->
+  <!-- ════════ BUSCADOR GLOBAL (estilo gov.uk) ════════ -->
+  <section class="home-search-hero" aria-labelledby="search-hero-title">
+    <div class="home-wrap">
+      <h1 class="home-search-hero__title" id="search-hero-title">¿Qué necesitas saber sobre consumo?</h1>
+      <p class="home-search-hero__sub">Busca información sobre tus derechos, reclamaciones, alertas de productos y más.</p>
+      <!--
+        BUSCADOR — En la demo envía a la búsqueda de dsca.gob.es (funciona ya).
+        EN DRUPAL: cambiar action a la ruta del buscador interno de Consumo
+        (ej. /es/consumo/buscar) para acotar resultados a esta sección.
+      -->
+      <form class="home-search-box" role="search" action="https://www.dsca.gob.es/es/search" method="get">
+        <label for="global-search" class="sr-only">Buscar en Consumo</label>
+        <input class="home-search-box__input" id="global-search" name="key" type="search"
+               placeholder="Ej: garantía de un electrodoméstico, hoja de reclamaciones…"
+               autocomplete="off">
+        <button class="home-search-box__btn" type="submit">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <span>Buscar</span>
+        </button>
+      </form>
+      <p class="home-search-hero__popular">
+        Búsquedas frecuentes:
+        <a href="/consumogob/te-ayudamos/reclamaciones/">reclamar</a>
+        <a href="/consumogob/te-ayudamos/normativa/">garantías</a>
+        <a href="/consumogob/te-ayudamos/alertas-seguridad/">alertas</a>
+        <a href="/consumogob/te-ayudamos/">consulta tu problema</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ════════ CARRUSEL HERO — 4 slides ════════ -->
   <section class="hero-carousel" aria-roledescription="carrusel" aria-label="Contenidos destacados">
     <div class="hero-carousel__track">
 
-      <!-- Slide 1: Te ayudamos -->
-      <div class="hero-slide" role="group" aria-roledescription="diapositiva" aria-label="1 de 5">
-        <div class="hero-slide__media" aria-hidden="true">
-          <img src="/consumogob/assets/SecretariaGeneralConsumoyJuego-sede.jpg" alt="">
-        </div>
-        <div class="hero-slide__inner">
-          <div class="hero-slide__content">
-            <p class="hero-slide__eyebrow">Atención a la ciudadanía</p>
-            <h1 class="hero-slide__title">¿Tienes una consulta de consumo?</h1>
-            <p class="hero-slide__text">Describe tu caso y te orientamos paso a paso hacia la solución: reclamaciones, garantías, devoluciones y mucho más.</p>
-            <a href="/consumogob/te-ayudamos/" class="btn-hero btn-hero--primary">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-              Consulta
-            </a>
-          </div>
-        </div>
+      <!-- 1: Te ayudamos -->
+      <div class="hero-slide" role="group" aria-roledescription="diapositiva" aria-label="1 de 4">
+        <div class="hero-slide__media" aria-hidden="true"><img src="/consumogob/assets/SecretariaGeneralConsumoyJuego-sede.jpg" alt=""></div>
+        <div class="hero-slide__inner"><div class="hero-slide__content">
+          <p class="hero-slide__eyebrow">Atención a la ciudadanía</p>
+          <h2 class="hero-slide__title">¿Tienes una consulta de consumo?</h2>
+          <p class="hero-slide__text">Te orientamos paso a paso hacia la solución: reclamaciones, garantías, devoluciones y mucho más.</p>
+          <a href="/consumogob/te-ayudamos/" class="btn-hero btn-hero--primary">Consulta <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div></div>
       </div>
 
-      <!-- Slide 2: Juego DGOJ -->
-      <div class="hero-slide" role="group" aria-roledescription="diapositiva" aria-label="2 de 5" aria-hidden="true">
-        <div class="hero-slide__media" aria-hidden="true">
-          <img src="https://picsum.photos/id/1015/1600/700" alt="">
-        </div>
-        <div class="hero-slide__inner">
-          <div class="hero-slide__content">
-            <p class="hero-slide__eyebrow">Ordenación del Juego</p>
-            <h2 class="hero-slide__title">Juego seguro y responsable</h2>
-            <p class="hero-slide__text">La DGOJ regula y supervisa el juego de ámbito estatal. Información para participantes, operadores y autoexclusión.</p>
-            <a href="https://www.ordenacionjuego.es/" target="_blank" rel="noopener" class="btn-hero btn-hero--primary">
-              Ir a ordenacionjuego.es <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            </a>
-          </div>
-        </div>
+      <!-- 2: Noticia destacada -->
+      <div class="hero-slide" role="group" aria-roledescription="diapositiva" aria-label="2 de 4" aria-hidden="true">
+        <div class="hero-slide__media" aria-hidden="true"><img src="https://picsum.photos/id/180/1600/700" alt=""></div>
+        <div class="hero-slide__inner"><div class="hero-slide__content">
+          <p class="hero-slide__eyebrow">Normativa · 12 de mayo de 2025</p>
+          <h2 class="hero-slide__title">Consumo forma a más de 2.500 profesionales en 2025</h2>
+          <p class="hero-slide__text">La Dirección General de Consumo refuerza la capacitación de los profesionales de consumo de las comunidades autónomas.</p>
+          <a href="https://www.dsca.gob.es/es/consumo/novedades" target="_blank" rel="noopener" class="btn-hero btn-hero--primary">Leer la noticia <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div></div>
       </div>
 
-      <!-- Slide 3: AESAN -->
-      <div class="hero-slide" role="group" aria-roledescription="diapositiva" aria-label="3 de 5" aria-hidden="true">
-        <div class="hero-slide__media" aria-hidden="true">
-          <img src="https://picsum.photos/id/292/1600/700" alt="">
-        </div>
-        <div class="hero-slide__inner">
-          <div class="hero-slide__content">
-            <p class="hero-slide__eyebrow">Seguridad alimentaria y nutrición</p>
-            <img src="/consumogob/assets/logo-aesan-placeholder.svg" alt="AESAN" width="140" height="70" style="margin-bottom:12px;display:block;">
-            <h2 class="hero-slide__title">Alimentos seguros para todos</h2>
-            <p class="hero-slide__text">La Agencia Española de Seguridad Alimentaria y Nutrición vela por la seguridad de los alimentos y promueve una nutrición saludable.</p>
-            <a href="https://www.aesan.gob.es/" target="_blank" rel="noopener" class="btn-hero btn-hero--primary">
-              Ir a aesan.gob.es <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            </a>
-          </div>
-        </div>
+      <!-- 3: DGOJ -->
+      <div class="hero-slide" role="group" aria-roledescription="diapositiva" aria-label="3 de 4" aria-hidden="true">
+        <div class="hero-slide__media" aria-hidden="true"><img src="https://picsum.photos/id/1015/1600/700" alt=""></div>
+        <div class="hero-slide__inner"><div class="hero-slide__content">
+          <p class="hero-slide__eyebrow">Ordenación del Juego</p>
+          <img src="/consumogob/assets/logo-dgoj-placeholder.svg" alt="DGOJ" width="130" height="65" style="margin-bottom:12px;display:block;">
+          <h2 class="hero-slide__title">Juego seguro y responsable</h2>
+          <p class="hero-slide__text">La DGOJ regula y supervisa el juego de ámbito estatal. Información para participantes, operadores y autoexclusión.</p>
+          <a href="https://www.ordenacionjuego.es/" target="_blank" rel="noopener" class="btn-hero btn-hero--primary">Ir a ordenacionjuego.es <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </div></div>
       </div>
 
-      <!-- Slide 4: Noticia 1 -->
-      <div class="hero-slide" role="group" aria-roledescription="diapositiva" aria-label="4 de 5" aria-hidden="true">
-        <div class="hero-slide__media" aria-hidden="true">
-          <img src="https://picsum.photos/id/180/1600/700" alt="">
-        </div>
-        <div class="hero-slide__inner">
-          <div class="hero-slide__content">
-            <p class="hero-slide__eyebrow">Normativa · 12 de mayo de 2025</p>
-            <h2 class="hero-slide__title">Consumo forma a más de 2.500 profesionales en 2025</h2>
-            <p class="hero-slide__text">La Dirección General de Consumo refuerza la capacitación de los profesionales de consumo de las comunidades autónomas.</p>
-            <a href="#" class="btn-hero btn-hero--primary">Leer la noticia <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 5: Noticia 2 -->
-      <div class="hero-slide" role="group" aria-roledescription="diapositiva" aria-label="5 de 5" aria-hidden="true">
-        <div class="hero-slide__media" aria-hidden="true">
-          <img src="https://picsum.photos/id/96/1600/700" alt="">
-        </div>
-        <div class="hero-slide__inner">
-          <div class="hero-slide__content">
-            <p class="hero-slide__eyebrow">Arbitraje · 5 de abril de 2025</p>
-            <h2 class="hero-slide__title">La Ley SAC avanza en la transparencia algorítmica</h2>
-            <p class="hero-slide__text">La nueva Ley de Servicios de Atención a la Clientela introduce garantías sobre el uso de algoritmos en la atención al consumidor.</p>
-            <a href="#" class="btn-hero btn-hero--primary">Leer la noticia <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-          </div>
-        </div>
+      <!-- 4: AESAN -->
+      <div class="hero-slide" role="group" aria-roledescription="diapositiva" aria-label="4 de 4" aria-hidden="true">
+        <div class="hero-slide__media" aria-hidden="true"><img src="https://picsum.photos/id/292/1600/700" alt=""></div>
+        <div class="hero-slide__inner"><div class="hero-slide__content">
+          <p class="hero-slide__eyebrow">Seguridad alimentaria y nutrición</p>
+          <img src="/consumogob/assets/logo-aesan-placeholder.svg" alt="AESAN" width="140" height="70" style="margin-bottom:12px;display:block;">
+          <h2 class="hero-slide__title">Alimentos seguros para todos</h2>
+          <p class="hero-slide__text">La Agencia Española de Seguridad Alimentaria y Nutrición vela por la seguridad de los alimentos y promueve una nutrición saludable.</p>
+          <a href="https://www.aesan.gob.es/" target="_blank" rel="noopener" class="btn-hero btn-hero--primary">Ir a aesan.gob.es <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </div></div>
       </div>
 
     </div>
-
-    <!-- Controles -->
     <div class="hero-carousel__controls">
       <div class="hero-carousel__dots" role="tablist" aria-label="Seleccionar diapositiva">
         <button class="hero-dot" aria-label="Diapositiva 1: Te ayudamos" aria-current="true"></button>
-        <button class="hero-dot" aria-label="Diapositiva 2: Juego" aria-current="false"></button>
-        <button class="hero-dot" aria-label="Diapositiva 3: AESAN" aria-current="false"></button>
-        <button class="hero-dot" aria-label="Diapositiva 4: Reglamento de garantías" aria-current="false"></button>
-        <button class="hero-dot" aria-label="Diapositiva 5: Sistema Arbitral" aria-current="false"></button>
-      </div>
+        <button class="hero-dot" aria-label="Diapositiva 2: Noticia destacada" aria-current="false"></button>
+        <button class="hero-dot" aria-label="Diapositiva 3: Juego" aria-current="false"></button>
+        <button class="hero-dot" aria-label="Diapositiva 4: AESAN" aria-current="false"></button>
       </div>
     </div>
   </section>
 
-  <!-- ════════════════════════════════════════════════════
-       2. TRES DESTACADOS — Consumo · Juego · AESAN
-       ════════════════════════════════════════════════════ -->
-  <section class="home-orgs" aria-label="Organismos de la Secretaría General">
-    <div class="home-orgs__grid">
-
-      <a href="/consumogob/dg-consumo/" class="org-card">
-        <span class="org-card__logo" aria-hidden="true">DGC</span>
-        <span>
-          <span class="org-card__name">Consumo</span>
-          <span class="org-card__desc">Dirección General de Consumo — derechos, vigilancia, arbitraje</span>
-        </span>
-      </a>
-
-      <a href="https://www.ordenacionjuego.es/" target="_blank" rel="noopener" class="org-card">
-        <span class="org-card__logo org-card__logo--img" aria-hidden="true"><!-- PLACEHOLDER: sustituir por logo oficial DGOJ --><img src="/consumogob/assets/logo-dgoj-placeholder.svg" alt=""></span>
-        <span>
-          <span class="org-card__name">Juego <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
-          <span class="org-card__desc">Dirección General de Ordenación del Juego — ordenacionjuego.es</span>
-        </span>
-      </a>
-
-      <a href="https://www.aesan.gob.es/" target="_blank" rel="noopener" class="org-card">
-        <span class="org-card__logo org-card__logo--img" aria-hidden="true"><!-- PLACEHOLDER: sustituir por logo oficial AESAN --><img src="/consumogob/assets/logo-aesan-placeholder.svg" alt=""></span>
-        <span>
-          <span class="org-card__name">Seguridad alimentaria <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
-          <span class="org-card__desc">AESAN — Agencia Española de Seguridad Alimentaria y Nutrición</span>
-        </span>
-      </a>
-
-    </div>
-  </section>
-
-  <!-- ════════════════════════════════════════════════════
-       3. ATENCIÓN A LA PERSONA CONSUMIDORA
-       ════════════════════════════════════════════════════ -->
+  <!-- ════════ ATENCIÓN A LA PERSONA CONSUMIDORA (único punto de acción) ════════ -->
   <section class="home-attention" aria-labelledby="attention-title">
     <div class="home-wrap">
       <div class="home-section__head">
@@ -442,235 +394,172 @@
         </div>
       </div>
       <div class="attention__grid">
-
         <a href="/consumogob/te-ayudamos/" class="attention-card">
-          <span class="attention-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-          </span>
+          <span class="attention-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></span>
           <h3 class="attention-card__title">Consulta tu problema</h3>
           <p class="attention-card__desc">Te orientamos paso a paso según tu caso concreto</p>
         </a>
-
         <a href="/consumogob/te-ayudamos/reclamaciones/" class="attention-card">
-          <span class="attention-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m14 13-7.5 7.5a2.12 2.12 0 0 1-3-3L11 10"/><path d="m16 16 6-6"/><path d="m8 8 6-6"/><path d="m9 7 8 8"/><path d="m21 11-8-8"/></svg>
-          </span>
+          <span class="attention-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m14 13-7.5 7.5a2.12 2.12 0 0 1-3-3L11 10"/><path d="m16 16 6-6"/><path d="m8 8 6-6"/><path d="m9 7 8 8"/><path d="m21 11-8-8"/></svg></span>
           <h3 class="attention-card__title">Haz una reclamación</h3>
           <p class="attention-card__desc">Sistema Arbitral de Consumo: gratuito y vinculante</p>
         </a>
-
         <a href="/consumogob/te-ayudamos/normativa/" class="attention-card">
-          <span class="attention-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18"/><path d="M5 7h14"/><path d="m5 7-2 6h6z"/><path d="m19 7 2 6h-6z"/><path d="M8 21h8"/></svg>
-          </span>
+          <span class="attention-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18"/><path d="M5 7h14"/><path d="m5 7-2 6h6z"/><path d="m19 7 2 6h-6z"/><path d="M8 21h8"/></svg></span>
           <h3 class="attention-card__title">Tus derechos</h3>
           <p class="attention-card__desc">Garantías, devoluciones, desistimiento, cláusulas abusivas</p>
         </a>
-
         <a href="/consumogob/te-ayudamos/alertas-seguridad/" class="attention-card">
-          <span class="attention-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
-          </span>
+          <span class="attention-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span>
           <h3 class="attention-card__title">Alertas de seguridad</h3>
           <p class="attention-card__desc">Productos retirados del mercado: RAPNA y Safety Gate</p>
         </a>
-
         <a href="/consumogob/te-ayudamos/faq/" class="attention-card">
-          <span class="attention-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
-          </span>
+          <span class="attention-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></span>
           <h3 class="attention-card__title">Preguntas frecuentes</h3>
           <p class="attention-card__desc">Respuestas a las dudas más habituales</p>
         </a>
-
         <a href="/consumogob/te-ayudamos/contacto/" class="attention-card">
-          <span class="attention-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-          </span>
+          <span class="attention-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span>
           <h3 class="attention-card__title">Contacto</h3>
           <p class="attention-card__desc">Teléfono, correo electrónico y atención presencial</p>
         </a>
-
       </div>
     </div>
   </section>
 
-  <!-- ════════════════════════════════════════════════════
-       4. CIFRAS CLAVE
-       ════════════════════════════════════════════════════ -->
-  <section class="home-stats" aria-label="Cifras clave de consumo">
+  <!-- ════════ ORGANISMOS + CIFRAS (fusionados) ════════ -->
+  <section class="home-orgs-stats" aria-labelledby="orgs-title">
     <div class="home-wrap">
-      <div class="home-stats__grid">
-        <div class="stat-item"><span class="stat-item__n">45.000+</span><span class="stat-item__l">Inspecciones realizadas en 2024</span></div>
+      <div class="home-section__head">
+        <div>
+          <p class="home-eyebrow">La Secretaría General</p>
+          <h2 class="home-section__title" id="orgs-title">Organismos y cifras clave</h2>
+        </div>
+      </div>
+      <div class="orgs-stats__grid">
+        <a href="/consumogob/dg-consumo/" class="org-card">
+          <span class="org-card__logo" aria-hidden="true">DGC</span>
+          <span><span class="org-card__name">Consumo</span><span class="org-card__desc">Dirección General de Consumo</span></span>
+        </a>
+        <a href="https://www.ordenacionjuego.es/" target="_blank" rel="noopener" class="org-card">
+          <span class="org-card__logo org-card__logo--img" aria-hidden="true"><img src="/consumogob/assets/logo-dgoj-placeholder.svg" alt=""></span>
+          <span><span class="org-card__name">Juego <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span><span class="org-card__desc">Ordenación del Juego</span></span>
+        </a>
+        <a href="https://www.aesan.gob.es/" target="_blank" rel="noopener" class="org-card">
+          <span class="org-card__logo org-card__logo--img" aria-hidden="true"><img src="/consumogob/assets/logo-aesan-placeholder.svg" alt=""></span>
+          <span><span class="org-card__name">Seg. alimentaria <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span><span class="org-card__desc">AESAN</span></span>
+        </a>
+      </div>
+      <div class="stats-strip">
+        <div class="stat-item"><span class="stat-item__n">45.000+</span><span class="stat-item__l">Inspecciones en 2024</span></div>
         <div class="stat-item"><span class="stat-item__n">312.000</span><span class="stat-item__l">Reclamaciones gestionadas</span></div>
         <div class="stat-item"><span class="stat-item__n">1.847</span><span class="stat-item__l">Alertas de productos</span></div>
-        <div class="stat-item"><span class="stat-item__n">98%</span><span class="stat-item__l">Arbitrajes resueltos en plazo</span></div>
+        <div class="stat-item"><span class="stat-item__n">98%</span><span class="stat-item__l">Arbitrajes en plazo</span></div>
       </div>
     </div>
   </section>
 
-  <!-- ════════════════════════════════════════════════════
-       5. MINI-CARRUSEL DE NOTICIAS
-       ════════════════════════════════════════════════════ -->
+  <!-- ════════ NOTICIAS ════════ -->
   <section class="home-news" aria-labelledby="news-title">
     <div class="home-wrap">
-      <div class="home-social__grid">
-      <div class="home-social__news">
       <div class="home-section__head">
         <div>
           <p class="home-eyebrow">Actualidad</p>
           <h2 class="home-section__title" id="news-title">Últimas noticias</h2>
         </div>
-        <div class="news-scroller__nav">
-          <button class="news-arrow" data-news-prev aria-label="Noticias anteriores">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
-          </button>
-          <button class="news-arrow" data-news-next aria-label="Más noticias">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-          </button>
-        </div>
+        <a href="https://www.dsca.gob.es/es/consumo/novedades" target="_blank" rel="noopener" class="home-section__link">Ver todas <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
       </div>
-
-      <div class="news-scroller">
-        <div class="news-scroller__track" tabindex="0" aria-label="Lista de noticias, usa las flechas para desplazarte">
-
-          <a href="#" class="news-mini">
-            <div class="news-mini__media"><span class="news-mini__tag">Normativa</span><img src="https://picsum.photos/id/180/600/340" alt=""></div>
-            <div class="news-mini__body">
-              <time class="news-mini__date" datetime="2025-05-12">12 de mayo de 2025</time>
-              <h3 class="news-mini__title">La Dirección General de Consumo forma a más de 2.500 profesionales de consumo en 2025</h3>
-            </div>
-          </a>
-
-          <a href="#" class="news-mini">
-            <div class="news-mini__media"><span class="news-mini__tag">Arbitraje</span><img src="https://picsum.photos/id/96/600/340" alt=""></div>
-            <div class="news-mini__body">
-              <time class="news-mini__date" datetime="2025-04-05">5 de abril de 2025</time>
-              <h3 class="news-mini__title">La Ley SAC avanza en la transparencia algorítmica</h3>
-            </div>
-          </a>
-
-          <a href="#" class="news-mini">
-            <div class="news-mini__media"><span class="news-mini__tag">Seguridad</span><img src="https://picsum.photos/id/367/600/340" alt=""></div>
-            <div class="news-mini__body">
-              <time class="news-mini__date" datetime="2025-03-18">18 de marzo de 2025</time>
-              <h3 class="news-mini__title">Guía para el ejercicio de derechos de consumo tras el apagón eléctrico del 28 de abril de 2025</h3>
-            </div>
-          </a>
-
-          <a href="#" class="news-mini">
-            <div class="news-mini__media"><span class="news-mini__tag">Formación</span><img src="https://picsum.photos/id/26/600/340" alt=""></div>
-            <div class="news-mini__body">
-              <time class="news-mini__date" datetime="2025-02-27">27 de febrero de 2025</time>
-              <h3 class="news-mini__title">Nota informativa sobre nueva regulación de suscripciones en la Ley de servicios de atención a la clientela</h3>
-            </div>
-          </a>
-
-          <a href="#" class="news-mini">
-            <div class="news-mini__media"><span class="news-mini__tag">Alertas</span><img src="https://picsum.photos/id/453/600/340" alt=""></div>
-            <div class="news-mini__body">
-              <time class="news-mini__date" datetime="2025-02-10">10 de febrero de 2025</time>
-              <h3 class="news-mini__title">La Comisión Europea subraya que las microtransacciones en videojuegos están sometidas a la legislación de consumo</h3>
-            </div>
-          </a>
-
-          <a href="#" class="news-mini">
-            <div class="news-mini__media"><span class="news-mini__tag">Europa</span><img src="https://picsum.photos/id/1031/600/340" alt=""></div>
-            <div class="news-mini__body">
-              <time class="news-mini__date" datetime="2025-01-22">22 de enero de 2025</time>
-              <h3 class="news-mini__title">Stellantis amplía las compensaciones por los problemas técnicos de sus depósitos AdBlue</h3>
-            </div>
-          </a>
-
-        </div>
+      <div class="news-grid3">
+        <a href="#" class="news-card3">
+          <span class="news-card3__media"><span class="news-card3__tag">Normativa</span><img src="https://picsum.photos/id/180/600/340" alt=""></span>
+          <span class="news-card3__body"><time class="news-card3__date">12 may 2025</time><span class="news-card3__title">Consumo forma a más de 2.500 profesionales en 2025</span></span>
+        </a>
+        <a href="#" class="news-card3">
+          <span class="news-card3__media"><span class="news-card3__tag">Arbitraje</span><img src="https://picsum.photos/id/96/600/340" alt=""></span>
+          <span class="news-card3__body"><time class="news-card3__date">5 abr 2025</time><span class="news-card3__title">La Ley SAC avanza en la transparencia algorítmica</span></span>
+        </a>
+        <a href="#" class="news-card3">
+          <span class="news-card3__media"><span class="news-card3__tag">Seguridad</span><img src="https://picsum.photos/id/367/600/340" alt=""></span>
+          <span class="news-card3__body"><time class="news-card3__date">18 mar 2025</time><span class="news-card3__title">Guía de derechos de consumo tras el apagón del 28 de abril</span></span>
+        </a>
       </div>
-      </div><!-- /home-social__news -->
-
-      <!-- ════ Instagram — carrusel vertical ════ -->
-      <aside class="home-social__insta" aria-labelledby="insta-title">
-        <div class="insta-col__head">
-          <h2 class="insta-col__title" id="insta-title">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-            @consumo.gob
-          </h2>
-        </div>
-        <div class="insta-scroller" tabindex="0" aria-label="Publicaciones de Instagram de consumo.gob">
-          <!--
-            EMBEDS REALES DE INSTAGRAM (@consumo.gob) — uno por uno, scroll vertical.
-            Cada bloque es un post individual. Para fijar publicaciones concretas,
-            sustituir el permalink /p/CODIGO/ por el de cada post real del perfil.
-            En RedSARA debe permitirse: www.instagram.com y *.cdninstagram.com
-          -->
-          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/consumo.gob/" data-instgrm-version="14"></blockquote>
-        </div>
-      </aside>
-
-      </div><!-- /home-social__grid -->
     </div>
   </section>
 
-  <!-- ════════════════════════════════════════════════════
-       VÍDEOS — canal de YouTube de Consumo
-       ════════════════════════════════════════════════════ -->
-  <section class="home-videos" aria-labelledby="videos-title">
+  <!-- ════════ REDES SOCIALES — YouTube (3 col) + Instagram (1 col) ════════ -->
+  <section class="home-social" aria-labelledby="social-title">
     <div class="home-wrap">
       <div class="home-section__head">
         <div>
-          <p class="home-eyebrow">Canal de vídeo</p>
-          <h2 class="home-section__title" id="videos-title">Consumo en YouTube</h2>
+          <p class="home-eyebrow">Síguenos</p>
+          <h2 class="home-section__title" id="social-title">Consumo en redes sociales</h2>
         </div>
-        <a href="https://www.youtube.com/@ConsumoGob" target="_blank" rel="noopener" class="home-section__link">Ver canal
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
       </div>
+      <div class="social-grid">
 
-      <div class="video-scroller">
-        <div class="video-scroller__track" tabindex="0" aria-label="Vídeos del canal de Consumo">
+        <!-- YouTube — carrusel de vídeos en 3 columnas -->
+        <div class="social-yt">
+          <div class="social-col__head">
+            <h3 class="social-col__title">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 12s0-3.9-.5-5.8c-.3-1-1-1.8-2-2C18.7 4 12 4 12 4s-6.7 0-8.5.5c-1 .2-1.7 1-2 2C1 8.1 1 12 1 12s0 3.9.5 5.8c.3 1 1 1.8 2 2C5.3 20 12 20 12 20s6.7 0 8.5-.5c1-.2 1.7-1 2-2C23 15.9 23 12 23 12zM10 15.5v-7l6 3.5-6 3.5z"/></svg>
+              @ConsumoGob
+            </h3>
+            <div class="news-scroller__nav">
+              <button class="news-arrow" data-video-prev aria-label="Vídeos anteriores"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg></button>
+              <button class="news-arrow" data-video-next aria-label="Más vídeos"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></button>
+            </div>
+          </div>
           <!--
-            EMBEDS REALES DE YOUTUBE (@ConsumoGob)
-            Funcionan en la demo (GitHub Pages). En RedSARA hay que permitir:
-              - www.youtube.com / www.youtube-nocookie.com (reproductor)
-              - i.ytimg.com (miniaturas)
-            Para fijar los vídeos definitivos, sustituir VIDEO_ID en cada iframe
-            por el identificador real de cada vídeo del canal, o usar el playlist
-            de subidas (channel ID con UC -> UU):
-              https://www.youtube.com/embed/videoseries?list=UU________________
+            CARRUSEL YouTube — vídeos reales embebidos del canal @ConsumoGob.
+            En RedSARA permitir www.youtube-nocookie.com e i.ytimg.com
           -->
-          <div class="video-embed">
-            <iframe src="https://www.youtube-nocookie.com/embed/TZyIL-LI74I?rel=0"
-                    title="Vídeos del canal de Consumo en YouTube"
-                    loading="lazy" frameborder="0" allowfullscreen
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+          <div class="video-scroller">
+            <div class="video-scroller__track" tabindex="0" aria-label="Vídeos del canal de Consumo">
+              <div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/TZyIL-LI74I?rel=0" title="Vídeo de Consumo 1" loading="lazy" frameborder="0" allowfullscreen allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+              <div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/TZyIL-LI74I?rel=0" title="Vídeo de Consumo 2" loading="lazy" frameborder="0" allowfullscreen allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+              <div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/TZyIL-LI74I?rel=0" title="Vídeo de Consumo 3" loading="lazy" frameborder="0" allowfullscreen allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+              <div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/TZyIL-LI74I?rel=0" title="Vídeo de Consumo 4" loading="lazy" frameborder="0" allowfullscreen allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+            </div>
           </div>
         </div>
+
+        <!-- Instagram — 1 columna, posts de uno en uno -->
+        <aside class="social-ig" aria-labelledby="ig-title">
+          <div class="social-col__head">
+            <h3 class="social-col__title" id="ig-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+              @consumo.gob
+            </h3>
+          </div>
+          <div class="insta-scroller" tabindex="0" aria-label="Publicaciones de Instagram de consumo.gob">
+            <!-- EMBEDS REALES Instagram (@consumo.gob), uno por uno. RedSARA: permitir www.instagram.com y *.cdninstagram.com -->
+            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/consumo.gob/" data-instgrm-version="14"></blockquote>
+          </div>
+        </aside>
+
       </div>
     </div>
   </section>
 
 </main>
-
-<!-- ════════════════════════════════════════════════════
-     CHATBOT — botón flotante + panel demo
-     ════════════════════════════════════════════════════ -->
-<button class="chatbot-fab" aria-expanded="false" aria-controls="chatbot-panel">
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-  <span>¿Necesitas ayuda?</span>
+  
+<!-- CHATBOT — disparador discreto -->
+<button class="chatbot-fab chatbot-fab--mini" aria-expanded="false" aria-controls="chatbot-panel" aria-label="Abrir asistente virtual de Consumo">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
   <span class="chatbot-fab__dot" aria-hidden="true"></span>
 </button>
-
 <div class="chatbot-panel" id="chatbot-panel" role="dialog" aria-label="Asistente virtual de Consumo">
   <div class="chatbot-panel__head">
     <h2 class="chatbot-panel__title">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
       Asistente de Consumo
     </h2>
-    <button class="chatbot-panel__close" aria-label="Cerrar asistente">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-    </button>
+    <button class="chatbot-panel__close" aria-label="Cerrar asistente"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
   </div>
   <div class="chatbot-panel__body">
-    <p class="chatbot-msg chatbot-msg--bot">¡Hola! Soy el asistente virtual de Consumo. Puedo orientarte sobre tus derechos y ayudarte a encontrar la vía adecuada para tu problema. ¿Sobre qué quieres consultar?</p>
-    <div class="chatbot-suggestions" aria-label="Sugerencias de consulta">
+    <p class="chatbot-msg chatbot-msg--bot">¡Hola! Soy el asistente virtual de Consumo. ¿Sobre qué quieres consultar?</p>
+    <div class="chatbot-suggestions">
       <button class="chatbot-suggestion" data-href="/consumogob/te-ayudamos/">🛒 Tengo un problema con una compra</button>
       <button class="chatbot-suggestion" data-href="/consumogob/te-ayudamos/reclamaciones/">⚖️ Quiero poner una reclamación</button>
       <button class="chatbot-suggestion" data-href="/consumogob/te-ayudamos/alertas-seguridad/">⚠️ Consultar alertas de productos</button>
@@ -707,8 +596,6 @@
   </footer>
   <script src="/consumogob/js/main.js" defer></script>
   <script src="/consumogob/js/home.js" defer></script>
-  <!-- Widget oficial de Instagram: convierte los blockquote en publicaciones reales.
-       En RedSARA debe permitirse www.instagram.com -->
   <script async src="https://www.instagram.com/embed.js"></script>
 </body>
 </html>

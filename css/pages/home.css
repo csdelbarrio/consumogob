@@ -831,3 +831,231 @@
   width: 100% !important;
   min-width: 0 !important;
 }
+
+/* ==========================================================================
+   v4 — Buscador gov.uk, fusión orgs+stats, noticias 3, social en fila
+   ========================================================================== */
+
+/* ── Buscador global tipo gov.uk ── */
+.home-search-hero {
+  background: var(--color-bg-white);
+  padding: var(--space-xxl) 0 var(--space-xl);
+  text-align: center;
+  border-bottom: 1px solid var(--color-border-light);
+}
+.home-search-hero__title {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin: 0 0 var(--space-sm);
+}
+.home-search-hero__sub {
+  font-size: var(--font-size-md);
+  color: var(--color-text-muted);
+  margin: 0 auto var(--space-lg);
+  max-width: 560px;
+}
+.home-search-box {
+  display: flex;
+  max-width: 640px;
+  margin: 0 auto var(--space-md);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  background: #fff;
+}
+.home-search-box:focus-within {
+  box-shadow: 0 0 0 3px rgba(4,50,99,.18);
+}
+.home-search-box__input {
+  flex: 1;
+  border: none;
+  padding: 16px 18px;
+  font-size: var(--font-size-md);
+  font-family: inherit;
+  color: var(--color-text);
+  outline: none;
+  min-width: 0;
+}
+.home-search-box__btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  padding: 0 26px;
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  font-family: inherit;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+.home-search-box__btn:hover { background: var(--color-primary-dark); }
+.home-search-hero__popular {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+.home-search-hero__popular a {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+  margin: 0 4px;
+}
+.home-search-hero__popular a:hover { text-decoration: underline; }
+
+/* ── Fusión organismos + cifras ── */
+.home-orgs-stats {
+  background: var(--color-bg-light);
+  border-top: 1px solid var(--color-border-light);
+  border-bottom: 1px solid var(--color-border-light);
+  padding: var(--space-xxl) 0;
+}
+.orgs-stats__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+.stats-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--color-border-light);
+}
+
+/* ── Noticias 3 columnas ── */
+.news-grid3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+.news-card3 {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--color-text);
+  transition: transform .15s, box-shadow .15s;
+}
+.news-card3:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 26px rgba(4,50,99,.12);
+  text-decoration: none;
+}
+.news-card3__media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: var(--color-gray-200);
+  overflow: hidden;
+  display: block;
+}
+.news-card3__media img { width: 100%; height: 100%; object-fit: cover; }
+.news-card3__tag {
+  position: absolute; top: 10px; left: 10px;
+  background: var(--color-accent);
+  color: var(--color-primary-dark);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  padding: 3px 10px;
+  border-radius: 16px;
+}
+.news-card3__body { padding: var(--space-md); display: block; }
+.news-card3__date {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  display: block;
+  margin-bottom: 4px;
+}
+.news-card3__title {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  line-height: 1.35;
+  display: block;
+}
+
+/* ── Redes sociales en una fila: YouTube (3fr) + Instagram (1fr) ── */
+.home-social { padding: var(--space-xxl) 0; }
+.social-grid {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+.social-col__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-md);
+  gap: var(--space-md);
+}
+.social-col__title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin: 0;
+}
+
+/* YouTube scroller: cada vídeo ocupa 1/3 del ancho de la zona YouTube */
+.social-yt .video-scroller__track {
+  display: flex;
+  gap: var(--space-md);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding-bottom: var(--space-sm);
+  scrollbar-width: thin;
+}
+.social-yt .video-embed {
+  flex: 0 0 calc((100% - 2 * var(--space-md)) / 3);
+  aspect-ratio: 16 / 9;
+  scroll-snap-align: start;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  background: #000;
+  border: 1px solid var(--color-border-light);
+}
+.social-yt .video-embed iframe { width: 100%; height: 100%; display: block; border: 0; }
+
+/* Instagram 1 columna con scroll vertical */
+.social-ig .insta-scroller {
+  max-height: 520px;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: thin;
+  padding-right: 2px;
+}
+.social-ig .instagram-media {
+  scroll-snap-align: start;
+  margin: 0 0 var(--space-md) !important;
+  min-width: 0 !important;
+  width: 100% !important;
+}
+
+/* ── Chatbot mini ── */
+.chatbot-fab--mini {
+  padding: 0;
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  justify-content: center;
+}
+.chatbot-fab--mini .chatbot-fab__dot {
+  position: absolute;
+  top: 12px; right: 12px;
+}
+
+@media (max-width: 900px) {
+  .orgs-stats__grid { grid-template-columns: 1fr; }
+  .stats-strip { grid-template-columns: repeat(2, 1fr); }
+  .news-grid3 { grid-template-columns: 1fr; }
+  .social-grid { grid-template-columns: 1fr; }
+  .social-yt .video-embed { flex: 0 0 70%; }
+}
