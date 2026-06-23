@@ -632,3 +632,38 @@
   .ayuda-accesos__grid,
   .ayuda-derivacion__grid { grid-template-columns: 1fr; }
 }
+
+/* ==========================================================================
+   RECLAMACIONES — pasos numerados
+   ========================================================================== */
+.reclama-pasos {
+  list-style: none;
+  counter-reset: paso;
+  margin: 0 0 var(--space-md);
+  padding: 0;
+}
+.reclama-paso {
+  display: flex;
+  gap: var(--space-md);
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--color-border-light);
+}
+.reclama-paso:last-child { border-bottom: none; }
+.reclama-paso__num {
+  flex-shrink: 0;
+  width: 38px; height: 38px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--color-primary);
+  color: var(--color-accent);
+  border-radius: 50%;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-md);
+}
+.reclama-paso__body { flex: 1; }
+.reclama-paso__title {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  margin: 4px 0 4px;
+}
+.reclama-paso__body p { margin: 0; line-height: 1.55; }
