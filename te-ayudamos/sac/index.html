@@ -13,32 +13,13 @@
   <!-- SAC styles -->
   <link rel="stylesheet" href="/consumogob/te-ayudamos/sac/css/styles.css">
   <style>
-    /* Override SAC header/footer — usamos el del prototipo */
-    .header, .breadcrumb { display: none !important; }
-    /* Integración del layout SAC dentro del grid interior */
-    .interior-content .main-layout {
-      display: grid;
-      grid-template-columns: 200px 1fr;
-      gap: 1.5rem;
-      margin-top: 1rem;
-    }
-    .interior-content .sidebar {
-      border-radius: 6px;
-      overflow: hidden;
-      height: fit-content;
-      position: sticky;
-      top: 80px;
-    }
-    .interior-content .sidebar-header {
-      background: var(--color-primary);
-      color: #fff;
-      padding: .75rem 1rem;
-      font-size: .875rem;
-      font-weight: 600;
-    }
-    .interior-content .main-area {
-      min-width: 0;
-    }
+    /* El SAC trae su propio header/footer ocultos: usamos el del prototipo.
+       OJO: no ocultar .breadcrumb del prototipo, solo el header propio del SAC. */
+    .sac-app .header { display: none !important; }
+    /* El SAC ocupa el área de contenido a una sola columna (sus sectores
+       se muestran como tarjetas grandes en el área principal). */
+    .sac-app { margin-top: 1rem; }
+    .sac-app .main-area { min-width: 0; }
     .btn-subir {
       position: fixed;
       bottom: 2rem;
@@ -138,7 +119,7 @@
                   <li><a href="/consumogob/te-ayudamos/sac/">Preguntas frecuentes</a></li>
                   <li><a href="/consumogob/te-ayudamos/reclamaciones/">Haz una reclamación</a></li>
                   <li><a href="/consumogob/te-ayudamos/alertas-seguridad/">Alertas de seguridad</a></li>
-                  <li><a href="/consumogob/te-ayudamos/normativa/">Consulta normativa</a></li>
+                  <li><a href="/consumogob/te-ayudamos/normativa/">Tus derechos</a></li>
                   <li><a href="/consumogob/te-ayudamos/contacto/">Contacto</a></li>
                 </ul>
                 <ul role="list">
@@ -208,31 +189,26 @@
     <div class="container">
       <div class="interior-layout">
         <aside class="interior-sidebar">
-          <nav class="side-nav" aria-label="Navegación de sección"><span class="side-nav__title">Preguntas frecuentes</span><a href="/consumogob/te-ayudamos/sac/" class="side-nav__link side-nav__link--active">Preguntas frecuentes</a>
-<a href="/consumogob/te-ayudamos/reclamaciones/" class="side-nav__link">Haz una reclamación</a>
-<a href="/consumogob/te-ayudamos/alertas-seguridad/" class="side-nav__link">Alertas de seguridad</a>
-<a href="/consumogob/te-ayudamos/normativa/" class="side-nav__link">Consulta normativa</a>
-<a href="/consumogob/te-ayudamos/sac/" class="side-nav__link">Preguntas frecuentes</a>
-<a href="/consumogob/te-ayudamos/contacto/" class="side-nav__link">Contacto</a>
-</nav>
+          <nav class="side-nav" aria-label="Navegación de sección">
+            <span class="side-nav__title">Preguntas frecuentes</span>
+            <a href="/consumogob/te-ayudamos/sac/" class="side-nav__link side-nav__link--active" aria-current="page">Preguntas frecuentes</a>
+            <a href="/consumogob/te-ayudamos/normativa/" class="side-nav__link">Tus derechos</a>
+            <a href="/consumogob/te-ayudamos/reclamaciones/" class="side-nav__link">Haz una reclamación</a>
+            <a href="/consumogob/te-ayudamos/alertas-seguridad/" class="side-nav__link">Alertas de seguridad</a>
+            <a href="/consumogob/te-ayudamos/contacto/" class="side-nav__link">Contacto</a>
+          </nav>
         </aside>
         <div class="interior-content">
-          <!-- SAC app cargada aquí -->
-          <div class="container" style="padding:0;">
-            <div class="main-layout">
-              <aside class="sidebar">
-                <div class="sidebar-header">Sectores de consulta</div>
-                <div class="sectores-lista" id="sectoresLista"></div>
-              </aside>
-              <main class="main-area">
+          <!-- SAC app: ocupa el área de contenido. Los sectores se muestran como tarjetas. -->
+          <div class="sac-app">
+              <div class="main-area">
                 <div class="pregunta-container">
                   <button class="btn-volver" id="btnVolver" onclick="volverAtras()">← Volver</button>
-                  <div class="pregunta-principal" id="preguntaPrincipal">Preguntas frecuentes</div>
+                  <div class="pregunta-principal" id="preguntaPrincipal" hidden></div>
                   <div class="search-container">
                     <div style="margin-top:1rem;">
                       <div id="explicacionContainer"></div>
                       <div id="opcionesContainer"></div>
-                      <p class="mensaje-inicial">Describe tu consulta o selecciona un sector:</p>
                       <div class="search-box">
                         <input type="text" class="search-input" id="searchInput" placeholder="Ej: Me han cobrado de más en la factura de la luz...">
                         <button class="search-btn" onclick="buscarConsulta()">Buscar</button>
@@ -242,8 +218,7 @@
                   </div>
                 </div>
                 <div id="contenidoArea" style="padding:0 0 2rem 0;"></div>
-              </main>
-            </div>
+              </div>
           </div>
         </div>
       </div>
