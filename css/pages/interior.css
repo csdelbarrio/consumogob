@@ -727,3 +727,44 @@
   .reclama-destacado { flex-direction: column; align-items: flex-start; }
   .reclama-destacado__btn { width: 100%; justify-content: center; }
 }
+
+/* ==========================================================================
+   Tarjetas de subsección (vigilancia, asociaciones)
+   ========================================================================== */
+.vm-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+  margin: var(--space-md) 0;
+}
+.vm-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: var(--space-md);
+  background: #fff;
+  border: 1px solid var(--color-border-light);
+  border-left: 3px solid var(--color-primary);
+  border-radius: var(--border-radius-md);
+  text-decoration: none;
+  color: var(--color-text);
+  transition: transform .15s, box-shadow .15s, border-left-color .15s;
+}
+a.vm-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(4,50,99,.10);
+  border-left-color: var(--color-accent);
+  text-decoration: none;
+}
+.vm-card--static { border-left-color: var(--color-accent); }
+.vm-card__title {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  font-size: var(--font-size-base);
+}
+.vm-card__desc {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  line-height: 1.4;
+}
+@media (max-width: 768px) { .vm-grid { grid-template-columns: 1fr; } }
