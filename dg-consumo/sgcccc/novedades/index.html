@@ -267,12 +267,13 @@
   </header>
   <nav class="breadcrumb" aria-label="Ruta de navegación">
   <div class="container">
-    <ol class="breadcrumb__list"><li class="breadcrumb__item"><a href="/consumogob/" class="breadcrumb__link">Inicio</a></li><li class="breadcrumb__item"><a href="/consumogob/" class="breadcrumb__link">Consumo</a></li><li class="breadcrumb__item"><a href="/consumogob/dg-consumo/" class="breadcrumb__link">DGC</a></li><li class="breadcrumb__item"><a href="/consumogob/dg-consumo/sgcccc/" class="breadcrumb__link">SGCCCC</a></li><li class="breadcrumb__item"><span class="breadcrumb__current" aria-current="page">Novedades y divulgación</span></li></ol>
+    <ol class="breadcrumb__list"><li class="breadcrumb__item"><a href="https://www.dsca.gob.es/es" class="breadcrumb__link">Inicio</a></li><li class="breadcrumb__item"><a href="/consumogob/" class="breadcrumb__link">Consumo</a></li><li class="breadcrumb__item"><span class="breadcrumb__current" aria-current="page">Noticias</span></li></ol>
   </div>
 </nav>
 <div class="interior-header ">
   <div class="interior-header__inner">
-    <h1 class="interior-header__title">Novedades y divulgación</h1>
+    <h1 class="interior-header__title">Noticias</h1>
+    <p class="interior-header__subtitle">Actualidad de consumo: normativa, arbitraje, seguridad de productos, formación y más.</p>
     <p class="interior-header__desc">Sección gestionada por SGCCCC.</p>
   </div>
 </div>
@@ -294,17 +295,88 @@
 <a href="/consumogob/dg-consumo/sgcccc/organismos-internacionales/" class="side-nav__link">Organismos Internacionales</a>
 
 </nav>
+
+        <nav class="side-nav side-nav--toc" aria-label="En esta página">
+          <span class="side-nav__title">Categorías</span>
+          <a href="#normativa" class="side-nav__link">Normativa y derechos</a>
+          <a href="#seguridad" class="side-nav__link">Seguridad de productos</a>
+          <a href="#formacion" class="side-nav__link">Formación y educación</a>
+        </nav>
       </aside>
       <div class="interior-content">
-        <div class="pending-block">
-  <div class="pending-block__icon">⏳</div>
-  <h2 class="pending-block__title">Contenido en elaboración</h2>
-  <p class="pending-block__text">
-    Los contenidos de esta sección están siendo preparados por <strong>SGCCCC</strong>.<br>
-    Esta página se actualizará cuando el equipo responsable entregue los textos definitivos.
-  </p>
-  <!-- CONTENIDO PENDIENTE: SGCCCC -->
-</div>
+                <!-- Carrusel de últimas noticias -->
+        <section class="noti-destacadas" aria-labelledby="dest-t">
+          <div class="noti-destacadas__head">
+            <h2 class="noti-cat__title" id="dest-t" style="margin:0;border:0;padding:0">Últimas noticias</h2>
+            <div class="noti-destacadas__nav">
+              <button class="news-arrow" data-noti-prev aria-label="Anteriores"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg></button>
+              <button class="news-arrow" data-noti-next aria-label="Más"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></button>
+            </div>
+          </div>
+          <div class="noti-destacadas__track" tabindex="0" aria-label="Últimas noticias, usa las flechas para desplazarte">
+            <a href="https://www.dsca.gob.es/es/consumo/novedades" target="_blank" rel="noopener" class="noti-hero-card">
+              <span class="noti-hero-card__media"><span class="noti-card__tag">Normativa</span><img src="https://picsum.photos/id/180/700/400" alt=""></span>
+              <span class="noti-hero-card__body"><time class="noti-card__date">12 may 2025</time><span class="noti-hero-card__title">Consumo forma a más de 2.500 profesionales en 2025</span></span>
+            </a><a href="https://www.dsca.gob.es/es/consumo/novedades" target="_blank" rel="noopener" class="noti-hero-card">
+              <span class="noti-hero-card__media"><span class="noti-card__tag">Arbitraje</span><img src="https://picsum.photos/id/96/700/400" alt=""></span>
+              <span class="noti-hero-card__body"><time class="noti-card__date">5 abr 2025</time><span class="noti-hero-card__title">La Ley SAC avanza en la transparencia algorítmica</span></span>
+            </a><a href="https://www.dsca.gob.es/es/consumo/novedades" target="_blank" rel="noopener" class="noti-hero-card">
+              <span class="noti-hero-card__media"><span class="noti-card__tag">Seguridad</span><img src="https://picsum.photos/id/367/700/400" alt=""></span>
+              <span class="noti-hero-card__body"><time class="noti-card__date">18 mar 2025</time><span class="noti-hero-card__title">Guía de derechos de consumo tras el apagón del 28 de abril</span></span>
+            </a><a href="https://www.dsca.gob.es/es/consumo/novedades" target="_blank" rel="noopener" class="noti-hero-card">
+              <span class="noti-hero-card__media"><span class="noti-card__tag">Europa</span><img src="https://picsum.photos/id/1031/700/400" alt=""></span>
+              <span class="noti-hero-card__body"><time class="noti-card__date">22 ene 2025</time><span class="noti-hero-card__title">España participa en la campaña europea CASP de seguridad de productos</span></span>
+            </a>
+          </div>
+        </section>
+
+        <!-- Listados por categoría -->
+                <section class="noti-cat" id="normativa" aria-labelledby="normativa-t">
+          <h2 class="noti-cat__title" id="normativa-t">Normativa y derechos</h2>
+          <div class="noti-grid">
+            <a href="https://www.dsca.gob.es/es/consumo/novedades" target="_blank" rel="noopener" class="noti-card">
+              <span class="noti-card__media"><span class="noti-card__tag">Normativa</span><img src="https://picsum.photos/id/60/600/340" alt=""></span>
+              <span class="noti-card__body"><time class="noti-card__date">15 ene 2025</time><span class="noti-card__title">Nueva regulación de las suscripciones en la Ley de servicios de atención a la clientela</span></span>
+            </a><a href="https://www.dsca.gob.es/es/consumo/novedades" target="_blank" rel="noopener" class="noti-card">
+              <span class="noti-card__media"><span class="noti-card__tag">Normativa</span><img src="https://picsum.photos/id/20/600/340" alt=""></span>
+              <span class="noti-card__body"><time class="noti-card__date">8 ene 2025</time><span class="noti-card__title">Las microtransacciones en videojuegos están sometidas a la legislación de consumo</span></span>
+            </a><a href="https://www.dsca.gob.es/es/consumo/novedades" target="_blank" rel="noopener" class="noti-card">
+              <span class="noti-card__media"><span class="noti-card__tag">Normativa</span><img src="https://picsum.photos/id/180/600/340" alt=""></span>
+              <span class="noti-card__body"><time class="noti-card__date">12 may 2025</time><span class="noti-card__title">Consumo forma a más de 2.500 profesionales en 2025</span></span>
+            </a>
+          </div>
+        </section>
+                <section class="noti-cat" id="seguridad" aria-labelledby="seguridad-t">
+          <h2 class="noti-cat__title" id="seguridad-t">Seguridad de productos</h2>
+          <div class="noti-grid">
+            <a href="https://www.dsca.gob.es/es/consumo/novedades" target="_blank" rel="noopener" class="noti-card">
+              <span class="noti-card__media"><span class="noti-card__tag">Seguridad</span><img src="https://picsum.photos/id/453/600/340" alt=""></span>
+              <span class="noti-card__body"><time class="noti-card__date">10 feb 2025</time><span class="noti-card__title">Retirados del mercado varios modelos de cargadores no conformes</span></span>
+            </a><a href="https://www.dsca.gob.es/es/consumo/novedades" target="_blank" rel="noopener" class="noti-card">
+              <span class="noti-card__media"><span class="noti-card__tag">Seguridad</span><img src="https://picsum.photos/id/367/600/340" alt=""></span>
+              <span class="noti-card__body"><time class="noti-card__date">18 mar 2025</time><span class="noti-card__title">Campaña de vigilancia de mercado en juguetes acuáticos 2025</span></span>
+            </a><a href="https://www.dsca.gob.es/es/consumo/novedades" target="_blank" rel="noopener" class="noti-card">
+              <span class="noti-card__media"><span class="noti-card__tag">Seguridad</span><img src="https://picsum.photos/id/1031/600/340" alt=""></span>
+              <span class="noti-card__body"><time class="noti-card__date">22 ene 2025</time><span class="noti-card__title">España participa en la campaña europea CASP de seguridad de productos</span></span>
+            </a>
+          </div>
+        </section>
+                <section class="noti-cat" id="formacion" aria-labelledby="formacion-t">
+          <h2 class="noti-cat__title" id="formacion-t">Formación y educación</h2>
+          <div class="noti-grid">
+            <a href="https://www.dsca.gob.es/es/consumo/novedades" target="_blank" rel="noopener" class="noti-card">
+              <span class="noti-card__media"><span class="noti-card__tag">Formación</span><img src="https://picsum.photos/id/26/600/340" alt=""></span>
+              <span class="noti-card__body"><time class="noti-card__date">27 feb 2025</time><span class="noti-card__title">Abierta la inscripción al concurso escolar Consumópolis 2025</span></span>
+            </a><a href="https://www.dsca.gob.es/es/consumo/novedades" target="_blank" rel="noopener" class="noti-card">
+              <span class="noti-card__media"><span class="noti-card__tag">Formación</span><img src="https://picsum.photos/id/96/600/340" alt=""></span>
+              <span class="noti-card__body"><time class="noti-card__date">5 abr 2025</time><span class="noti-card__title">La Ley SAC avanza en la transparencia algorítmica</span></span>
+            </a>
+          </div>
+        </section>
+
+        <div class="derecho-nota">
+          <p>Consulta todas las novedades en la <a href="https://www.dsca.gob.es/es/consumo/novedades" target="_blank" rel="noopener">página de novedades de Consumo ↗</a>.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -336,5 +408,17 @@
     </div>
   </footer>
   <script src="/consumogob/js/main.js" defer></script>
+  <script>
+    (function () {
+      var t = document.querySelector('.noti-destacadas__track');
+      if (!t) return;
+      var p = document.querySelector('[data-noti-prev]'), n = document.querySelector('[data-noti-next]');
+      function step(){var c=t.querySelector('.noti-hero-card');return c?c.getBoundingClientRect().width+16:320;}
+      function upd(){if(!p||!n)return;p.disabled=t.scrollLeft<=4;n.disabled=t.scrollLeft+t.clientWidth>=t.scrollWidth-4;}
+      if(p)p.addEventListener('click',function(){t.scrollBy({left:-step(),behavior:'smooth'});});
+      if(n)n.addEventListener('click',function(){t.scrollBy({left:step(),behavior:'smooth'});});
+      t.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();
+    })();
+  </script>
 </body>
 </html>
