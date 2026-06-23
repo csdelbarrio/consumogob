@@ -294,34 +294,7 @@
   <main id="main-content" tabindex="-1" class="home">
 
   <!-- ════════ BUSCADOR GLOBAL (estilo gov.uk) ════════ -->
-  <section class="home-search-hero" aria-labelledby="search-hero-title">
-    <div class="home-wrap">
-      <h1 class="home-search-hero__title" id="search-hero-title">¿Qué necesitas saber sobre consumo?</h1>
-      <p class="home-search-hero__sub">Busca información sobre tus derechos, reclamaciones, alertas de productos y más.</p>
-      <!--
-        BUSCADOR — En la demo envía a la búsqueda de dsca.gob.es (funciona ya).
-        EN DRUPAL: cambiar action a la ruta del buscador interno de Consumo
-        (ej. /es/consumo/buscar) para acotar resultados a esta sección.
-      -->
-      <form class="home-search-box" role="search" action="https://www.dsca.gob.es/es/search" method="get">
-        <label for="global-search" class="sr-only">Buscar en Consumo</label>
-        <input class="home-search-box__input" id="global-search" name="key" type="search"
-               placeholder="Ej: garantía de un electrodoméstico, hoja de reclamaciones…"
-               autocomplete="off">
-        <button class="home-search-box__btn" type="submit">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-          <span>Buscar</span>
-        </button>
-      </form>
-      <p class="home-search-hero__popular">
-        Búsquedas frecuentes:
-        <a href="/consumogob/te-ayudamos/reclamaciones/">reclamar</a>
-        <a href="/consumogob/te-ayudamos/normativa/">garantías</a>
-        <a href="/consumogob/te-ayudamos/alertas-seguridad/">alertas</a>
-        <a href="/consumogob/te-ayudamos/">consulta tu problema</a>
-      </p>
-    </div>
-  </section>
+
 
   <!-- ════════ CARRUSEL HERO — 4 slides ════════ -->
   <section class="hero-carousel" aria-roledescription="carrusel" aria-label="Contenidos destacados">
@@ -332,9 +305,9 @@
         <div class="hero-slide__media" aria-hidden="true"><img src="/consumogob/assets/SecretariaGeneralConsumoyJuego-sede.jpg" alt=""></div>
         <div class="hero-slide__inner"><div class="hero-slide__content">
           <p class="hero-slide__eyebrow">Atención a la ciudadanía</p>
-          <h2 class="hero-slide__title">¿Tienes una consulta de consumo?</h2>
-          <p class="hero-slide__text">Te orientamos paso a paso hacia la solución: reclamaciones, garantías, devoluciones y mucho más.</p>
-          <a href="/consumogob/te-ayudamos/" class="btn-hero btn-hero--primary">Consulta <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          <h2 class="hero-slide__title">Resolvemos tu problema de consumo</h2>
+          <p class="hero-slide__text">Un asistente te guía paso a paso según tu caso concreto y te lleva directo al organismo o trámite que necesitas.</p>
+          <a href="/consumogob/te-ayudamos/" class="btn-hero btn-hero--primary">Iniciar consulta guiada <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div></div>
       </div>
 
@@ -381,6 +354,35 @@
         <button class="hero-dot" aria-label="Diapositiva 3: Juego" aria-current="false"></button>
         <button class="hero-dot" aria-label="Diapositiva 4: AESAN" aria-current="false"></button>
       </div>
+    </div>
+  </section>
+
+  <section class="home-search-hero" aria-labelledby="search-hero-title">
+    <div class="home-wrap">
+      <h1 class="home-search-hero__title" id="search-hero-title">¿Qué necesitas saber sobre consumo?</h1>
+      <p class="home-search-hero__sub">Busca información sobre tus derechos, reclamaciones, alertas de productos y más.</p>
+      <!--
+        BUSCADOR — En la demo envía a la búsqueda de dsca.gob.es (funciona ya).
+        EN DRUPAL: cambiar action a la ruta del buscador interno de Consumo
+        (ej. /es/consumo/buscar) para acotar resultados a esta sección.
+      -->
+      <form class="home-search-box" role="search" action="https://www.dsca.gob.es/es/search" method="get">
+        <label for="global-search" class="sr-only">Buscar en Consumo</label>
+        <input class="home-search-box__input" id="global-search" name="key" type="search"
+               placeholder="Ej: garantía de un electrodoméstico, hoja de reclamaciones…"
+               autocomplete="off">
+        <button class="home-search-box__btn" type="submit">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <span>Buscar</span>
+        </button>
+      </form>
+      <p class="home-search-hero__popular">
+        Búsquedas frecuentes:
+        <a href="/consumogob/te-ayudamos/reclamaciones/">reclamar</a>
+        <a href="/consumogob/te-ayudamos/normativa/">garantías</a>
+        <a href="/consumogob/te-ayudamos/alertas-seguridad/">alertas</a>
+        <a href="/consumogob/te-ayudamos/">consulta tu problema</a>
+      </p>
     </div>
   </section>
 
@@ -468,9 +470,16 @@
           <p class="home-eyebrow">Actualidad</p>
           <h2 class="home-section__title" id="news-title">Últimas noticias</h2>
         </div>
-        <a href="https://www.dsca.gob.es/es/consumo/novedades" target="_blank" rel="noopener" class="home-section__link">Ver todas <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <div class="home-news__head-actions">
+          <div class="news-scroller__nav">
+            <button class="news-arrow" data-news-prev aria-label="Noticias anteriores"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg></button>
+            <button class="news-arrow" data-news-next aria-label="Más noticias"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></button>
+          </div>
+          <a href="https://www.dsca.gob.es/es/consumo/novedades" target="_blank" rel="noopener" class="home-section__link">Ver todas <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
       </div>
-      <div class="news-grid3">
+      <div class="news-scroller">
+      <div class="news-scroller__track news-grid3" tabindex="0" aria-label="Lista de noticias, usa las flechas para desplazarte">
         <a href="#" class="news-card3">
           <span class="news-card3__media"><span class="news-card3__tag">Normativa</span><img src="https://picsum.photos/id/180/600/340" alt=""></span>
           <span class="news-card3__body"><time class="news-card3__date">12 may 2025</time><span class="news-card3__title">Consumo forma a más de 2.500 profesionales en 2025</span></span>
@@ -483,6 +492,7 @@
           <span class="news-card3__media"><span class="news-card3__tag">Seguridad</span><img src="https://picsum.photos/id/367/600/340" alt=""></span>
           <span class="news-card3__body"><time class="news-card3__date">18 mar 2025</time><span class="news-card3__title">Guía de derechos de consumo tras el apagón del 28 de abril</span></span>
         </a>
+      </div>
       </div>
     </div>
   </section>

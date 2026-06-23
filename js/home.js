@@ -109,6 +109,30 @@
   }
 
   /* ------------------------------------------------------------------
+     2c. NEWS SCROLLER (carrusel de noticias)
+     ------------------------------------------------------------------ */
+  var ntrack = document.querySelector('.news-scroller__track');
+  if (ntrack) {
+    var nPrev = document.querySelector('[data-news-prev]');
+    var nNext = document.querySelector('[data-news-next]');
+    function newsStep() {
+      var first = ntrack.querySelector('.news-card3');
+      var gap = 24;
+      return first ? first.getBoundingClientRect().width + gap : 320;
+    }
+    function updateNewsArrows() {
+      if (!nPrev || !nNext) return;
+      nPrev.disabled = ntrack.scrollLeft <= 4;
+      nNext.disabled = ntrack.scrollLeft + ntrack.clientWidth >= ntrack.scrollWidth - 4;
+    }
+    if (nPrev) nPrev.addEventListener('click', function () { ntrack.scrollBy({ left: -newsStep(), behavior: 'smooth' }); });
+    if (nNext) nNext.addEventListener('click', function () { ntrack.scrollBy({ left: newsStep(), behavior: 'smooth' }); });
+    ntrack.addEventListener('scroll', updateNewsArrows, { passive: true });
+    window.addEventListener('resize', updateNewsArrows);
+    updateNewsArrows();
+  }
+
+  /* ------------------------------------------------------------------
      3. CHATBOT — panel demo
      ------------------------------------------------------------------ */
   var fab = document.querySelector('.chatbot-fab');
