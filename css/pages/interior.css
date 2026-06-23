@@ -989,3 +989,15 @@ a.vm-card:hover {
   text-decoration: none;
 }
 a.ficha-contacto__val:hover { text-decoration: underline; }
+
+/* Ficha pendiente de ampliar (nota discreta) */
+.ficha-pendiente {
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-primary);
+  border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  padding: var(--space-md);
+  margin: var(--space-lg) 0;
+}
+.ficha-pendiente p { margin: 0; font-size: var(--font-size-sm); color: var(--color-text-muted); }
+.ficha-pendiente a { color: var(--color-primary); font-weight: var(--font-weight-semibold); }
