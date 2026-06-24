@@ -515,7 +515,8 @@
   font-size: var(--font-size-base);
   font-family: inherit;
   color: var(--color-text);
-  outline: none;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
   min-width: 0;
 }
 .ayuda-search__btn {
@@ -1001,3 +1002,18 @@ a.ficha-contacto__val:hover { text-decoration: underline; }
 }
 .ficha-pendiente p { margin: 0; font-size: var(--font-size-sm); color: var(--color-text-muted); }
 .ficha-pendiente a { color: var(--color-primary); font-weight: var(--font-weight-semibold); }
+
+/* Foco visible explícito en input de búsqueda (WCAG 2.4.7) */
+.ayuda-search__input:focus-visible,
+.ayuda-search__input:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: -2px;
+}
+
+/* Enlaces de normativa al BOE/EUR-Lex */
+.norma-link {
+  text-decoration: none;
+  color: var(--color-primary);
+}
+.norma-link:hover { text-decoration: underline; }
+.norma-link strong { color: var(--color-primary); }
