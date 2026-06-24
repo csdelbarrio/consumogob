@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[Versión B] Consumo — mega-menú</title>
+  <meta name="description" content="Secretaría General de Consumo y Juego. Protección de los derechos de las personas consumidoras, normativa, inspecciones y organismos dependientes.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Consumo — DSCA">
+  <meta property="og:description" content="Secretaría General de Consumo y Juego. Información sobre protección de consumidores, normativa y organismos.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://csdelbarrio.github.io/consumogob/">
+
+  <!--
+    NOTA PRODUCCIÓN: Open Sans se sirve localmente en Drupal/pinst_theme.
+    En demo (GitHub Pages) se carga desde Google Fonts.
+    Reemplazar con <link> local o eliminar en integración Drupal.
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/consumogob/css/tokens.css">
+  <link rel="stylesheet" href="/consumogob/css/base.css">
+  <link rel="stylesheet" href="/consumogob/css/components.css">
+  <link rel="stylesheet" href="/consumogob/css/pages/home.css">
+
+  <style>
+    /* Animaciones de entrada */
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .reveal-on-scroll.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-on-scroll:nth-child(2) { transition-delay: 0.1s; }
+    .reveal-on-scroll:nth-child(3) { transition-delay: 0.2s; }
+  </style>
+</head>
+<body>
+<div style="background:#043263;color:#fff;text-align:center;padding:8px 16px;font-size:14px;font-family:'Open Sans',Arial,sans-serif;">
+  🅱️ <strong>Versión B — Menú enriquecido (mega-menú)</strong> · Pasa el ratón por "Consumo" en el menú para verlo · <a href="/consumogob/" style="color:#ffdb00;">Ver versión A (menú plano)</a>
+</div>
+  <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
+  <header class="site-header" role="banner">
+
+    <!-- Barra principal: logo + idiomas + buscar + menú -->
+    <div class="site-header__bar">
+      <div class="container">
+        <div class="site-header__inner">
+
+          <!-- Logo oficial -->
+          <a class="site-header__logo-link"
+             href="https://www.dsca.gob.es/es"
+             aria-label="Ir a Inicio. Ministerio de Consumo">
+            <!--
+              Logo oficial dsca.gob.es
+              NOTA PRODUCCIÓN: se sirve desde /themes/custom/pinst_theme/logo.svg
+              En demo se usa la URL pública
+            -->
+            <img class="site-header__logo"
+                 src="https://www.dsca.gob.es/themes/custom/pinst_theme/logo.svg"
+                 alt="Logotipo del Ministerio de Consumo"
+                 width="220" height="60">
+          </a>
+
+          <!-- Controles: idiomas + buscar + menú -->
+          <div class="site-header__controls">
+
+            <!-- Selector de idioma (desplegable, como dsca.gob.es) -->
+            <div class="site-header__lang">
+              <button class="site-header__lang-toggle" aria-haspopup="true" aria-expanded="false" aria-label="Cambiar idioma. Idioma actual: Castellano">
+                Castellano
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <ul class="site-header__lang-list" role="list">
+                <li><a href="#" class="site-header__lang-link" lang="ca">Català</a></li>
+                <li><a href="#" class="site-header__lang-link" lang="gl">Galego</a></li>
+                <li><a href="#" class="site-header__lang-link" lang="eu">Euskera</a></li>
+                <li><a href="#" class="site-header__lang-link" lang="en">English</a></li>
+                <li><a href="#" class="site-header__lang-link" lang="va">Valencià</a></li>
+              </ul>
+            </div>
+            <span class="site-header__divider" aria-hidden="true">|</span>
+
+            <!-- Buscar -->
+            <a href="https://www.dsca.gob.es/es/search"
+               class="site-header__search-link"
+               aria-label="Buscar en el sitio">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="11" cy="11" r="8"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+              <span>Buscar</span>
+            </a>
+
+            <!-- Botón menú móvil -->
+            <button class="site-header__menu-toggle"
+                    aria-expanded="false"
+                    aria-controls="site-navigation"
+                    aria-label="Abrir menú de navegación">
+              <span class="site-header__menu-label site-header__menu-label--open">Menú</span>
+              <span class="site-header__menu-label site-header__menu-label--close" hidden>Cerrar</span>
+              <svg class="site-header__menu-icon" width="20" height="20"
+                   viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="2" aria-hidden="true">
+                <line x1="3" y1="6" x2="21" y2="6"/>
+                <line x1="3" y1="12" x2="21" y2="12"/>
+                <line x1="3" y1="18" x2="21" y2="18"/>
+              </svg>
+            </button>
+
+          </div><!-- /.site-header__controls -->
+        </div><!-- /.site-header__inner -->
+      </div>
+    </div><!-- /.site-header__bar -->
+
+    <!-- ===== Navegación principal con mega-menús ===== -->
+    <nav class="site-nav" id="site-navigation" aria-label="Menú principal">
+      <div class="container">
+        <ul class="site-nav__list" role="list">
+
+          <!-- Ministerio -->
+          <li class="site-nav__item site-nav__item--has-dropdown">
+            <a href="https://www.dsca.gob.es/es/ministerio"
+               class="site-nav__link"
+               aria-haspopup="true" aria-expanded="false">
+              Ministerio
+              <svg class="site-nav__arrow" width="12" height="12" viewBox="0 0 24 24"
+                   fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </a>
+            <div class="site-nav__dropdown" role="region">
+              <div class="site-nav__dropdown-inner">
+                <ul role="list">
+                  <li><a href="https://www.dsca.gob.es/es/ministerio/que-hacemos">Funciones</a></li>
+                  <li class="site-nav__dropdown-group-title">Organización institucional</li>
+                  <li><a href="https://www.dsca.gob.es/es/ministerio/organizacion-institucional/sedes">Sedes</a></li>
+                  <li><a href="https://www.dsca.gob.es/es/ministerio/organizacion-institucional/organigrama">Organigrama</a></li>
+                  <li><a href="https://www.dsca.gob.es/es/ministerio/organizacion-institucional/altos-cargos">Altos Cargos</a></li>
+                  <li class="site-nav__dropdown-group-title">Transparencia</li>
+                  <li><a href="https://transparencia.gob.es/transparencia/transparencia_Home/index/Derecho-de-acceso-a-la-informacion-publica/Solicite-informacion.html">Acceso a Información Pública</a></li>
+                  <li><a href="https://transparencia.gob.es/transparencia/es/transparencia_Home/index/PublicidadActiva.html">Publicidad Activa</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+
+          <!-- Derechos Sociales -->
+          <li class="site-nav__item site-nav__item--has-dropdown">
+            <a href="https://www.dsca.gob.es/es/derechos-sociales"
+               class="site-nav__link"
+               aria-haspopup="true" aria-expanded="false">
+              Derechos Sociales
+              <svg class="site-nav__arrow" width="12" height="12" viewBox="0 0 24 24"
+                   fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </a>
+            <div class="site-nav__dropdown" role="region">
+              <div class="site-nav__dropdown-inner site-nav__dropdown-inner--cols">
+                <ul role="list">
+                  <li><a href="https://www.dsca.gob.es/es/derechos-sociales/discapacidad">Discapacidad</a></li>
+                  <li><a href="https://imserso.es/web/imserso" target="_blank" rel="noopener">Autonomía y Dependencia</a></li>
+                  <li><a href="https://www.dsca.gob.es/es/derechos-sociales/formacion">Formación</a></li>
+                  <li><a href="https://www.dsca.gob.es/es/derechos-sociales/familias">Familias</a></li>
+                  <li><a href="https://www.dsca.gob.es/es/derechos-sociales/nueva-web-ongs-y-subvenciones">Subvenciones 0,7</a></li>
+                  <li><a href="https://www.dsca.gob.es/es/derechos-sociales/servicios-sociales">Servicios Sociales</a></li>
+                  <li><a href="https://www.dsca.gob.es/es/derechos-sociales/poblacion-gitana">Población gitana</a></li>
+                  <li><a href="https://www.dsca.gob.es/es/derechos-sociales/inclusion">Inclusión</a></li>
+                  <li><a href="https://www.dsca.gob.es/es/derechos-sociales/FSE">Fondo Social Europeo +</a></li>
+                  <li><a href="https://www.dsca.gob.es/es/derechos-sociales/escudo-social">Escudo social</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+
+<li class="site-nav__item site-nav__item--has-dropdown">
+            <a href="/consumogob/" class="site-nav__link site-nav__link--active"
+               aria-current="page" aria-haspopup="true" aria-expanded="false">
+              Consumo
+              <svg class="site-nav__arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </a>
+            <div class="site-nav__dropdown site-nav__dropdown--mega" role="region" aria-label="Submenú Consumo">
+              <div class="site-nav__mega">
+                <!-- Columna 1: las 8 secciones -->
+                <div class="mega-col mega-col--main">
+                  <span class="mega-col__title">Secciones</span>
+                  <ul role="list" class="mega-secciones">
+                    <li><a href="https://portal-des.dsca.gob.es/es/consumo/preguntas-frecuentes">Preguntas frecuentes</a></li>
+                    <li><a href="/consumogob/te-ayudamos/normativa/">Tus derechos</a></li>
+                    <li><a href="/consumogob/te-ayudamos/reclamaciones/">Haz una reclamación</a></li>
+                    <li><a href="/consumogob/dg-consumo/sgrdpc/cooperacion-institucional/">Cooperación institucional</a></li>
+                    <li><a href="/consumogob/dg-consumo/sgrdpc/asociaciones/">Asociaciones y formación</a></li>
+                    <li><a href="/consumogob/dg-consumo/sgcccc/vigilancia-mercado/">Vigilancia de mercado</a></li>
+                    <li><a href="/consumogob/dg-consumo/cicc/">Laboratorios</a></li>
+                    <li><a href="/consumogob/dg-consumo/sgips/sanciones/">Sanciones</a></li>
+                  </ul>
+                </div>
+                <!-- Columna 2: accesos directos destacados -->
+                <div class="mega-col">
+                  <span class="mega-col__title">Atención al consumidor</span>
+                  <ul role="list" class="mega-links">
+                    <li><a href="https://portal-des.dsca.gob.es/es/consumo/preguntas-frecuentes"><strong>Consulta tu problema</strong><span>Orientación guiada por sectores</span></a></li>
+                    <li><a href="/consumogob/te-ayudamos/reclamaciones/"><strong>Sistema Arbitral</strong><span>Reclama gratis y sin abogado</span></a></li>
+                    <li><a href="/consumogob/te-ayudamos/alertas-seguridad/"><strong>Alertas de seguridad</strong><span>Productos retirados (RAPNA)</span></a></li>
+                    <li><a href="/consumogob/te-ayudamos/contacto/"><strong>Contacto</strong><span>Teléfono, email y oficinas</span></a></li>
+                  </ul>
+                </div>
+                <!-- Columna 3: formación + organismos -->
+                <div class="mega-col">
+                  <span class="mega-col__title">Formación y control</span>
+                  <ul role="list" class="mega-links">
+                    <li><a href="https://consumopolis.consumo.gob.es/" target="_blank" rel="noopener"><strong>Consumópolis ↗</strong><span>Concurso escolar de consumo</span></a></li>
+                    <li><a href="https://cidoc.consumo.gob.es/" target="_blank" rel="noopener"><strong>CIDOC ↗</strong><span>Centro de documentación</span></a></li>
+                    <li><a href="/consumogob/dg-consumo/sgcccc/red-alerta/"><strong>Red de Alerta</strong><span>Vigilancia de productos</span></a></li>
+                    <li><a href="/consumogob/dg-consumo/cicc/"><strong>Laboratorios (CICC)</strong><span>Ensayos y control de calidad</span></a></li>
+                  </ul>
+                </div>
+                <!-- Columna 4: destacado visual -->
+                <div class="mega-col mega-col--feat">
+                  <a href="https://portal-des.dsca.gob.es/es/consumo/preguntas-frecuentes" class="mega-feat">
+                    <span class="mega-feat__eyebrow">¿Tienes una duda?</span>
+                    <span class="mega-feat__title">Resolvemos tu consulta de consumo</span>
+                    <span class="mega-feat__cta">Empezar ahora →</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- Agenda 2030 -->
+                    <!-- Agenda 2030 -->
+          <li class="site-nav__item site-nav__item--has-dropdown">
+            <a href="https://www.dsca.gob.es/es/agenda-2030/conoce-la-agenda"
+               class="site-nav__link"
+               aria-haspopup="true" aria-expanded="false">
+              Agenda 2030
+              <svg class="site-nav__arrow" width="12" height="12" viewBox="0 0 24 24"
+                   fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </a>
+            <div class="site-nav__dropdown" role="region">
+              <div class="site-nav__dropdown-inner">
+                <ul role="list">
+                  <li><a href="https://www.dsca.gob.es/es/agenda-2030/conoce-la-agenda">Conoce la Agenda 2030</a></li>
+                  <li><a href="https://www.dsca.gob.es/es/agenda-2030/subvenciones-premios-agenda-2030">Subvenciones y Premios</a></li>
+                  <li><a href="https://www.dsca.gob.es/es/agenda-2030/documentos-guias-aplicacion-e-informes-de-interes">Documentos e informes</a></li>
+                  <li><a href="https://redagenda2030.es/" target="_blank" rel="noopener">Red de Entidades Locales</a></li>
+                  <li><a href="https://www.dsca.gob.es/es/agenda-2030/consejo-desarrollo-sostenible">Consejo de Desarrollo Sostenible</a></li>
+                  <li><a href="https://www.dsca.gob.es/es/agenda-2030/materiales-y-herramientas">Materiales y herramientas</a></li>
+                  <li><a href="https://www.dsca.gob.es/es/agenda-2030/convenios">Convenios</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+
+          <!-- Servicios -->
+          <li class="site-nav__item site-nav__item--has-dropdown">
+            <a href="https://www.dsca.gob.es/es/servicio-a-la-ciudadania/atencion-ciudadano"
+               class="site-nav__link"
+               aria-haspopup="true" aria-expanded="false">
+              Servicios
+              <svg class="site-nav__arrow" width="12" height="12" viewBox="0 0 24 24"
+                   fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </a>
+            <div class="site-nav__dropdown" role="region">
+              <div class="site-nav__dropdown-inner site-nav__dropdown-inner--cols">
+                <ul role="list">
+                  <li><a href="https://www.dsca.gob.es/es/servicio-a-la-ciudadania/atencion-ciudadano">Atención a la ciudadanía</a></li>
+                  <li><a href="https://www.dsca.gob.es/es/servicio-a-la-ciudadania/perfil-contratante">Perfil del Contratante</a></li>
+                  <li><a href="https://www.dsca.gob.es/es/servicio-a-la-ciudadania/cartas-servicio">Cartas de servicios</a></li>
+                  <li><a href="https://www.dsca.gob.es/es/servicio-a-la-ciudadania/catalogo-de-publicaciones-oficiales">Publicaciones</a></li>
+                  <li><a href="https://www.dsca.gob.es/es/servicio-a-la-ciudadania/ayudas-becas-subvenciones-premios">Ayudas, becas y subvenciones</a></li>
+                  <li><a href="https://www.dsca.gob.es/es/servicio-a-la-ciudadania/empleo-publico">Empleo público</a></li>
+                  <li><a href="https://www.dsca.gob.es/es/servicio-a-la-ciudadania/cita-previa">Cita previa</a></li>
+                  <li><a href="https://www.dsca.gob.es/es/servicio-a-la-ciudadania/politica-privacidad-y-proteccion-datos-personales">Protección de Datos</a></li>
+                  <li><a href="https://www.dsca.gob.es/es/servicio-a-la-ciudadania/participacion-publica">Participación Pública</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+
+          <!-- Comunicación -->
+          <li class="site-nav__item site-nav__item--has-dropdown">
+            <a href="https://www.dsca.gob.es/es/comunicacion/notas-prensa"
+               class="site-nav__link"
+               aria-haspopup="true" aria-expanded="false">
+              Comunicación
+              <svg class="site-nav__arrow" width="12" height="12" viewBox="0 0 24 24"
+                   fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </a>
+            <div class="site-nav__dropdown" role="region">
+              <div class="site-nav__dropdown-inner">
+                <ul role="list">
+                  <li><a href="https://www.dsca.gob.es/es/comunicacion/notas-prensa">Notas de prensa</a></li>
+                  <li><a href="https://www.dsca.gob.es/es/comunicacion/campanas-prensa">Campañas</a></li>
+                  <li><a href="https://www.dsca.gob.es/es/comunicacion/gabinete-prensa">Contacto</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+      <!-- Sede electrónica — franja gris inferior, como dsca.gob.es -->
+      <div class="site-nav__sede-strip">
+        <a href="https://dsca.sede.gob.es/"
+           class="site-nav__link--sede"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Ir a Sede electrónica (abre en nueva pestaña)">
+          Sede electrónica
+        </a>
+      </div>
+    </nav>
+
+  </header>
+  <main id="main-content" tabindex="-1" class="home">
+
+  <!-- ════════ BUSCADOR GLOBAL (estilo gov.uk) ════════ -->
+
+
+  <!-- ════════ CARRUSEL HERO — 4 slides ════════ -->
+  <section class="hero-carousel" aria-roledescription="carrusel" aria-label="Contenidos destacados. Usa las flechas izquierda y derecha para cambiar de diapositiva" tabindex="0">
+    <div class="hero-carousel__track">
+
+      <!-- 1: Preguntas frecuentes -->
+      <div class="hero-slide" role="group" aria-roledescription="diapositiva" aria-label="1 de 4">
+        <div class="hero-slide__media" aria-hidden="true"><img src="/consumogob/assets/SecretariaGeneralConsumoyJuego-sede.jpg" alt=""></div>
+        <div class="hero-slide__inner"><div class="hero-slide__content">
+          <p class="hero-slide__eyebrow">Atención a la ciudadanía</p>
+          <h2 class="hero-slide__title">Resolvemos tu consulta de consumo</h2>
+          <p class="hero-slide__text">Un asistente te guía paso a paso según tu caso concreto y te lleva directo al organismo o trámite que necesitas.</p>
+          <a href="https://portal-des.dsca.gob.es/es/consumo/preguntas-frecuentes" class="btn-hero btn-hero--primary">Iniciar consulta guiada <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div></div>
+      </div>
+
+      <!-- 2: Noticia destacada -->
+      <div class="hero-slide" role="group" aria-roledescription="diapositiva" aria-label="2 de 4" aria-hidden="true">
+        <div class="hero-slide__media" aria-hidden="true"><img src="https://picsum.photos/id/180/1600/700" alt=""></div>
+        <div class="hero-slide__inner"><div class="hero-slide__content">
+          <p class="hero-slide__eyebrow">Normativa · 12 de mayo de 2025</p>
+          <h2 class="hero-slide__title">Consumo forma a más de 2.500 profesionales en 2025</h2>
+          <p class="hero-slide__text">La Dirección General de Consumo refuerza la capacitación de los profesionales de consumo de las comunidades autónomas.</p>
+          <a href="https://www.dsca.gob.es/es/consumo/novedades" target="_blank" rel="noopener" class="btn-hero btn-hero--primary">Leer la noticia <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div></div>
+      </div>
+
+      <!-- 3: DGOJ -->
+      <div class="hero-slide" role="group" aria-roledescription="diapositiva" aria-label="3 de 4" aria-hidden="true">
+        <div class="hero-slide__media" aria-hidden="true"><img src="https://picsum.photos/id/1015/1600/700" alt=""></div>
+        <div class="hero-slide__inner"><div class="hero-slide__content">
+          <p class="hero-slide__eyebrow">Ordenación del Juego</p>
+          <img src="/consumogob/assets/logo-dgoj-placeholder.svg" alt="DGOJ" width="130" height="65" style="margin-bottom:12px;display:block;">
+          <h2 class="hero-slide__title">Juego seguro y responsable</h2>
+          <p class="hero-slide__text">La DGOJ regula y supervisa el juego de ámbito estatal. Información para participantes, operadores y autoexclusión.</p>
+          <a href="https://www.ordenacionjuego.es/" target="_blank" rel="noopener" class="btn-hero btn-hero--primary">Ir a ordenacionjuego.es <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </div></div>
+      </div>
+
+      <!-- 4: AESAN -->
+      <div class="hero-slide" role="group" aria-roledescription="diapositiva" aria-label="4 de 4" aria-hidden="true">
+        <div class="hero-slide__media" aria-hidden="true"><img src="https://picsum.photos/id/292/1600/700" alt=""></div>
+        <div class="hero-slide__inner"><div class="hero-slide__content">
+          <p class="hero-slide__eyebrow">Seguridad alimentaria y nutrición</p>
+          <img src="/consumogob/assets/logo-aesan-placeholder.svg" alt="AESAN" width="140" height="70" style="margin-bottom:12px;display:block;">
+          <h2 class="hero-slide__title">Alimentos seguros para todos</h2>
+          <p class="hero-slide__text">La Agencia Española de Seguridad Alimentaria y Nutrición vela por la seguridad de los alimentos y promueve una nutrición saludable.</p>
+          <a href="https://www.aesan.gob.es/" target="_blank" rel="noopener" class="btn-hero btn-hero--primary">Ir a aesan.gob.es <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </div></div>
+      </div>
+
+    </div>
+    <div class="hero-carousel__controls">
+      <div class="hero-carousel__dots" role="tablist" aria-label="Seleccionar diapositiva">
+        <button class="hero-dot" aria-label="Diapositiva 1: Preguntas frecuentes" aria-current="true"></button>
+        <button class="hero-dot" aria-label="Diapositiva 2: Noticia destacada" aria-current="false"></button>
+        <button class="hero-dot" aria-label="Diapositiva 3: Juego" aria-current="false"></button>
+        <button class="hero-dot" aria-label="Diapositiva 4: AESAN" aria-current="false"></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-search-hero" aria-labelledby="search-hero-title">
+    <div class="home-wrap">
+      <h1 class="home-search-hero__title" id="search-hero-title">¿Qué necesitas saber sobre consumo?</h1>
+      <p class="home-search-hero__sub">Busca derechos, reclamaciones, alertas de productos y más.</p>
+      <!--
+        BUSCADOR — En la demo envía a la búsqueda de dsca.gob.es (funciona ya).
+        EN DRUPAL: cambiar action a la ruta del buscador interno de Consumo
+        (ej. /es/consumo/buscar) para acotar resultados a esta sección.
+      -->
+      <form class="home-search-box" role="search" action="https://www.dsca.gob.es/es/search" method="get">
+        <label for="global-search" class="sr-only">Buscar en Consumo</label>
+        <input class="home-search-box__input" id="global-search" name="key" type="search"
+               placeholder="Ej: garantía de un electrodoméstico, hoja de reclamaciones…"
+               autocomplete="off">
+        <button class="home-search-box__btn" type="submit">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <span>Buscar</span>
+        </button>
+      </form>
+      <p class="home-search-hero__popular">
+        Búsquedas frecuentes:
+        <a href="/consumogob/te-ayudamos/reclamaciones/">reclamar</a>
+        <a href="/consumogob/te-ayudamos/normativa/">garantías</a>
+        <a href="/consumogob/te-ayudamos/alertas-seguridad/">alertas</a>
+        <a href="https://portal-des.dsca.gob.es/es/consumo/preguntas-frecuentes">consulta tu problema</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ════════ ATENCIÓN A LA PERSONA CONSUMIDORA (único punto de acción) ════════ -->
+  <section class="home-attention" aria-labelledby="attention-title">
+    <div class="home-wrap">
+      <div class="home-section__head">
+        <div>
+          <p class="home-eyebrow">Servicios</p>
+          <h2 class="home-section__title" id="attention-title">Atención a la persona consumidora</h2>
+        </div>
+      </div>
+      <div class="attention__grid">
+        <a href="/consumogob/te-ayudamos/reclamaciones/" class="attention-card">
+          <span class="attention-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m14 13-7.5 7.5a2.12 2.12 0 0 1-3-3L11 10"/><path d="m16 16 6-6"/><path d="m8 8 6-6"/><path d="m9 7 8 8"/><path d="m21 11-8-8"/></svg></span>
+          <h3 class="attention-card__title">Haz una reclamación</h3>
+          <p class="attention-card__desc">Sistema Arbitral de Consumo: gratuito y vinculante</p>
+        </a>
+        <a href="/consumogob/te-ayudamos/normativa/" class="attention-card">
+          <span class="attention-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18"/><path d="M5 7h14"/><path d="m5 7-2 6h6z"/><path d="m19 7 2 6h-6z"/><path d="M8 21h8"/></svg></span>
+          <h3 class="attention-card__title">Tus derechos</h3>
+          <p class="attention-card__desc">Garantías, devoluciones, desistimiento, cláusulas abusivas</p>
+        </a>
+        <a href="/consumogob/te-ayudamos/alertas-seguridad/" class="attention-card">
+          <span class="attention-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span>
+          <h3 class="attention-card__title">Alertas de seguridad</h3>
+          <p class="attention-card__desc">Productos retirados del mercado: RAPNA y Safety Gate</p>
+        </a>
+        <a href="https://portal-des.dsca.gob.es/es/consumo/preguntas-frecuentes" class="attention-card">
+          <span class="attention-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></span>
+          <h3 class="attention-card__title">Preguntas frecuentes</h3>
+          <p class="attention-card__desc">Te orientamos paso a paso según tu caso concreto</p>
+        </a>
+        <a href="/consumogob/te-ayudamos/contacto/" class="attention-card">
+          <span class="attention-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span>
+          <h3 class="attention-card__title">Contacto</h3>
+          <p class="attention-card__desc">Teléfono, correo electrónico y atención presencial</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ ORGANISMOS + CIFRAS (fusionados) ════════ -->
+  <section class="home-orgs-stats" aria-labelledby="orgs-title">
+    <div class="home-wrap">
+      <div class="home-section__head">
+        <div>
+          <p class="home-eyebrow">La Secretaría General</p>
+          <h2 class="home-section__title" id="orgs-title">Organismos y cifras clave</h2>
+        </div>
+      </div>
+      <div class="orgs-stats__grid">
+        <a href="/consumogob/dg-consumo/" class="org-card">
+          <span class="org-card__logo" aria-hidden="true">DGC</span>
+          <span><span class="org-card__name">Consumo</span><span class="org-card__desc">Dirección General de Consumo</span></span>
+        </a>
+        <a href="https://www.ordenacionjuego.es/" target="_blank" rel="noopener" class="org-card">
+          <span class="org-card__logo org-card__logo--img" aria-hidden="true"><img src="/consumogob/assets/logo-dgoj-placeholder.svg" alt=""></span>
+          <span><span class="org-card__name">Juego <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span><span class="org-card__desc">Ordenación del Juego</span></span>
+        </a>
+        <a href="https://www.aesan.gob.es/" target="_blank" rel="noopener" class="org-card">
+          <span class="org-card__logo org-card__logo--img" aria-hidden="true"><img src="/consumogob/assets/logo-aesan-placeholder.svg" alt=""></span>
+          <span><span class="org-card__name">Seg. alimentaria <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span><span class="org-card__desc">AESAN</span></span>
+        </a>
+      </div>
+      <div class="stats-strip">
+        <div class="stat-item"><span class="stat-item__n">45.000+</span><span class="stat-item__l">Inspecciones en 2024</span></div>
+        <div class="stat-item"><span class="stat-item__n">312.000</span><span class="stat-item__l">Reclamaciones gestionadas</span></div>
+        <div class="stat-item"><span class="stat-item__n">1.847</span><span class="stat-item__l">Alertas de productos</span></div>
+        <div class="stat-item"><span class="stat-item__n">98%</span><span class="stat-item__l">Arbitrajes en plazo</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ NOTICIAS ════════ -->
+  <section class="home-news" aria-labelledby="news-title">
+    <div class="home-wrap">
+      <div class="home-section__head">
+        <div>
+          <p class="home-eyebrow">Actualidad</p>
+          <h2 class="home-section__title" id="news-title">Últimas noticias</h2>
+        </div>
+        <div class="home-news__head-actions">
+          <div class="news-scroller__nav">
+            <button class="news-arrow" data-news-prev aria-label="Noticias anteriores"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg></button>
+            <button class="news-arrow" data-news-next aria-label="Más noticias"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></button>
+          </div>
+          <a href="https://www.dsca.gob.es/es/consumo/novedades" target="_blank" rel="noopener" class="home-section__link">Ver todas <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+      <div class="news-scroller">
+      <div class="news-scroller__track news-grid3" tabindex="0" aria-label="Lista de noticias, usa las flechas para desplazarte">
+        <a href="#" class="news-card3">
+          <span class="news-card3__media"><span class="news-card3__tag">Normativa</span><img src="https://picsum.photos/id/180/600/340" alt=""></span>
+          <span class="news-card3__body"><time class="news-card3__date">12 may 2025</time><span class="news-card3__title">Consumo forma a más de 2.500 profesionales en 2025</span></span>
+        </a>
+        <a href="#" class="news-card3">
+          <span class="news-card3__media"><span class="news-card3__tag">Arbitraje</span><img src="https://picsum.photos/id/96/600/340" alt=""></span>
+          <span class="news-card3__body"><time class="news-card3__date">5 abr 2025</time><span class="news-card3__title">La Ley SAC avanza en la transparencia algorítmica</span></span>
+        </a>
+        <a href="#" class="news-card3">
+          <span class="news-card3__media"><span class="news-card3__tag">Seguridad</span><img src="https://picsum.photos/id/367/600/340" alt=""></span>
+          <span class="news-card3__body"><time class="news-card3__date">18 mar 2025</time><span class="news-card3__title">Guía de derechos de consumo tras el apagón del 28 de abril</span></span>
+        </a>
+        <a href="#" class="news-card3">
+          <span class="news-card3__media"><span class="news-card3__tag">Formación</span><img src="https://picsum.photos/id/26/600/340" alt=""></span>
+          <span class="news-card3__body"><time class="news-card3__date">27 feb 2025</time><span class="news-card3__title">Abierta la inscripción al concurso escolar Consumópolis 2025</span></span>
+        </a>
+        <a href="#" class="news-card3">
+          <span class="news-card3__media"><span class="news-card3__tag">Alertas</span><img src="https://picsum.photos/id/453/600/340" alt=""></span>
+          <span class="news-card3__body"><time class="news-card3__date">10 feb 2025</time><span class="news-card3__title">Retirados del mercado varios modelos de cargadores no conformes</span></span>
+        </a>
+        <a href="#" class="news-card3">
+          <span class="news-card3__media"><span class="news-card3__tag">Europa</span><img src="https://picsum.photos/id/1031/600/340" alt=""></span>
+          <span class="news-card3__body"><time class="news-card3__date">22 ene 2025</time><span class="news-card3__title">España participa en la campaña europea CASP de seguridad de productos</span></span>
+        </a>
+        <a href="#" class="news-card3">
+          <span class="news-card3__media"><span class="news-card3__tag">Normativa</span><img src="https://picsum.photos/id/60/600/340" alt=""></span>
+          <span class="news-card3__body"><time class="news-card3__date">15 ene 2025</time><span class="news-card3__title">Nueva regulación de las suscripciones en la Ley de servicios de atención a la clientela</span></span>
+        </a>
+        <a href="#" class="news-card3">
+          <span class="news-card3__media"><span class="news-card3__tag">Consumo</span><img src="https://picsum.photos/id/20/600/340" alt=""></span>
+          <span class="news-card3__body"><time class="news-card3__date">8 ene 2025</time><span class="news-card3__title">Las microtransacciones en videojuegos están sometidas a la legislación de consumo</span></span>
+        </a>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ REDES SOCIALES — YouTube (3 col) + Instagram (1 col) ════════ -->
+  <section class="home-social" aria-labelledby="social-title">
+    <div class="home-wrap">
+      <div class="home-section__head">
+        <div>
+          <p class="home-eyebrow">Síguenos</p>
+          <h2 class="home-section__title" id="social-title">Consumo en redes sociales</h2>
+        </div>
+      </div>
+      <div class="social-grid">
+
+        <!-- YouTube — carrusel de vídeos en 3 columnas -->
+        <div class="social-yt">
+          <div class="social-col__head">
+            <h3 class="social-col__title">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 12s0-3.9-.5-5.8c-.3-1-1-1.8-2-2C18.7 4 12 4 12 4s-6.7 0-8.5.5c-1 .2-1.7 1-2 2C1 8.1 1 12 1 12s0 3.9.5 5.8c.3 1 1 1.8 2 2C5.3 20 12 20 12 20s6.7 0 8.5-.5c1-.2 1.7-1 2-2C23 15.9 23 12 23 12zM10 15.5v-7l6 3.5-6 3.5z"/></svg>
+              @ConsumoGob
+            </h3>
+            <div class="news-scroller__nav">
+              <button class="news-arrow" data-video-prev aria-label="Vídeos anteriores"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg></button>
+              <button class="news-arrow" data-video-next aria-label="Más vídeos"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></button>
+            </div>
+          </div>
+          <!--
+            CARRUSEL YouTube — vídeos reales embebidos del canal @ConsumoGob.
+            En RedSARA permitir www.youtube-nocookie.com e i.ytimg.com
+          -->
+          <div class="video-scroller">
+            <div class="video-scroller__track" tabindex="0" aria-label="Vídeos del canal de Consumo">
+              <div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/TZyIL-LI74I?rel=0" title="Vídeo de Consumo 1" loading="lazy" frameborder="0" allowfullscreen allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+              <div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/TZyIL-LI74I?rel=0" title="Vídeo de Consumo 2" loading="lazy" frameborder="0" allowfullscreen allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+              <div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/TZyIL-LI74I?rel=0" title="Vídeo de Consumo 3" loading="lazy" frameborder="0" allowfullscreen allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+              <div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/TZyIL-LI74I?rel=0" title="Vídeo de Consumo 4" loading="lazy" frameborder="0" allowfullscreen allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Instagram — 1 columna, posts de uno en uno -->
+        <aside class="social-ig" aria-labelledby="ig-title">
+          <div class="social-col__head">
+            <h3 class="social-col__title" id="ig-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+              @consumo.gob
+            </h3>
+          </div>
+          <div class="insta-scroller" tabindex="0" aria-label="Publicaciones de Instagram de consumo.gob">
+            <!-- EMBEDS REALES Instagram (@consumo.gob), uno por uno. RedSARA: permitir www.instagram.com y *.cdninstagram.com -->
+            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/consumo.gob/" data-instgrm-version="14"></blockquote>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+  
+<!-- CHATBOT — disparador discreto -->
+<button class="chatbot-fab chatbot-fab--mini" aria-expanded="false" aria-controls="chatbot-panel" aria-label="Abrir asistente virtual de Consumo">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+  <span class="chatbot-fab__dot" aria-hidden="true"></span>
+</button>
+<div class="chatbot-panel" id="chatbot-panel" role="dialog" aria-label="Asistente virtual de Consumo">
+  <div class="chatbot-panel__head">
+    <h2 class="chatbot-panel__title">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+      Asistente de Consumo
+    </h2>
+    <button class="chatbot-panel__close" aria-label="Cerrar asistente"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+  </div>
+  <div class="chatbot-panel__body">
+    <p class="chatbot-msg chatbot-msg--bot">¡Hola! Soy el asistente virtual de Consumo. ¿Sobre qué quieres consultar?</p>
+    <div class="chatbot-suggestions">
+      <button class="chatbot-suggestion" data-href="https://portal-des.dsca.gob.es/es/consumo/preguntas-frecuentes">🛒 Tengo un problema con una compra</button>
+      <button class="chatbot-suggestion" data-href="/consumogob/te-ayudamos/reclamaciones/">⚖️ Quiero poner una reclamación</button>
+      <button class="chatbot-suggestion" data-href="/consumogob/te-ayudamos/alertas-seguridad/">⚠️ Consultar alertas de productos</button>
+      <button class="chatbot-suggestion" data-href="https://portal-des.dsca.gob.es/es/consumo/preguntas-frecuentes">❓ Preguntas frecuentes</button>
+    </div>
+  </div>
+  <div class="chatbot-panel__foot">Demo — la versión final conectará con el Sistema de Atención al Consumidor</div>
+</div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="site-footer__inner">
+        <div>
+          <svg class="site-footer__logo" viewBox="0 0 220 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <text x="0" y="20" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#000000">MINISTERIO DE</text>
+          <text x="0" y="30" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#000000">DERECHOS SOCIALES,</text>
+          <text x="0" y="40" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#043263">CONSUMO Y AGENDA 2030</text>
+        </svg>
+          <p class="site-footer__name">Gobierno de España</p>
+        </div>
+        <nav aria-label="Enlaces legales">
+          <ul class="site-footer__links" role="list">
+            <li><a href="#" class="site-footer__link">Accesibilidad</a></li>
+            <li><a href="#" class="site-footer__link">Aviso legal</a></li>
+            <li><a href="#" class="site-footer__link">Política de cookies</a></li>
+            <li><a href="/consumogob/mapa-web/" class="site-footer__link">Mapa web</a></li>
+            <li><a href="#" class="site-footer__link">Protección de datos</a></li>
+          </ul>
+        </nav>
+      </div>
+      <p class="site-footer__bottom">
+        © 2025 Ministerio de Derechos Sociales, Consumo y Agenda 2030 — Gobierno de España
+      </p>
+    </div>
+  </footer>
+  <script src="/consumogob/js/main.js" defer></script>
+  <script src="/consumogob/js/home.js" defer></script>
+  <script async src="https://www.instagram.com/embed.js"></script>
+</body>
+</html>
