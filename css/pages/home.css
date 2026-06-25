@@ -1161,3 +1161,29 @@
 @media (max-width: 900px) {
   .derivacion__grid { grid-template-columns: 1fr; }
 }
+
+/* ── Accesos institucionales (transparencia / institucional / vigilancia) ── */
+.home-institucional { padding: var(--space-xl, 40px) 0; background: var(--color-bg-alt, #f4f4f4); }
+.home-inst-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg, 24px);
+  margin-top: var(--space-lg, 24px);
+}
+.home-inst-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: var(--space-lg, 24px);
+  background: #fff;
+  border: 1px solid var(--color-border, #d9d9d9);
+  border-top: 4px solid var(--color-accent, #ffdb00);
+  border-radius: var(--border-radius, 4px);
+  text-decoration: none;
+  transition: box-shadow .15s, transform .15s;
+}
+.home-inst-card:hover { box-shadow: var(--shadow-card, 0 4px 16px rgba(4,50,99,.1)); transform: translateY(-2px); }
+.home-inst-card__icon { color: var(--color-primary, #043263); }
+.home-inst-card__title { font-size: 18px; font-weight: 700; color: var(--color-primary, #043263); }
+.home-inst-card__desc { font-size: 14px; color: var(--color-text-muted, #5c5c5c); line-height: 1.5; }
+@media (max-width: 880px) { .home-inst-grid { grid-template-columns: 1fr; } }
