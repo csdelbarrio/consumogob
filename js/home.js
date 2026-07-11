@@ -13,8 +13,15 @@
     var track = carousel.querySelector('.hero-carousel__track');
     var slides = Array.prototype.slice.call(track.children);
     var dots = Array.prototype.slice.call(carousel.querySelectorAll('.hero-dot'));
+    var prevBtn = carousel.querySelector('[data-hero-prev]');
+    var nextBtn = carousel.querySelector('[data-hero-next]');
+    var toggleBtn = carousel.querySelector('[data-hero-toggle]');
+    var live = carousel.querySelector('[data-hero-live]');
+    var iconPause = toggleBtn ? toggleBtn.querySelector('.hero-icon-pause') : null;
+    var iconPlay = toggleBtn ? toggleBtn.querySelector('.hero-icon-play') : null;
     var current = 0;
     var timer = null;
+    var paused = false;
     var INTERVAL = 5000;
     var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -26,14 +33,18 @@
       });
       slides.forEach(function (s, idx) {
         s.setAttribute('aria-hidden', idx === current ? 'false' : 'true');
-        // Evitar foco en slides ocultas
         var links = s.querySelectorAll('a, button');
         links.forEach(function (l) { l.tabIndex = idx === current ? 0 : -1; });
       });
+      // Anunciar el cambio a lectores de pantalla
+      if (live) {
+        var title = slides[current].querySelector('.hero-slide__title');
+        live.textContent = 'Diapositiva ' + (current + 1) + ' de ' + slides.length + (title ? ': ' + title.textContent : '');
+      }
     }
 
     function startAuto() {
-      if (timer || reducedMotion) return;
+      if (timer || reducedMotion || paused) return;
       timer = setInterval(function () { goTo(current + 1); }, INTERVAL);
     }
     function stopAuto() {
@@ -41,11 +52,29 @@
       timer = null;
     }
 
+    // Botón pausar / reproducir (WCAG 2.2.2)
+    function setPaused(state) {
+      paused = state;
+      stopAuto();
+      if (!paused) startAuto();
+      if (toggleBtn) {
+        toggleBtn.setAttribute('aria-label', paused ? 'Reproducir el carrusel' : 'Pausar el carrusel');
+        if (iconPause) iconPause.style.display = paused ? 'none' : '';
+        if (iconPlay) iconPlay.style.display = paused ? '' : 'none';
+      }
+    }
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', function () { setPaused(!paused); });
+    }
+    if (prevBtn) prevBtn.addEventListener('click', function () { goTo(current - 1); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { goTo(current + 1); });
+
     dots.forEach(function (d, idx) {
       d.addEventListener('click', function () { goTo(idx); });
     });
 
     // Avance automático: se detiene con el ratón encima o al enfocar con teclado
+    // (salvo que el usuario haya pausado explícitamente, en cuyo caso sigue pausado)
     carousel.addEventListener('mouseenter', stopAuto);
     carousel.addEventListener('mouseleave', startAuto);
     carousel.addEventListener('focusin', stopAuto);
@@ -53,8 +82,8 @@
 
     // Teclado: flechas izquierda/derecha cuando el carrusel tiene foco
     carousel.addEventListener('keydown', function (e) {
-      if (e.key === 'ArrowLeft') { e.preventDefault(); stopAuto(); goTo(current - 1); }
-      if (e.key === 'ArrowRight') { e.preventDefault(); stopAuto(); goTo(current + 1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(current - 1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); goTo(current + 1); }
     });
 
     goTo(0);
