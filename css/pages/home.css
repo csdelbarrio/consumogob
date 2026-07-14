@@ -38,11 +38,22 @@
   margin-bottom: var(--space-lg);
 }
 .home-section__title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm, 8px);
   font-size: var(--font-size-2xl);
   font-weight: var(--font-weight-bold);
   color: var(--color-primary);
   margin: 0;
   line-height: 1.1;
+}
+.home-section__title::before {
+  content: "";
+  flex-shrink: 0;
+  width: 28px;
+  height: 3px;
+  background: var(--color-accent);
+  border-radius: 2px;
 }
 .home-section__link {
   font-size: var(--font-size-sm);
