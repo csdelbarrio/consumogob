@@ -195,29 +195,4 @@
       });
     });
   }
-
-  // ── Igualar la altura del bloque de Instagram a la del bloque de YouTube ──
-  // (necesario porque las tarjetas de Instagram real no tienen una altura fija:
-  // sin esto, el bloque crece libremente y no se genera scroll interno)
-  (function () {
-    var yt = document.querySelector('.social-yt');
-    var scroller = document.querySelector('.insta-scroller');
-    if (!yt || !scroller) return;
-
-    function sync() {
-      var h = yt.getBoundingClientRect().height;
-      if (h > 0) scroller.style.height = h + 'px';
-    }
-
-    var resizeTimer;
-    window.addEventListener('resize', function () {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(sync, 150);
-    });
-    window.addEventListener('load', sync);
-    document.addEventListener('DOMContentLoaded', sync);
-    // Reintentos: los iframes de YouTube pueden tardar un poco en asentar el layout
-    setTimeout(sync, 400);
-    setTimeout(sync, 1200);
-  })();
 })();
