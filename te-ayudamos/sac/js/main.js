@@ -362,7 +362,7 @@ function mostrarRespuestaBusqueda(sector, index) {
     if (sector === 'Banca y seguros') {
         sectorReclamacion = faq.subcategoria === 'Banca' ? 'Banca' : 'Seguros';
     } else if (sector === 'Viajes y transportes') {
-        sectorReclamacion = faq.subcategoria && faq.subcategoria.includes('Aéreo') ? 'Vuelos' : 'Transporte';
+        sectorReclamacion = faq.subcategoria && faq.subcategoria.toLowerCase().includes('aéreo') ? 'Vuelos' : 'Transporte';
     } else if (sector === 'Protección de datos personales') {
         sectorReclamacion = 'Datos';
     } else if (sector === 'Servicios varios') {
@@ -592,9 +592,18 @@ function mostrarPreguntaConFAQs(nodo, sectorNombre) {
                 btn.className = 'opcion-btn';
                 btn.textContent = opcion.texto;
                 btn.onclick = () => {
-                    nodoActual = ARBOL_DECISIONES[opcion.siguiente];
-                    historial.push({ nodo: nodoActual.id });
-                    mostrarPregunta(nodoActual);
+                    const siguienteNodo = ARBOL_DECISIONES[opcion.siguiente];
+                    if (!siguienteNodo) {
+                        console.error('Nodo no encontrado:', opcion.siguiente);
+                        return;
+                    }
+                    if (siguienteNodo.es_solucion) {
+                        mostrarSolucion(siguienteNodo);
+                    } else {
+                        nodoActual = siguienteNodo;
+                        historial.push({ nodo: nodoActual.id });
+                        mostrarPregunta(nodoActual);
+                    }
                 };
                 opcionesDiv.appendChild(btn);
             });
@@ -647,9 +656,18 @@ function mostrarPregunta(nodo) {
                 btn.className = 'opcion-btn';
                 btn.textContent = opcion.texto;
                 btn.onclick = () => {
-                    nodoActual = ARBOL_DECISIONES[opcion.siguiente];
-                    historial.push({ nodo: nodoActual.id });
-                    mostrarPregunta(nodoActual);
+                    const siguienteNodo = ARBOL_DECISIONES[opcion.siguiente];
+                    if (!siguienteNodo) {
+                        console.error('Nodo no encontrado:', opcion.siguiente);
+                        return;
+                    }
+                    if (siguienteNodo.es_solucion) {
+                        mostrarSolucion(siguienteNodo);
+                    } else {
+                        nodoActual = siguienteNodo;
+                        historial.push({ nodo: nodoActual.id });
+                        mostrarPregunta(nodoActual);
+                    }
                 };
                 opcionesDiv.appendChild(btn);
             });
@@ -737,7 +755,7 @@ function mostrarFAQ(sector, index) {
     if (sector === 'Banca y seguros') {
         sectorReclamacion = faq.subcategoria === 'Banca' ? 'Banca' : 'Seguros';
     } else if (sector === 'Viajes y transportes') {
-        sectorReclamacion = faq.subcategoria && faq.subcategoria.includes('Aéreo') ? 'Vuelos' : 'Transporte';
+        sectorReclamacion = faq.subcategoria && faq.subcategoria.toLowerCase().includes('aéreo') ? 'Vuelos' : 'Transporte';
     } else if (sector === 'Protección de datos personales') {
         sectorReclamacion = 'Datos';
     } else if (sector === 'Servicios varios') {
@@ -822,6 +840,12 @@ function mostrarFAQ(sector, index) {
     window.faqsActuales = BASE_CONOCIMIENTO[sector];
 }
 
+function escaparHTML(texto) {
+    return String(texto)
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
 function mostrarSolucion(nodo) {
     const preguntaEl = document.getElementById('preguntaPrincipal');
     const contenido = document.getElementById('contenidoArea');
@@ -838,11 +862,43 @@ function mostrarSolucion(nodo) {
     if (explicacionContainer) explicacionContainer.innerHTML = '';
     
     let html = '<div class="solucion-container">';
+
+    // Formato v4: bloques con título, texto y enlaces propios
+    if (Array.isArray(nodo.bloques_solucion) && nodo.bloques_solucion.length) {
+        html += '<div class="solucion-final solucion-bloques">';
+        nodo.bloques_solucion.forEach(bloque => {
+            html += '<section class="solucion-bloque">';
+            if (bloque.titulo) html += `<h3 class="solucion-bloque__titulo">${escaparHTML(bloque.titulo)}</h3>`;
+            if (bloque.texto) {
+                bloque.texto.split(/\n+/).filter(Boolean).forEach(parrafo => {
+                    html += `<p>${escaparHTML(parrafo)}</p>`;
+                });
+            }
+            const enlaces = (bloque.enlaces || []).filter(e => ENLACES_RECLAMACION[e.clave]);
+            if (enlaces.length) {
+                html += '<ul class="solucion-bloque__enlaces">';
+                enlaces.forEach(e => {
+                    html += `<li><a href="${ENLACES_RECLAMACION[e.clave]}" target="_blank" rel="noopener noreferrer" class="recurso-btn">${escaparHTML(e.texto)}<span class="sr-only"> (se abre en una ventana nueva)</span></a></li>`;
+                });
+                html += '</ul>';
+            }
+            html += '</section>';
+        });
+        html += '</div>';
+        html += '<div class="reiniciar-container">';
+        html += '<button class="reset-btn" onclick="reiniciar()">Nueva consulta</button>';
+        html += '</div>';
+        html += '</div>';
+        contenido.innerHTML = html;
+        nodoActual = null;
+        return;
+    }
+
     html += '<div class="solucion-final">';
     html += '<strong>Solución a su consulta:</strong>';
     html += `<p>${nodo.texto_solucion}</p>`;
     html += '</div>';
-    
+
     // Botón reclamar
     if (nodo.sector_reclamacion && ENLACES_RECLAMACION[nodo.sector_reclamacion]) {
         html += '<div class="recursos-links" style="justify-content: center; margin-top: 30px;">';
