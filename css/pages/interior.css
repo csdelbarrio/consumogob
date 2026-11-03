@@ -1021,14 +1021,15 @@ a.ficha-contacto__val:hover { text-decoration: underline; }
 /* ==========================================================================
    MENÚ LATERAL GUÍA (v2) — índice con scroll-spy, pasos numerados y grupos
    ========================================================================== */
-.interior-sidebar--guide { position: static; align-self: stretch; }
-.interior-sidebar--guide .side-nav--toc {
+.interior-sidebar--guide {
   position: sticky;
-  top: var(--space-md);
-  max-height: calc(100vh - 2 * var(--space-md));
+  top: 184px; /* bajo la cabecera fija (barra + menú + sede) */
+  align-self: start;
+  max-height: calc(100vh - 184px - var(--space-md));
   overflow-y: auto;
-  background: var(--color-white, #fff);
 }
+.interior-sidebar--guide .side-nav { background: var(--color-white, #fff); }
+.interior-sidebar--guide .side-nav + .side-nav { margin-top: var(--space-lg); }
 .side-nav__group {
   display: block;
   padding: var(--space-sm) var(--space-lg);
@@ -1117,7 +1118,7 @@ a.assoc-card:hover { border-top-color: var(--color-primary); box-shadow: var(--s
 .firmes-links { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin: var(--space-md) 0; }
 
 @media (max-width: 960px) {
-  .interior-sidebar--guide .side-nav--toc { position: static; max-height: none; }
+  .interior-sidebar--guide { position: static; max-height: none; overflow: visible; }
   .tema-grid, .assoc-grid { grid-template-columns: repeat(2, 1fr); }
   .sede-card { grid-template-columns: 1fr; }
 }
