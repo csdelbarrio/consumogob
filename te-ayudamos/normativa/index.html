@@ -313,9 +313,9 @@
 <main id="main-content">
   <div class="container">
     <div class="interior-layout">
-      <aside class="interior-sidebar">
-                <nav class="side-nav" aria-label="Navegación de sección">
-          <span class="side-nav__title">Preguntas frecuentes</span>
+      <aside class="interior-sidebar interior-sidebar--guide">
+        <nav class="side-nav" aria-label="Navegación de sección">
+          <span class="side-nav__title">Te ayudamos</span>
           <a href="https://csdelbarrio.github.io/consumo/" class="side-nav__link">Preguntas frecuentes</a>
           <a href="/consumogob/te-ayudamos/normativa/" class="side-nav__link side-nav__link--active" aria-current="page">Tus derechos</a>
           <a href="/consumogob/te-ayudamos/reclamaciones/" class="side-nav__link">Haz una reclamación</a>
@@ -323,29 +323,54 @@
           <a href="/consumogob/te-ayudamos/contacto/" class="side-nav__link">Contacto</a>
         </nav>
 
-        <!-- Índice de la página -->
-        <nav class="side-nav side-nav--toc" aria-label="En esta página">
-          <span class="side-nav__title">En esta página</span>
-          <a href="#lgdcu" class="side-nav__link">Tus derechos básicos</a>
+        <nav class="side-nav side-nav--toc" aria-label="Tus derechos por temas">
+          <span class="side-nav__title">Tus derechos por temas</span>
+          <span class="side-nav__group">Conoce la ley</span>
+          <a href="#ley" class="side-nav__link">La ley que te protege</a>
+          <a href="#derechos" class="side-nav__link">Tus derechos básicos</a>
+          <span class="side-nav__group">Cuando compras</span>
           <a href="#garantias" class="side-nav__link">Garantías</a>
           <a href="#desistimiento" class="side-nav__link">Devoluciones y desistimiento</a>
+          <a href="#compra-online" class="side-nav__link">Compra online</a>
+          <span class="side-nav__group">Cuando contratas</span>
+          <a href="#servicios" class="side-nav__link">Servicios, altas y bajas</a>
           <a href="#clausulas" class="side-nav__link">Cláusulas abusivas</a>
-          <a href="#practicas" class="side-nav__link">Prácticas comerciales desleales</a>
+          <span class="side-nav__group">Si te engañan</span>
+          <a href="#practicas" class="side-nav__link">Prácticas desleales</a>
+          <a href="/consumogob/te-ayudamos/reclamaciones/" class="side-nav__link">Cómo reclamar →</a>
         </nav>
       </aside>
       <div class="interior-content">
-
-        <!-- Aviso de borrador para revisión interna -->
         <div class="draft-notice" role="note">
           <strong>Borrador para revisión.</strong> Textos divulgativos elaborados como propuesta. Pendiente de validación por el equipo jurídico de DGC antes de su publicación.
         </div>
 
-        <p class="lead">Cuando compras algo o contratas un servicio, la ley te protege. Aquí te explicamos, sin tecnicismos, cuáles son tus derechos principales y cómo ejercerlos. Si tienes un problema concreto, puedes usar nuestra <a href="https://csdelbarrio.github.io/consumo/">herramienta de consulta guiada</a>.</p>
+        <p class="lead">Cuando compras algo o contratas un servicio, la ley te protege. Aquí te explicamos, sin tecnicismos, qué dice la ley y cuáles son tus derechos según lo que estés haciendo. Si tienes un problema concreto, usa nuestra <a href="https://csdelbarrio.github.io/consumo/">herramienta de consulta guiada</a>.</p>
 
-        <!-- ============ 1. LGDCU ============ -->
-        <section class="derecho-bloque" id="lgdcu" aria-labelledby="lgdcu-t">
-          <h2 class="derecho-bloque__title" id="lgdcu-t">Tus derechos básicos</h2>
-          <p>La norma que protege a las personas consumidoras en España es la <strong>Ley General para la Defensa de los Consumidores y Usuarios</strong> (texto refundido aprobado por el Real Decreto Legislativo 1/2007). Reconoce, entre otros, estos derechos:</p>
+        <section class="derecho-bloque" id="ley" aria-labelledby="ley-t">
+          <h2 class="derecho-bloque__title" id="ley-t">La ley que te protege</h2>
+          <p>La Constitución española (artículo 51) obliga a los poderes públicos a garantizar la defensa de las personas consumidoras y usuarias, protegiendo su seguridad, su salud y sus legítimos intereses económicos.</p>
+          <p>Esa protección se desarrolla en la <strong>Ley General para la Defensa de los Consumidores y Usuarios</strong> (texto refundido aprobado por el <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2007-20555" target="_blank" rel="noopener">Real Decreto Legislativo 1/2007 ↗</a>), la norma marco que se aplica a toda compra o contratación de servicios para uso privado.</p>
+          <h3 class="derecho-sub">Cómo encaja con el resto de normas</h3>
+          <ul class="derecho-lista">
+            <li><strong>Normas europeas:</strong> las directivas de la Unión Europea (garantías, derechos de los consumidores, prácticas comerciales…) se incorporan a la ley española.</li>
+            <li><strong>Normas de las comunidades autónomas:</strong> cada comunidad tiene su propia legislación de consumo y es la que suele atender tus reclamaciones.</li>
+            <li><strong>Normas sectoriales:</strong> banca, seguros, telecomunicaciones, transporte o suministros tienen reglas propias que se suman a la ley general.</li>
+          </ul>
+          <h3 class="derecho-sub">¿Qué quieres saber?</h3>
+          <div class="tema-grid">
+            <a class="tema-card" href="#garantias"><span class="tema-card__title">Algo que he comprado no funciona</span><span class="tema-card__desc">Garantías: reparación, sustitución y devolución.</span></a>
+            <a class="tema-card" href="#desistimiento"><span class="tema-card__title">Quiero devolver lo que compré</span><span class="tema-card__desc">14 días para arrepentirte en compras a distancia.</span></a>
+            <a class="tema-card" href="#compra-online"><span class="tema-card__title">Compro por internet</span><span class="tema-card__desc">Información, precio final, entrega y pagos.</span></a>
+            <a class="tema-card" href="#servicios"><span class="tema-card__title">Contrato un servicio</span><span class="tema-card__desc">Presupuestos, cobros y darse de baja.</span></a>
+            <a class="tema-card" href="#clausulas"><span class="tema-card__title">Mi contrato tiene condiciones raras</span><span class="tema-card__desc">Cláusulas abusivas.</span></a>
+            <a class="tema-card" href="#practicas"><span class="tema-card__title">Me han engañado con una oferta</span><span class="tema-card__desc">Publicidad engañosa y falsos descuentos.</span></a>
+          </div>
+        </section>
+
+        <section class="derecho-bloque" id="derechos" aria-labelledby="der-t">
+          <h2 class="derecho-bloque__title" id="der-t">Tus derechos básicos</h2>
+          <p>La ley reconoce, entre otros, estos derechos:</p>
           <ul class="derecho-lista">
             <li><strong>A la protección de tu salud y seguridad</strong> frente a productos o servicios que puedan ser peligrosos.</li>
             <li><strong>A la protección de tus intereses económicos</strong>, por ejemplo frente a cláusulas abusivas o publicidad engañosa.</li>
@@ -354,11 +379,10 @@
             <li><strong>A ser escuchado</strong>, a través de tus asociaciones de consumidores, en las decisiones que te afectan.</li>
           </ul>
           <div class="derecho-nota">
-            <p>Estos derechos son <strong>irrenunciables</strong>: una empresa no puede pedirte que renuncies a ellos, y cualquier cláusula que lo intente no tiene validez.</p>
+            <p>Estos derechos son <strong>irrenunciables</strong>: una empresa no puede pedirte que renuncies a ellos, y cualquier cláusula que lo intente no tiene validez. Más información en <a href="https://www.dsca.gob.es/es/consumo/novedades/derechos-persona-consumidora" target="_blank" rel="noopener" aria-label="Derechos de la persona consumidora (dsca.gob.es) (abre en nueva pestaña)">Derechos de la persona consumidora (dsca.gob.es) ↗</a>.</p>
           </div>
         </section>
-
-        <!-- ============ 2. GARANTÍAS ============ -->
+<!-- ============ 2. GARANTÍAS ============ -->
         <section class="derecho-bloque" id="garantias" aria-labelledby="gar-t">
           <h2 class="derecho-bloque__title" id="gar-t">Garantías: 3 años en productos nuevos</h2>
           <p>Desde la reforma de la normativa de consumo en vigor desde 2022 (<strong>Real Decreto-ley 7/2021</strong>), los productos que compras tienen una garantía legal ampliada:</p>
@@ -401,7 +425,37 @@
           </div>
         </section>
 
-        <!-- ============ 4. CLÁUSULAS ABUSIVAS ============ -->
+                <!-- ============ COMPRA ONLINE ============ -->
+        <section class="derecho-bloque" id="compra-online" aria-labelledby="onl-t">
+          <h2 class="derecho-bloque__title" id="onl-t">Compra online</h2>
+          <p>Comprar por internet tiene las mismas garantías que comprar en una tienda, más algunas protecciones propias de la contratación a distancia:</p>
+          <ul class="derecho-lista">
+            <li><strong>Información clara antes de pagar:</strong> la empresa debe indicarte quién es, las características del producto y el <strong>precio total</strong>, con impuestos y gastos de envío incluidos.</li>
+            <li><strong>Sin sorpresas en el pago:</strong> no pueden cobrarte extras (seguros, suscripciones, servicios añadidos) que no hayas aceptado expresamente.</li>
+            <li><strong>Plazo de entrega:</strong> si no se pactó otra fecha, el vendedor debe entregarte el pedido en un máximo de <strong>30 días</strong>.</li>
+            <li><strong>Desistimiento:</strong> tienes 14 días naturales para devolver el producto sin dar explicaciones (<a href="#desistimiento">ver devoluciones</a>).</li>
+            <li><strong>Pagos con tarjeta:</strong> si te han hecho un cargo fraudulento, puedes exigir su anulación y la devolución del importe a través de tu banco.</li>
+          </ul>
+          <div class="derecho-nota">
+            <p>Comprueba que la web indica los datos de la empresa, desconfía de precios muy por debajo del mercado y guarda la confirmación del pedido.</p>
+          </div>
+        </section>
+
+        <!-- ============ SERVICIOS ============ -->
+        <section class="derecho-bloque" id="servicios" aria-labelledby="ser-t">
+          <h2 class="derecho-bloque__title" id="ser-t">Servicios, altas y bajas</h2>
+          <p>Cuando contratas un servicio (telefonía, suministros, gimnasio, plataformas digitales, reparaciones…), tienes derecho a:</p>
+          <ul class="derecho-lista">
+            <li><strong>Conocer las condiciones por escrito</strong> antes de contratar: precio, duración, permanencia y cómo darte de baja.</li>
+            <li><strong>Recibir un presupuesto claro</strong> y que no te cobren más de lo acordado sin tu consentimiento.</li>
+            <li><strong>Que te atienda una persona</strong> y puedas tramitar quejas y bajas por vías sencillas, según la <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2025-26698" {EXT}>Ley 10/2025 de servicios de atención a la clientela ↗</a>.</li>
+          </ul>
+          <div class="derecho-nota">
+            <p>Si un servicio no se presta como se acordó, <a href="/consumogob/te-ayudamos/reclamaciones/">reclama paso a paso</a>.</p>
+          </div>
+        </section>
+
+<!-- ============ 4. CLÁUSULAS ABUSIVAS ============ -->
         <section class="derecho-bloque" id="clausulas" aria-labelledby="cla-t">
           <h2 class="derecho-bloque__title" id="cla-t">Cláusulas abusivas</h2>
           <p>Una <strong>cláusula abusiva</strong> es una condición incluida en un contrato (que no has podido negociar) que crea un desequilibrio importante en tu contra. La ley las considera <strong>nulas</strong>: aunque las hayas firmado, no tienen efecto.</p>
@@ -434,27 +488,27 @@
           </div>
         </section>
 
-        <!-- CTA final -->
+                <!-- CTA final -->
         <div class="derecho-cta">
           <h2 class="derecho-cta__title">¿Tienes un problema concreto?</h2>
           <p class="derecho-cta__text">Nuestra herramienta te orienta paso a paso según tu caso y te indica cómo reclamar.</p>
           <a href="https://csdelbarrio.github.io/consumo/" class="btn-primary">Consultar mi caso</a>
         </div>
 
-        <!-- Referencias normativas (para quien quiera profundizar) -->
         <details class="derecho-refs">
           <summary>Normativa de referencia</summary>
           <ul>
             <li><a href="https://www.boe.es/buscar/act.php?id=BOE-A-2007-20555" target="_blank" rel="noopener">Real Decreto Legislativo 1/2007 ↗</a> — Texto refundido de la Ley General para la Defensa de los Consumidores y Usuarios.</li>
             <li><a href="https://www.boe.es/buscar/act.php?id=BOE-A-2021-6872" target="_blank" rel="noopener">Real Decreto-ley 7/2021 ↗</a>, que reformó las garantías en la compraventa de bienes y el suministro de contenidos y servicios digitales.</li>
+            <li><a href="https://www.boe.es/buscar/act.php?id=BOE-A-2025-26698" target="_blank" rel="noopener">Ley 10/2025, de servicios de atención a la clientela ↗</a>.</li>
             <li><a href="https://www.boe.es/buscar/act.php?id=BOE-A-1991-628" target="_blank" rel="noopener">Ley 3/1991 de Competencia Desleal ↗</a> y <a href="https://www.boe.es/buscar/act.php?id=BOE-A-1988-26156" target="_blank" rel="noopener">Ley 34/1988 General de Publicidad ↗</a>.</li>
             <li><a href="https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32019L2161" target="_blank" rel="noopener">Directiva (UE) 2019/2161 (Directiva Ómnibus) ↗</a> sobre modernización de la protección de los consumidores.</li>
+            <li><a href="https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32019L0771" target="_blank" rel="noopener">Directiva (UE) 2019/771 ↗</a> sobre compraventa de bienes (garantías).</li>
           </ul>
         </details>
-
+      </div>
       </div>
     </div>
-  </div>
 </main>
   <footer class="site-footer" role="contentinfo">
     <div class="container">
@@ -484,5 +538,6 @@
     </div>
   </footer>
   <script src="/consumogob/js/main.js" defer></script>
+  <script src="/consumogob/js/interior.js" defer></script>
 </body>
 </html>

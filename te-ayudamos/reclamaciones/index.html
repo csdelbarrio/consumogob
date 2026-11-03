@@ -313,9 +313,9 @@
 <main id="main-content">
   <div class="container">
     <div class="interior-layout">
-      <aside class="interior-sidebar">
-                <nav class="side-nav" aria-label="Navegación de sección">
-          <span class="side-nav__title">Preguntas frecuentes</span>
+      <aside class="interior-sidebar interior-sidebar--guide">
+        <nav class="side-nav" aria-label="Navegación de sección">
+          <span class="side-nav__title">Te ayudamos</span>
           <a href="https://csdelbarrio.github.io/consumo/" class="side-nav__link">Preguntas frecuentes</a>
           <a href="/consumogob/te-ayudamos/normativa/" class="side-nav__link">Tus derechos</a>
           <a href="/consumogob/te-ayudamos/reclamaciones/" class="side-nav__link side-nav__link--active" aria-current="page">Haz una reclamación</a>
@@ -323,14 +323,17 @@
           <a href="/consumogob/te-ayudamos/contacto/" class="side-nav__link">Contacto</a>
         </nav>
 
-        <nav class="side-nav side-nav--toc" aria-label="En esta página">
-          <span class="side-nav__title">En esta página</span>
-          <a href="#pasos" class="side-nav__link">Cómo reclamar paso a paso</a>
-          <a href="#arbitraje" class="side-nav__link">Sistema Arbitral de Consumo</a>
-          <a href="#junta" class="side-nav__link">Junta Arbitral Nacional</a>
-          <a href="#mediacion" class="side-nav__link">Mediación de consumo</a>
-          <a href="#empresas" class="side-nav__link">Empresas adheridas</a>
-          <a href="#solicitud" class="side-nav__link">Presentar la solicitud</a>
+        <nav class="side-nav side-nav--toc side-nav--steps" aria-label="Cómo reclamar, paso a paso">
+          <span class="side-nav__title">Cómo reclamar</span>
+          <a href="#paso-0" class="side-nav__link side-nav__link--step">¿Es un asunto de consumo?</a>
+          <a href="#paso-1" class="side-nav__link side-nav__link--step">Reúne la documentación</a>
+          <a href="#paso-2" class="side-nav__link side-nav__link--step">Reclama a la empresa</a>
+          <a href="#paso-3" class="side-nav__link side-nav__link--step">Reclamación por escrito</a>
+          <a href="#paso-4" class="side-nav__link side-nav__link--step">Oficina de consumo</a>
+          <a href="#paso-5" class="side-nav__link side-nav__link--step">Mediación y arbitraje</a>
+          <span class="side-nav__group">Casos especiales</span>
+          <a href="#sectores" class="side-nav__link">Bancos, seguros, teléfono, vuelos…</a>
+          <a href="#extranjero" class="side-nav__link">Empresa de otro país</a>
         </nav>
       </aside>
       <div class="interior-content">
@@ -338,111 +341,99 @@
           <strong>Borrador para revisión.</strong> Textos elaborados como propuesta. Pendiente de validación por DGC antes de su publicación.
         </div>
 
-        <p class="lead">Si tienes un problema con una empresa y no lo habéis resuelto directamente, puedes reclamar. La vía principal es el <strong>Sistema Arbitral de Consumo</strong>: es gratuito, no necesitas abogado y la decisión es de obligado cumplimiento para la empresa.</p>
+        <p class="lead">Si tienes un problema con una empresa, <strong>reclamar es gratis y siempre empieza por la propia empresa</strong>. Si no te da solución, la vía habitual es acudir a la <strong>oficina de consumo de tu ayuntamiento (OMIC) o de tu comunidad autónoma</strong>. El arbitraje y la mediación son vías complementarias y voluntarias. Sigue los pasos del menú de la izquierda.</p>
 
-        <!-- Destacado: portal oficial del Sistema Arbitral -->
-        <div class="derecho-cta" style="margin-top:var(--space-lg)">
-          <h2 class="derecho-cta__title">Conoce el Sistema Arbitral de Consumo</h2>
-          <p class="derecho-cta__text">Toda la información sobre el arbitraje de consumo, cómo funciona y cómo solicitarlo, en el portal oficial del Ministerio.</p>
-          <a href="https://justoparaeso.consumo.gob.es/" target="_blank" rel="noopener" class="btn-primary">Ir al portal oficial</a>
-        </div>
-
-        <!-- PASOS -->
-        <section class="derecho-bloque" id="pasos" aria-labelledby="pasos-t">
-          <h2 class="derecho-bloque__title" id="pasos-t">Cómo reclamar paso a paso</h2>
-          <ol class="reclama-pasos">
-            <li class="reclama-paso">
-              <span class="reclama-paso__num">1</span>
-              <div class="reclama-paso__body">
-                <h3 class="reclama-paso__title">Reclama primero a la empresa</h3>
-                <p>Antes de nada, dirígete a la empresa. Pide la <strong>hoja de reclamaciones</strong> (es obligatorio que la tengan) o reclama por escrito. Guarda copia de todo.</p>
-              </div>
-            </li>
-            <li class="reclama-paso">
-              <span class="reclama-paso__num">2</span>
-              <div class="reclama-paso__body">
-                <h3 class="reclama-paso__title">Acude a una oficina de consumo</h3>
-                <p>Si no obtienes respuesta o no te satisface, puedes acudir a una <strong>OMIC</strong> (oficina municipal) o a la dirección de consumo de tu comunidad autónoma, que median de forma gratuita.</p>
-              </div>
-            </li>
-            <li class="reclama-paso">
-              <span class="reclama-paso__num">3</span>
-              <div class="reclama-paso__body">
-                <h3 class="reclama-paso__title">Solicita el arbitraje de consumo</h3>
-                <p>Si el conflicto sigue sin resolverse, presenta una <strong>solicitud de arbitraje</strong>. Un órgano imparcial estudiará tu caso y emitirá un laudo de obligado cumplimiento.</p>
-              </div>
-            </li>
-          </ol>
-        </section>
-
-        <!-- ARBITRAJE -->
-        <section class="derecho-bloque" id="arbitraje" aria-labelledby="arb-t">
-          <h2 class="derecho-bloque__title" id="arb-t">El Sistema Arbitral de Consumo</h2>
-          <p>Es un sistema <strong>extrajudicial</strong> para resolver conflictos entre consumidores y empresas sin tener que ir a los tribunales. Sus ventajas:</p>
-          <div class="derecho-cards">
-            <div class="derecho-card"><span class="derecho-card__big">Gratis</span><span class="derecho-card__lbl">Sin coste y sin necesidad de abogado ni procurador</span></div>
-            <div class="derecho-card"><span class="derecho-card__big">Rápido</span><span class="derecho-card__lbl">Plazo máximo de 90 días desde el inicio del procedimiento</span></div>
-            <div class="derecho-card"><span class="derecho-card__big">Vinculante</span><span class="derecho-card__lbl">El laudo obliga a ambas partes, como una sentencia</span></div>
-          </div>
-          <h3 class="derecho-sub">¿Qué puedo reclamar?</h3>
-          <p>Cualquier conflicto de consumo: una compra defectuosa, un servicio mal prestado, una factura incorrecta, un incumplimiento de contrato… Quedan fuera los casos con intoxicación, lesión o muerte, y aquellos en los que ya haya una sentencia judicial firme.</p>
-          <div class="derecho-nota">
-            <p>El arbitraje es <strong>voluntario</strong>: la empresa debe aceptar someterse a él. Por eso es tan útil buscar empresas <a href="#empresas">adheridas al sistema</a>, que ya se han comprometido de antemano.</p>
-          </div>
-        </section>
-
-        <!-- JUNTA ARBITRAL -->
-        <section class="derecho-bloque" id="junta" aria-labelledby="junta-t">
-          <h2 class="derecho-bloque__title" id="junta-t">La Junta Arbitral Nacional de Consumo</h2>
-          <p>Es el órgano que gestiona el arbitraje de ámbito estatal, adscrito a la Dirección General de Consumo. Existen además juntas arbitrales <strong>autonómicas y municipales</strong> repartidas por todo el territorio.</p>
+        <section class="derecho-bloque" id="paso-0" aria-labelledby="p0-t">
+          <h2 class="derecho-bloque__title" id="p0-t">Paso 1 · Comprueba que es un asunto de consumo</h2>
           <ul class="derecho-lista">
-            <li>Tramita las solicitudes de arbitraje cuando las partes están en distintas comunidades autónomas o cuando la empresa se ha adherido a la Junta Nacional.</li>
-            <li>Designa los <strong>colegios arbitrales</strong>, formados por representantes de los consumidores, de las empresas y de la Administración.</li>
-            <li>Gestiona el <strong>Distintivo Oficial de Adhesión</strong> al Sistema Arbitral de Consumo.</li>
+            <li>Debe tratarse de la <strong>compra de un bien o la contratación de un servicio para uso privado</strong>: un electrodoméstico, una suscripción, un vuelo…</li>
+            <li>Debe ser un conflicto <strong>entre una persona y una empresa</strong>. Las ventas entre particulares (por ejemplo, en Wallapop) no son un asunto de consumo.</li>
+            <li>Si crees que has sufrido un <strong>fraude o una estafa</strong>, la vía es la denuncia ante la Policía o la vía penal.</li>
           </ul>
         </section>
 
-        <!-- MEDIACIÓN -->
-        <section class="derecho-bloque" id="mediacion" aria-labelledby="med-t">
-          <h2 class="derecho-bloque__title" id="med-t">La mediación de consumo</h2>
-          <p>Antes de llegar al arbitraje, muchas veces el conflicto se resuelve por <strong>mediación</strong>: un tercero imparcial ayuda a las dos partes a llegar a un acuerdo. Es todavía más ágil y también gratuita.</p>
-          <p>La mediación la realizan las oficinas de consumo (OMIC y direcciones autonómicas). Si hay acuerdo, el conflicto termina ahí; si no, siempre puedes seguir con el arbitraje.</p>
-        </section>
-
-        <!-- EMPRESAS ADHERIDAS -->
-        <section class="derecho-bloque" id="empresas" aria-labelledby="emp-t">
-          <h2 class="derecho-bloque__title" id="emp-t">Empresas adheridas al arbitraje</h2>
-          <p>Las empresas que se adhieren al Sistema Arbitral de Consumo se comprometen por anticipado a resolver sus conflictos por esta vía. Lo muestran con el <strong>Distintivo Oficial de Adhesión</strong>.</p>
-          <div class="derecho-nota">
-            <p>Puedes consultar si una empresa está adherida en el <strong>buscador oficial de empresas adheridas</strong>. Comprar en empresas con el distintivo te da una garantía añadida si algo sale mal.</p>
-          </div>
-        </section>
-
-        <!-- SOLICITUD / SIRC -->
-        <section class="derecho-bloque" id="solicitud" aria-labelledby="sol-t">
-          <h2 class="derecho-bloque__title" id="sol-t">Presentar la solicitud de arbitraje</h2>
-          <p>La solicitud se presenta a través del <strong>Sistema de Información de Reclamaciones de Consumo (SIRC)</strong>, disponible en la Sede Electrónica. Necesitarás:</p>
+        <section class="derecho-bloque" id="paso-1" aria-labelledby="p1-t">
+          <h2 class="derecho-bloque__title" id="p1-t">Paso 2 · Reúne la documentación</h2>
+          <p>Antes de reclamar, junta todo lo que pueda servirte como prueba y guarda copia:</p>
           <ul class="derecho-lista">
-            <li>Tus datos de identificación.</li>
-            <li>Los datos de la empresa reclamada.</li>
-            <li>Una descripción del problema y lo que solicitas.</li>
-            <li>La documentación que tengas (facturas, contratos, fotos, correos…).</li>
+            <li>Facturas, tickets, contratos y justificantes de pago.</li>
+            <li>Correos, mensajes y cualquier comunicación con la empresa.</li>
+            <li>Fotos, capturas de pantalla del anuncio o de la oferta.</li>
           </ul>
         </section>
 
-        <!-- CTA -->
+        <section class="derecho-bloque" id="paso-2" aria-labelledby="p2-t">
+          <h2 class="derecho-bloque__title" id="p2-t">Paso 3 · Reclama a la empresa</h2>
+          <p>Escribe o acude directamente a la empresa y explica qué ha pasado y qué solución quieres. Conserva copia de tu mensaje y de su respuesta, con la fecha.</p>
+          <p>Pide la <strong>hoja de reclamaciones</strong>: la empresa está obligada a tenerla y a devolverte una copia sellada, que sirve como prueba de que has reclamado.</p>
+        </section>
+
+        <section class="derecho-bloque" id="paso-3" aria-labelledby="p3-t">
+          <h2 class="derecho-bloque__title" id="p3-t">Paso 4 · Envía una reclamación por escrito</h2>
+          <p>Si la empresa no responde o su respuesta no resuelve el problema, envía una reclamación formal por un medio que deje constancia (correo con acuse, burofax, formulario con justificante). Incluye:</p>
+          <ul class="derecho-lista">
+            <li>Tus datos personales y los de la empresa.</li>
+            <li>Un relato detallado de los hechos, con fechas.</li>
+            <li>La solución que pides (reparación, devolución, indemnización…) y un plazo razonable para responder.</li>
+            <li>Copia de la documentación del paso 2.</li>
+          </ul>
+        </section>
+
+        <section class="derecho-bloque" id="paso-4" aria-labelledby="p4-t">
+          <h2 class="derecho-bloque__title" id="p4-t">Paso 5 · Acude a una oficina de consumo</h2>
+          <p>Es la <strong>vía principal</strong> cuando la empresa no te ha dado solución. Las oficinas de consumo reciben tu reclamación, la trasladan a la empresa y pueden mediar:</p>
+          <div class="tema-grid">
+            <div class="tema-card"><a class="tema-card__title" href="https://cidoc.consumo.gob.es/directorio-mapas/oficinas-municipales-informacion-consumidor" target="_blank" rel="noopener" aria-label="OMIC (abre en nueva pestaña)">OMIC ↗</a><span class="tema-card__desc">Oficina Municipal de Información al Consumidor de tu ayuntamiento.</span></div>
+            <div class="tema-card"><a class="tema-card__title" href="https://www.dsca.gob.es/es/consumo/organismos-autonomicos-consumo" target="_blank" rel="noopener" aria-label="Consumo de tu comunidad autónoma (abre en nueva pestaña)">Consumo de tu comunidad autónoma ↗</a><span class="tema-card__desc">Organismos autonómicos de consumo. <a href="https://cidoc.consumo.gob.es/directorio-mapas/organismos-consumo-administracion-autonomica" target="_blank" rel="noopener" aria-label="Directorio de organismos autonómicos (abre en nueva pestaña)">Directorio ↗</a></span></div>
+            <div class="tema-card"><a class="tema-card__title" href="https://www.dsca.gob.es/es/consumo/asociacionismo-consumo/listado-asociaciones-consumidores-usuarios" target="_blank" rel="noopener" aria-label="Asociaciones de consumidores (abre en nueva pestaña)">Asociaciones de consumidores ↗</a><span class="tema-card__desc">Te asesoran y pueden ayudarte a reclamar. <a href="/consumogob/dg-consumo/sgrdpc/asociaciones/">Ver las asociaciones</a></span></div>
+          </div>
+        </section>
+
+        <section class="derecho-bloque" id="paso-5" aria-labelledby="p5-t">
+          <h2 class="derecho-bloque__title" id="p5-t">Paso 6 · Mediación, arbitraje o tribunales</h2>
+          <p>Si sigue sin haber solución, puedes recurrir a vías alternativas. Son <strong>voluntarias</strong>: ambas partes deben aceptarlas.</p>
+          <h3 class="derecho-sub">Mediación</h3>
+          <p>Un tercero imparcial ayuda a las dos partes a llegar a un acuerdo. La realizan las oficinas de consumo (OMIC y direcciones autonómicas). Si hay acuerdo, el conflicto termina ahí.</p>
+          <h3 class="derecho-sub">Sistema Arbitral de Consumo</h3>
+          <p>Resuelve el conflicto sin ir a los tribunales: es <strong>gratuito</strong>, no necesitas abogado y el laudo es <strong>vinculante</strong> para ambas partes. Solo funciona si la empresa está adherida o acepta el arbitraje.</p>
+          <ul class="derecho-lista">
+            <li><a href="https://justoparaeso.consumo.gob.es/" target="_blank" rel="noopener" aria-label="Portal oficial del Sistema Arbitral de Consumo (abre en nueva pestaña)">Portal oficial del Sistema Arbitral de Consumo ↗</a>, con el buscador de empresas adheridas.</li>
+            <li><a href="https://www.dsca.gob.es/es/consumo/como-reclamar-conflicto-consumo/sistema-arbitral-consumo/organos/juntasArbitrales" target="_blank" rel="noopener" aria-label="Juntas Arbitrales de Consumo (abre en nueva pestaña)">Juntas Arbitrales de Consumo ↗</a>: nacional, autonómicas y municipales.</li>
+            <li><a href="https://www.dsca.gob.es/es/consumo/como-reclamar-conflicto-consumo/resolucion-alternativa-conflictos" target="_blank" rel="noopener" aria-label="Resolución alternativa de conflictos (abre en nueva pestaña)">Resolución alternativa de conflictos ↗</a>.</li>
+          </ul>
+          <div class="derecho-nota">
+            <p>El Sistema Arbitral de Consumo <strong>no es la única vía ni la primera</strong>: antes conviene reclamar a la empresa y acudir a la oficina de consumo. Si el caso es complejo o de mucha cuantía, también puedes acudir a los tribunales.</p>
+          </div>
+        </section>
+
+        <section class="derecho-bloque" id="sectores" aria-labelledby="sec-t">
+          <h2 class="derecho-bloque__title" id="sec-t">Reclamaciones por sector</h2>
+          <p>Algunos sectores tienen un organismo propio al que reclamar una vez que has acudido a la empresa:</p>
+          <ul class="sector-grid">
+            <li><strong>Bancos y entidades financieras</strong><a href="http://www.bde.es/clientebanca/es/areas/quejas/" target="_blank" rel="noopener" aria-label="Banco de España (abre en nueva pestaña)">Banco de España ↗</a></li>
+            <li><strong>Inversiones</strong><a href="https://www.cnmv.es/portal/home.aspx" target="_blank" rel="noopener" aria-label="CNMV (abre en nueva pestaña)">CNMV ↗</a></li>
+            <li><strong>Seguros y pensiones</strong><a href="https://dgsfp.mineco.gob.es/es/Consumidor/Reclamaciones/Paginas/InformacionProcedimiento.aspx" target="_blank" rel="noopener" aria-label="Dirección General de Seguros (abre en nueva pestaña)">Dirección General de Seguros ↗</a></li>
+            <li><strong>Telecomunicaciones</strong><a href="https://usuariosteleco.mineco.gob.es/Paginas/Index.aspx" target="_blank" rel="noopener" aria-label="Oficina de Atención al Usuario de Telecomunicaciones (abre en nueva pestaña)">Oficina de Atención al Usuario de Telecomunicaciones ↗</a></li>
+            <li><strong>Transporte aéreo</strong><a href="https://www.seguridadaerea.gob.es/es/ambitos/derechos-de-los-pasajeros/procedimiento-para-reclamar" target="_blank" rel="noopener" aria-label="AESA: derechos de los pasajeros (abre en nueva pestaña)">AESA: derechos de los pasajeros ↗</a></li>
+            <li><strong>Transporte marítimo y fluvial</strong><a href="https://www.dsca.gob.es/es/consumo/reclamaciones-por-cancelaciones-y-retrasos" target="_blank" rel="noopener" aria-label="Cancelaciones y retrasos (abre en nueva pestaña)">Cancelaciones y retrasos ↗</a></li>
+            <li><strong>Luz, gas y agua</strong>Tu OMIC o la dirección de consumo de tu comunidad autónoma</li>
+            <li><strong>Protección de datos</strong><a href="https://sedeagpd.gob.es/sede-electronica-web/vistas/infoSede/tramitesCiudadano.jsf" target="_blank" rel="noopener" aria-label="Agencia Española de Protección de Datos (abre en nueva pestaña)">Agencia Española de Protección de Datos ↗</a></li>
+          </ul>
+        </section>
+
+        <section class="derecho-bloque" id="extranjero" aria-labelledby="ext-t">
+          <h2 class="derecho-bloque__title" id="ext-t">Si la empresa está en otro país</h2>
+          <p>Si has comprado a una empresa con sede en otro país de la Unión Europea, Islandia o Noruega, el <strong>Centro Europeo del Consumidor en España</strong> te ayuda gratuitamente: <a href="https://cec.consumo.gob.es/CEC/consultasReclamaciones/comoReclamar/home.htm" target="_blank" rel="noopener" aria-label="cómo reclamar (abre en nueva pestaña)">cómo reclamar ↗</a>.</p>
+        </section>
+
         <div class="derecho-cta">
-          <h2 class="derecho-cta__title">¿Listo para reclamar?</h2>
-          <p class="derecho-cta__text">Presenta tu solicitud de arbitraje a través de la Sede Electrónica del Ministerio.</p>
-          <a href="https://dsca.sede.gob.es/" target="_blank" rel="noopener" class="btn-primary">Ir a la Sede Electrónica</a>
-        </div>
-
-        <div class="derecho-nota" style="margin-top:1.5rem">
-          <p>¿No tienes claro si tu caso es de consumo o de otro organismo? Empieza por las <a href="https://csdelbarrio.github.io/consumo/">Preguntas frecuentes</a>, que te orientan según tu situación.</p>
+          <h2 class="derecho-cta__title">¿No sabes por dónde empezar?</h2>
+          <p class="derecho-cta__text">Nuestra herramienta de consulta guiada te orienta según tu caso y te dice a quién reclamar.</p>
+          <a href="https://csdelbarrio.github.io/consumo/" class="btn-primary">Consultar mi caso</a>
         </div>
       </div>
+      </div>
     </div>
-  </div>
 </main>
   <footer class="site-footer" role="contentinfo">
     <div class="container">
@@ -472,5 +463,6 @@
     </div>
   </footer>
   <script src="/consumogob/js/main.js" defer></script>
+  <script src="/consumogob/js/interior.js" defer></script>
 </body>
 </html>

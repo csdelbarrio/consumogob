@@ -1017,3 +1017,112 @@ a.ficha-contacto__val:hover { text-decoration: underline; }
 }
 .norma-link:hover { text-decoration: underline; }
 .norma-link strong { color: var(--color-primary); }
+
+/* ==========================================================================
+   MENÚ LATERAL GUÍA (v2) — índice con scroll-spy, pasos numerados y grupos
+   ========================================================================== */
+.interior-sidebar--guide { position: static; align-self: stretch; }
+.interior-sidebar--guide .side-nav--toc {
+  position: sticky;
+  top: var(--space-md);
+  max-height: calc(100vh - 2 * var(--space-md));
+  overflow-y: auto;
+  background: var(--color-white, #fff);
+}
+.side-nav__group {
+  display: block;
+  padding: var(--space-sm) var(--space-lg);
+  background: var(--color-bg-alt);
+  border-bottom: 1px solid var(--color-border);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--color-text-muted);
+}
+.side-nav--steps { counter-reset: navstep; }
+.side-nav--steps .side-nav__link--step::before {
+  counter-increment: navstep;
+  content: counter(navstep);
+  flex: 0 0 24px; height: 24px; margin-right: 10px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  background: var(--color-primary); color: var(--color-accent);
+  font-size: var(--font-size-xs); font-weight: var(--font-weight-bold);
+}
+.side-nav--steps .side-nav__link--step.side-nav__link--active::before {
+  background: var(--color-accent); color: var(--color-primary);
+  box-shadow: 0 0 0 2px var(--color-primary);
+}
+.side-nav__link:focus-visible { outline: 3px solid var(--color-primary); outline-offset: -3px; }
+.derecho-bloque { scroll-margin-top: var(--space-lg); }
+
+/* Rejilla de temas (portada de "Tus derechos") */
+.tema-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md); margin: var(--space-lg) 0; }
+.tema-card {
+  display: flex; flex-direction: column; gap: 4px;
+  padding: var(--space-md) var(--space-lg);
+  background: var(--color-white, #fff);
+  border: 1px solid var(--color-border); border-left: 4px solid var(--color-primary);
+  border-radius: var(--border-radius-md); text-decoration: none; color: var(--color-text);
+}
+.tema-card:hover { border-left-color: var(--color-accent); background: var(--color-bg-alt); }
+.tema-card__title { font-weight: var(--font-weight-bold); color: var(--color-primary); }
+.tema-card__desc { font-size: var(--font-size-sm); color: var(--color-text-muted); }
+
+/* Enlaces por sector (reclamaciones) */
+.sector-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-sm) var(--space-md); list-style: none; padding: 0; margin: var(--space-md) 0; }
+.sector-grid li { border: 1px solid var(--color-border); border-radius: var(--border-radius-md); padding: var(--space-sm) var(--space-md); }
+.sector-grid strong { display: block; color: var(--color-primary); font-size: var(--font-size-sm); }
+.sector-grid a { font-size: var(--font-size-sm); }
+
+/* Asociaciones del CCU */
+.assoc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md); list-style: none; padding: 0; margin: var(--space-lg) 0; }
+.assoc-card {
+  display: flex; flex-direction: column; gap: 4px; height: 100%;
+  padding: var(--space-md) var(--space-lg);
+  background: var(--color-white, #fff);
+  border: 1px solid var(--color-border); border-top: 4px solid var(--color-accent);
+  border-radius: var(--border-radius-md); text-decoration: none; color: var(--color-text);
+}
+a.assoc-card:hover { border-top-color: var(--color-primary); box-shadow: var(--shadow-md); }
+.assoc-card__acr { font-size: var(--font-size-lg); font-weight: var(--font-weight-bold); color: var(--color-primary); }
+.assoc-card__name { font-size: var(--font-size-sm); line-height: 1.4; flex: 1; }
+.assoc-card__url { font-size: var(--font-size-xs); color: var(--color-text-muted); }
+
+/* Organigrama */
+.org { margin: var(--space-lg) 0; text-align: center; }
+.org__node {
+  display: inline-block; padding: var(--space-sm) var(--space-md);
+  background: var(--color-primary); color: #fff; border-radius: var(--border-radius-md);
+  font-weight: var(--font-weight-semibold); font-size: var(--font-size-sm); text-decoration: none;
+}
+.org__node--sub { background: var(--color-bg-alt); color: var(--color-primary); border: 1px solid var(--color-border); font-weight: var(--font-weight-regular, 400); }
+.org__node--ext { background: #fff; color: var(--color-primary); border: 1px dashed var(--color-primary); }
+.org__row { display: flex; justify-content: center; gap: var(--space-md); flex-wrap: wrap; position: relative; padding-top: var(--space-lg); }
+.org__row::before { content: ""; position: absolute; top: 0; left: 50%; height: var(--space-lg); border-left: 2px solid var(--color-border); }
+.org__branch { display: flex; flex-direction: column; align-items: center; gap: var(--space-sm); flex: 1 1 200px; max-width: 280px; }
+.org__branch > .org__node { width: 100%; }
+.org__subs { display: flex; flex-direction: column; gap: 6px; width: 100%; padding-top: var(--space-sm); border-top: 2px solid var(--color-border); }
+.org__subs .org__node { display: block; width: 100%; }
+.sede-card { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); align-items: center; margin: var(--space-lg) 0; }
+.sede-card img { width: 100%; height: auto; border-radius: var(--border-radius-md); display: block; }
+.sede-card address { font-style: normal; line-height: 1.7; }
+
+/* Sanciones firmes */
+.firmes-list { list-style: none; padding: 0; margin: var(--space-md) 0; display: grid; gap: var(--space-sm); }
+.firmes-list li { border: 1px solid var(--color-border); border-left: 4px solid var(--color-accent); border-radius: var(--border-radius-md); padding: var(--space-sm) var(--space-md); }
+.firmes-list time { font-size: var(--font-size-xs); color: var(--color-text-muted); display: block; }
+.firmes-list a { font-weight: var(--font-weight-semibold); }
+.firmes-links { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin: var(--space-md) 0; }
+
+@media (max-width: 960px) {
+  .interior-sidebar--guide .side-nav--toc { position: static; max-height: none; }
+  .tema-grid, .assoc-grid { grid-template-columns: repeat(2, 1fr); }
+  .sede-card { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .tema-grid, .assoc-grid, .sector-grid { grid-template-columns: 1fr; }
+}
+.tema-card__title { text-decoration: none; }
+a.tema-card__title:hover { text-decoration: underline; }
